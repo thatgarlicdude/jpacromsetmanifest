@@ -1,0 +1,32 @@
+# Ignore the Mac OS Finder metadata files.
+.DS_Store
+
+# Ignore the Windows thumbnail cache files.
+Thumbs.db
+
+# Ignore the Windows folder customization files.
+[Dd]esktop.ini
+
+# Ignore the Linux swap files.
+*.swp
+
+# Ignore the Eclipse IDE project file.
+.project
+
+# Ignore the Eclipse IDE classpath file.
+.classpath
+
+# Ignore the Eclipse IDE settings file.
+.settings
+
+# Ignore the Eclipse IDE bin directory.
+bin
+
+# Ignore Gradle project-specific cache directory.
+.gradle
+
+# Ignore Gradle build output directory.
+build
+
+# Ignore Kotlin plugin data.
+.kotlin
