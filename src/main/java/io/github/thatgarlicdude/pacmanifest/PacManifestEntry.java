@@ -1,0 +1,111 @@
+/*
+ * Copyright 2026 GarlicDude
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * 	http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package io.github.thatgarlicdude.pacmanifest;
+
+// TODO: Maybe give the description of this class an upgrade.
+
+/**
+ * A class that represents an entry in a PacManifest.
+ * 
+ * @since 1.0.0
+ * @author GarlicDude
+ */
+public final class PacManifestEntry {
+	
+	// TODO: Provide the actual number for a maximum 16-bit value.
+	
+	/**
+	 * The maximum file size for a PacManifest entry, which is a maximum
+	 * value of a 16-bit number.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
+	public static final int MAX_SIZE = 0xFFFF;
+	
+	/**
+	 * The minimum file size for a PacManifest entry, which is zero.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
+	public static final int MIN_SIZE = 0;
+	
+	// TODO: Perhaps reword that.
+	
+	/**
+	 * The filename of the PacManifest entry.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #getFilename()
+	 */
+	private final String filename;
+	
+	/**
+	 * The file size of the PacManifest entry.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #getSize()
+	 */
+	private final int size;
+	
+	/**
+	 * Gets the instance's {@link #filename}, which is the name of the
+	 * PacManifest entry.
+	 * 
+	 * @return A {@code String} that is the PacManifest entry's filename.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #filename
+	 */
+	public final String getFilename() {
+		return this.filename;
+	}
+	
+	/**
+	 * Gets the instance's {@link #size}, which is the file size of the
+	 * PacManifest entry.
+	 * 
+	 * @return An {@code int} that is the PacManifest entry's file size.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #size
+	 */
+	public final int getSize() {
+		return this.size;
+	}
+	
+	/*
+	 * TODO: Throw an exception when the PacManifest entry is too big or
+	 * small in file size.
+	 */
+	
+	/**
+	 * Constructs an instance of the {@link PacManifestEntry} class.
+	 * 
+	 * @param size The file size of the PacManifest entry.
+	 * @param filename The filename of the PacManifest entry.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
+	public PacManifestEntry(final int size, final String filename) {
+		this.size = size;
+		this.filename = filename;
+	}
+}
