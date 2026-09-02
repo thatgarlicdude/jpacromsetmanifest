@@ -1,0 +1,97 @@
+plugins {
+	id 'java-library'
+	id 'maven-publish'
+	id 'signing'
+}
+
+group = "io.github.thatgarlicdude"
+version = "1.0.0"
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+}
+
+dependencies {
+	testImplementation libs.junit
+}
+
+java {
+	sourceCompatibility = JavaVersion.VERSION_1_8
+	targetCompatibility = JavaVersion.VERSION_1_8
+	
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(8)
+	}
+	
+	withSourcesJar()
+	withJavadocJar()
+}
+
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			from components.java
+			
+			artifactId = 'jpacmanifest'
+			
+			pom {
+				name = 'JPacManifest'
+				description = 'PacManifest Java Library'
+				url = 'https://github.com/thatgarlicdude/jpacmanifest'
+				
+				inceptionYear = '2026'
+				
+				licenses {
+					license {
+						name = 'Apache-2.0 License'
+						url = 'https://www.apache.org/licenses/LICENSE-2.0.html'
+						distribution = 'repo'
+					}
+				}
+				
+				developers {
+					developer {
+						id = 'thatgarlicdude'
+						name = 'GarlicDude'
+						url = 'https://github.com/thatgarlicdude'
+					}
+				}
+				
+				scm {
+					connection = 'scm:git:git://github.com/thatgarlicdude/jpacmanifest.git'
+					developerConnection = 'scm:git:ssh://github.com/thatgarlicdude/jpacmanifest.git'
+					url = 'https://github.com/thatgarlicdude/jpacmanifest'
+				}
+				
+				issueManagement {
+					system = 'GitHub Issues'
+					url = 'https://github.com/thatgarlicdude/jpacmanifest/issues'
+				}
+				
+				ciManagement {
+					system = 'GitHub Actions'
+					url = 'https://github.com/thatgarlicdude/jpacmanifest/actions'
+				}
+				
+				mailingLists {
+					mailingList {
+						name = 'GitHub Discussions'
+						post = 'https://github.com/thatgarlicdude/jpacmanifest/discussions'
+					}
+				}
+			}
+		}
+	}
+}
+
+signing {
+	def signingKey = findProperty("signingKey")
+	def signingPassword = findProperty("signingPassword")
+	
+	required {signingKey != null}
+	
+	useInMemoryPgpKeys(signingKey, signingPassword)
+	
+	sign publishing.publications.mavenJava
+}
