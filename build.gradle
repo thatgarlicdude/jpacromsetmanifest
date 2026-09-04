@@ -1,6 +1,6 @@
 plugins {
 	id 'java-library'
-	id 'com.vanniktech.maven.publish' version '0.37.0'
+	id "com.vanniktech.maven.publish" version "0.37.0"
 }
 
 group = "io.github.thatgarlicdude"
@@ -28,12 +28,6 @@ java {
 }
 
 mavenPublishing {
-	publishToMavenCentral()
-	signAllPublications()
-	
-	checksums(Checksum.MD5, Checksum.SHA1, Checksum.SHA256, Checksum.SHA512)
-	excludeSignatureChecksums(false)
-	
 	coordinates(group, 'jpacmanifest', version)
 	
 	pom {
