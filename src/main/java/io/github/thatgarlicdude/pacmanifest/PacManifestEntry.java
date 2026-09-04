@@ -26,11 +26,9 @@ package io.github.thatgarlicdude.pacmanifest;
  */
 public final class PacManifestEntry {
 	
-	// TODO: Provide the actual number for a maximum 16-bit value.
-	
 	/**
 	 * The maximum file size for a PacManifest entry, which is a maximum
-	 * value of a 16-bit number.
+	 * value of a 16-bit number (65,535).
 	 * 
 	 * @since 1.0.0
 	 * @author GarlicDude
