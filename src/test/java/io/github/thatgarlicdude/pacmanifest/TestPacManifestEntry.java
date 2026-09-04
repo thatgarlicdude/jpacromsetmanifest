@@ -31,17 +31,6 @@ public final class TestPacManifestEntry {
 	// TODO: Reword the descriptions for both TEST_SIZE and TEST_NAME.
 	
 	/**
-	 * The set size for the {@link #pacManifestEntry}, a test {@link
-	 * PacManifestEntry} instance.
-	 * 
-	 * @since 1.0.0
-	 * @author GarlicDude
-	 * @see #pacManifestEntry
-	 * @see PacManifestEntry
-	 */
-	private static final int TEST_SIZE = 256;
-	
-	/**
 	 * The set name for the {@link #pacManifestEntry}, a test {@link
 	 * PacManifestEntry} instance.
 	 * 
@@ -53,17 +42,28 @@ public final class TestPacManifestEntry {
 	private static final String TEST_NAME = "testEntry";
 	
 	/**
+	 * The set size for the {@link #pacManifestEntry}, a test {@link
+	 * PacManifestEntry} instance.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #pacManifestEntry
+	 * @see PacManifestEntry
+	 */
+	private static final int TEST_SIZE = 256;
+	
+	/**
 	 * The {@link PacManifestEntry} instance used for testing purposes.
 	 * 
 	 * @since 1.0.0
 	 * @author GarlicDude
-	 * @see #TEST_SIZE
 	 * @see #TEST_NAME
+	 * @see #TEST_SIZE
 	 * @see #testGetFilename()
 	 * @see #testGetSize()
 	 */
 	private final PacManifestEntry pacManifestEntry =
-			new PacManifestEntry(TEST_SIZE, TEST_NAME);
+			new PacManifestEntry(TEST_NAME, TEST_SIZE);
 	
 	
 	/**

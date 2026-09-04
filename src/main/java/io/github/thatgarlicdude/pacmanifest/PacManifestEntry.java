@@ -89,11 +89,6 @@ public final class PacManifestEntry {
 		return this.size;
 	}
 	
-	/*
-	 * TODO: Throw an exception when the PacManifest entry is too big or
-	 * small in file size.
-	 */
-	
 	/**
 	 * Constructs an instance of the {@link PacManifestEntry} class.
 	 * 
@@ -104,14 +99,14 @@ public final class PacManifestEntry {
 	 * @since 1.0.0
 	 * @author GarlicDude
 	 */
-	public PacManifestEntry(final int size, final String filename) {
+	public PacManifestEntry(final String filename, final int size) {
 		// Throw an error if the size is out of range.
 		if (size < MIN_SIZE || size > MAX_SIZE) {
 			throw new IllegalArgumentException(
 					"PacManifestEntry size is out of range.");
 		}
 		// Set the variables in the instance.
-		this.size = size;
 		this.filename = filename;
+		this.size = size;
 	}
 }
