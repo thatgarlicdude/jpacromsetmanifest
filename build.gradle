@@ -35,7 +35,7 @@ publishing {
 			url = uri("https://maven.pkg.github.com/thatgarlicdude/jpacmanifest")
 			credentials {
 				username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-				password = project.findProperty("gpr.key") ?: System.getevn("TOKEN")
+				password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
 			}
 		}
 	}
@@ -55,5 +55,5 @@ signing {
 	
 	useInMemoryPgpKeys(signingKey, signingPassword)
 	
-	sign publishing.publications.mavenJava
+	sign publishing.publications.gpr
 }
