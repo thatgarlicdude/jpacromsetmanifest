@@ -99,10 +99,18 @@ public final class PacManifestEntry {
 	 * 
 	 * @param size The file size of the PacManifest entry.
 	 * @param filename The filename of the PacManifest entry.
+	 * @throws IllegalArgumentException When the {@code size} is out of
+	 * its expected range (0 - 65,535).
 	 * @since 1.0.0
 	 * @author GarlicDude
 	 */
 	public PacManifestEntry(final int size, final String filename) {
+		// Throw an error if the size is out of range.
+		if (size < MIN_SIZE || size > MAX_SIZE) {
+			throw new IllegalArgumentException(
+					"PacManifestEntry size is out of range.");
+		}
+		// Set the variables in the instance.
 		this.size = size;
 		this.filename = filename;
 	}
