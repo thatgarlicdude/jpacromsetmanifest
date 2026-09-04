@@ -1,7 +1,6 @@
 plugins {
 	id 'java-library'
-	id 'maven-publish'
-	id 'signing'
+	id 'com.vanniktech.maven.publish' version '0.37.0'
 }
 
 group = "io.github.thatgarlicdude"
@@ -28,32 +27,39 @@ java {
 	withJavadocJar()
 }
 
-publishing {
-	repositories {
-		maven {
-			name = 'GitHubPackages'
-			url = uri("https://maven.pkg.github.com/thatgarlicdude/jpacmanifest")
-			credentials {
-				username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-				password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+mavenPublishing {
+	publishToMavenCentral()
+	signAllPublications()
+	
+	checksums(Checksum.MD5, Checksum.SHA1, Checksum.SHA256, Checksum.SHA512)
+	excludeSignatureChecksums(false)
+	
+	coordinates(group, 'jpacmanifest', version)
+	
+	pom {
+		name = "JPacManifest"
+		description = "A Java library for reading and writing PacManifest files."
+		inceptionYear = "2026"
+		url = "https://github.com/thatgarlicdude/jpacmanifest"
+		
+		license {
+			name = "The Apache License, Version 2.0"
+			url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+			distribution = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+		}
+		
+		developers {
+			developer {
+				id = "thatgarlicdude"
+				name = "GarlicDude"
+				url = "https://github.com/thatgarlicdude/"
 			}
 		}
-	}
-	
-	publications {
-		gpr(MavenPublication) {
-			from(components.java)
+		
+		scm {
+			url = "https://github.com/thatgarlicdude/jpacmanifest"
+			connection = "scm:git:git://github.com/thatgarlicdude/jpacmanifest.git"
+			developerConnection = "scm:git:ssh://git@github.com/thatgarlicdude/jpacmanifest.git"
 		}
 	}
-}
-
-signing {
-	def signingKey = findProperty("signingKey")
-	def signingPassword = findProperty("signingPassword")
-	
-	required = {signingKey != null}
-	
-	useInMemoryPgpKeys(signingKey, signingPassword)
-	
-	sign publishing.publications.gpr
 }
