@@ -1,6 +1,6 @@
-# Contributing to JPacManifest
+# Contributing to JPacROMManifest
 
-Thank you for your interest in contributing to JPacManifest!
+Thank you for your interest in contributing to JPacROMManifest!
 
 ## Getting Started
 
@@ -18,7 +18,7 @@ When reporting a bug, include:
 * Steps to reproduce it
 * The expected behavior
 * The actual behavior
-* The JPacManifest version
+* The JPacROMManifest version
 * Your Java version
 * Your operating system
 * Any relevant error messages or stack traces
@@ -31,7 +31,7 @@ Feature suggestions are welcome.
 
 Please expain:
 
-* What you would like JPacManifest to do
+* What you would like JPacROMManifest to do
 * Why the feature would be useful
 * Any relevant examples or use cases
 
@@ -61,6 +61,6 @@ Bug fixes should include a regression test when practical.
 
 ## License
 
-By contributing to JPacManifest, you agree that your contributions will be licensed under the same Apache License 2.0 that covers the project, unless otherwise stated.
+By contributing to JPacROMManifest, you agree that your contributions will be licensed under the same Apache License 2.0 that covers the project, unless otherwise stated.
 
 See `LICENSE.txt` for the full license text.
