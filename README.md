@@ -1,8 +1,8 @@
-# JPacManifest
+# JPacROMManifest
 
 ## Overview
 
-JPacManifest is a Java library for reading and writing .pacmanifest files.
+JPacROMManifest is a Java library for reading and writing .pacrommanifest files.
 
 ## Status
 
