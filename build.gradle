@@ -22,13 +22,13 @@ java {
 }
 
 mavenPublishing {
-	coordinates(group, 'jpacmanifest', version)
+	coordinates(group, 'jpacrommanifest', version)
 	
 	pom {
-		name = "JPacManifest"
-		description = "A Java library for reading and writing PacManifest files."
+		name = "JPacROMManifest"
+		description = "A Java library for reading and writing .pacrommanifest files."
 		inceptionYear = "2026"
-		url = "https://github.com/thatgarlicdude/jpacmanifest"
+		url = "https://github.com/thatgarlicdude/jpacrommanifest"
 		
 		license {
 			name = "The Apache License, Version 2.0"
@@ -45,9 +45,9 @@ mavenPublishing {
 		}
 		
 		scm {
-			url = "https://github.com/thatgarlicdude/jpacmanifest"
-			connection = "scm:git:git://github.com/thatgarlicdude/jpacmanifest.git"
-			developerConnection = "scm:git:ssh://git@github.com/thatgarlicdude/jpacmanifest.git"
+			url = "https://github.com/thatgarlicdude/jpacrommanifest"
+			connection = "scm:git:git://github.com/thatgarlicdude/jpacrommanifest.git"
+			developerConnection = "scm:git:ssh://git@github.com/thatgarlicdude/jpacrommanifest.git"
 		}
 	}
 }
