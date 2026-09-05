@@ -2,13 +2,13 @@
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability in JPacManifest, please do **not** report it through a public GitHub issue.
+If you discover a security vulnerability in JPacROMManifest, please do **not** report it through a public GitHub issue.
 
 Instead, please report the vulnerability privately using GitHub's security reporting features.
 
 Please include as much information as possible, including:
 
-* The affected version of JPacManifest
+* The affected version of JPacROMManifest
 * A description of the vulnerability
 * Steps to reproduce the issue
 * The potential impact
