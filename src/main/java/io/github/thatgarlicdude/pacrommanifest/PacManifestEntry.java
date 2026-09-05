@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.thatgarlicdude.pacmanifest;
+package io.github.thatgarlicdude.pacrommanifest;
 
 // TODO: Maybe give the description of this class an upgrade.
 
