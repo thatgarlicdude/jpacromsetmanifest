@@ -22,17 +22,18 @@ import java.util.List;
 // TODO: Elaborate more on the class description.
 
 /*
- * TODO: Change the name to PacROMManifest, since PacManifest is a name
- * that already exists.
+ * TODO: Change the name to PacROMSetManifest, since PacROMManifest is a
+ * name that sounds like a manifest for Pac-Man ROMs when Pac-Man is a
+ * ROM set.
  */
 
 /**
- * A class that represents a <b>PacManifest</b>.
+ * A class that represents a <b><i>Pac-Man</i> ROM set manifest</b>.
  * 
  * @since 1.0.0
  * @author GarlicDude
  */
-public final class PacManifest {
+public final class PacROMManifest {
 	
 	// TODO: Add Javadoc comments on the variables and methods.
 	
@@ -75,12 +76,12 @@ public final class PacManifest {
 	}
 	
 	/**
-	 * Constructs an instance of the {@link PacManifest} class.
+	 * Constructs an instance of the {@link PacROMManifest} class.
 	 * 
 	 * @since 1.0.0
 	 * @author GarlicDude
 	 */
-	public PacManifest() {
+	public PacROMManifest() {
 		this.programROMs = new ArrayList<PacManifestEntry>();
 		this.graphicROMs = new ArrayList<PacManifestEntry>();
 		this.colorROMs = new ArrayList<PacManifestEntry>();
