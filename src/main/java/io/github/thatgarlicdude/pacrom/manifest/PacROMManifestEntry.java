@@ -24,7 +24,7 @@ package io.github.thatgarlicdude.pacrom.manifest;
  * @since 1.0.0
  * @author GarlicDude
  */
-public final class PacManifestEntry {
+public final class PacROMManifestEntry {
 	
 	/**
 	 * The maximum file size for a PacManifest entry, which is a maximum
@@ -90,7 +90,7 @@ public final class PacManifestEntry {
 	}
 	
 	/**
-	 * Constructs an instance of the {@link PacManifestEntry} class.
+	 * Constructs an instance of the {@link PacROMManifestEntry} class.
 	 * 
 	 * @param size The file size of the PacManifest entry.
 	 * @param filename The filename of the PacManifest entry.
@@ -99,7 +99,7 @@ public final class PacManifestEntry {
 	 * @since 1.0.0
 	 * @author GarlicDude
 	 */
-	public PacManifestEntry(final String filename, final int size) {
+	public PacROMManifestEntry(final String filename, final int size) {
 		// Throw an error if the size is out of range.
 		if (size < MIN_SIZE || size > MAX_SIZE) {
 			throw new IllegalArgumentException(

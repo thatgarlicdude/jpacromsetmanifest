@@ -39,39 +39,39 @@ public final class PacROMManifest {
 	
 	// TODO: Rename them to ROMList.
 	
-	private final List<PacManifestEntry> programROMs;
+	private final List<PacROMManifestEntry> programROMs;
 	
-	private final List<PacManifestEntry> graphicROMs;
+	private final List<PacROMManifestEntry> graphicROMs;
 	
-	private final List<PacManifestEntry> colorROMs;
+	private final List<PacROMManifestEntry> colorROMs;
 	
-	private final List<PacManifestEntry> paletteROMs;
+	private final List<PacROMManifestEntry> paletteROMs;
 	
-	private final List<PacManifestEntry> soundROMs;
+	private final List<PacROMManifestEntry> soundROMs;
 	
-	private final List<PacManifestEntry> mysteryROMs;
+	private final List<PacROMManifestEntry> mysteryROMs;
 	
-	public final List<PacManifestEntry> getProgramROMs() {
+	public final List<PacROMManifestEntry> getProgramROMs() {
 		return this.programROMs;
 	}
 	
-	public final List<PacManifestEntry> getGraphicROMs() {
+	public final List<PacROMManifestEntry> getGraphicROMs() {
 		return this.graphicROMs;
 	}
 	
-	public final List<PacManifestEntry> getColorROMs() {
+	public final List<PacROMManifestEntry> getColorROMs() {
 		return this.colorROMs;
 	}
 	
-	public final List<PacManifestEntry> getPaletteROMs() {
+	public final List<PacROMManifestEntry> getPaletteROMs() {
 		return this.paletteROMs;
 	}
 	
-	public final List<PacManifestEntry> getSoundROMs() {
+	public final List<PacROMManifestEntry> getSoundROMs() {
 		return this.soundROMs;
 	}
 	
-	public final List<PacManifestEntry> getMysteryROMs() {
+	public final List<PacROMManifestEntry> getMysteryROMs() {
 		return this.mysteryROMs;
 	}
 	
@@ -82,11 +82,11 @@ public final class PacROMManifest {
 	 * @author GarlicDude
 	 */
 	public PacROMManifest() {
-		this.programROMs = new ArrayList<PacManifestEntry>();
-		this.graphicROMs = new ArrayList<PacManifestEntry>();
-		this.colorROMs = new ArrayList<PacManifestEntry>();
-		this.paletteROMs = new ArrayList<PacManifestEntry>();
-		this.soundROMs = new ArrayList<PacManifestEntry>();
-		this.mysteryROMs = new ArrayList<PacManifestEntry>();
+		this.programROMs = new ArrayList<PacROMManifestEntry>();
+		this.graphicROMs = new ArrayList<PacROMManifestEntry>();
+		this.colorROMs = new ArrayList<PacROMManifestEntry>();
+		this.paletteROMs = new ArrayList<PacROMManifestEntry>();
+		this.soundROMs = new ArrayList<PacROMManifestEntry>();
+		this.mysteryROMs = new ArrayList<PacROMManifestEntry>();
 	}
 }
