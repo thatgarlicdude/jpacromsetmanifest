@@ -1,4 +1,4 @@
-# Installing JPacManifest
+# Installing JPacROMManifest
 
 ## Requirements
 
@@ -10,9 +10,9 @@ Also, Gradle is **not** a prerequisite for this project. As a fair warning, Grad
 
 ## Steps (macOS / Linux)
 
-1. Clone the repository from GitHub by typing `git clone https://github.com/thatgarlicdude/jpacmanifest.git` onto your terminal.
+1. Clone the repository from GitHub by typing `git clone https://github.com/thatgarlicdude/jpacrommanifest.git` onto your terminal.
 
-2. In your terminal, change your working directory to the root of the cloned repository by typing `cd jpacmanifest`.
+2. In your terminal, change your working directory to the root of the cloned repository by typing `cd jpacrommanifest`.
 
 3. Now that you're in the repository, type `./gradlew build` to build the project.
 
@@ -22,9 +22,9 @@ Also, Gradle is **not** a prerequisite for this project. As a fair warning, Grad
 
 ## Steps (Windows)
 
-1. Clone the repository from GitHub by typing `git clone https://github.com/thatgarlicdude/jpacmanifest.git` onto your terminal.
+1. Clone the repository from GitHub by typing `git clone https://github.com/thatgarlicdude/jpacrommanifest.git` onto your terminal.
 
-2. In your terminal, change your working directory to the root of the cloned repository by typing `cd jpacmanifest`.
+2. In your terminal, change your working directory to the root of the cloned repository by typing `cd jpacrommanifest`.
 
 3. Now that you're in the repository, type `gradle.bat build` to build the project.
 
