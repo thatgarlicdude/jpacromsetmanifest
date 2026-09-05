@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.thatgarlicdude.pacrommanifest;
+package io.github.thatgarlicdude.pacrom.manifest;
 
 import java.util.ArrayList;
 import java.util.List;

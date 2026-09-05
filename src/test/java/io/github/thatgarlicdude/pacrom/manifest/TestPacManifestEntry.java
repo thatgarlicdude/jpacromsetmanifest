@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package io.github.thatgarlicdude.pacrommanifest;
+package io.github.thatgarlicdude.pacrom.manifest;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import io.github.thatgarlicdude.pacrommanifest.PacManifestEntry;
+import io.github.thatgarlicdude.pacrom.manifest.PacManifestEntry;
 
 /**
  * A test class for the {@link PacManifestEntry} class.
