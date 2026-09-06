@@ -26,43 +26,50 @@ import org.junit.Test;
  * @author GarlicDude
  * @see PacROMSetManifestEntry
  */
-public final class TestROMSetPacManifestEntry {
-	
-	// TODO: Reword the descriptions for both TEST_SIZE and TEST_NAME.
+public final class TestPacROMSetManifestEntry {
 	
 	/**
-	 * The set name for the {@link #pacManifestEntry}, a test {@link
+	 * The set name for the {@link #manifestEntry}, a test {@link
 	 * PacROMSetManifestEntry} instance.
+	 * 
+	 * <p>This variable is used as an assertion in the {@link
+	 * #testGetName()} method.</p>
 	 * 
 	 * @since 1.0.0
 	 * @author GarlicDude
-	 * @see #pacManifestEntry
+	 * @see #manifestEntry
+	 * @see #testGetName()
 	 * @see PacROMSetManifestEntry
 	 */
 	private static final String TEST_NAME = "testEntry";
 	
 	/**
-	 * The set size for the {@link #pacManifestEntry}, a test {@link
+	 * The set size for the {@link #manifestEntry}, a test {@link
 	 * PacROMSetManifestEntry} instance.
+	 * 
+	 * <p>This variable is used as an assertion in the {@link
+	 * #testGetSize()} method.</p>
 	 * 
 	 * @since 1.0.0
 	 * @author GarlicDude
-	 * @see #pacManifestEntry
+	 * @see #manifestEntry
+	 * @see #testGetSize()
 	 * @see PacROMSetManifestEntry
 	 */
 	private static final int TEST_SIZE = 256;
 	
 	/**
-	 * The {@link PacROMSetManifestEntry} instance used for testing purposes.
+	 * The {@link PacROMSetManifestEntry} instance used for testing
+	 * purposes.
 	 * 
 	 * @since 1.0.0
 	 * @author GarlicDude
 	 * @see #TEST_NAME
 	 * @see #TEST_SIZE
-	 * @see #testGetFilename()
+	 * @see #testGetName()
 	 * @see #testGetSize()
 	 */
-	private final PacROMSetManifestEntry pacManifestEntry =
+	private final PacROMSetManifestEntry manifestEntry =
 			new PacROMSetManifestEntry(TEST_NAME, TEST_SIZE);
 	
 	
@@ -75,17 +82,18 @@ public final class TestROMSetPacManifestEntry {
 	 * @see PacROMSetManifestEntry#getName()
 	 */
 	@Test
-	public final void testGetFilename() {
-		// Get the filename of the test PacManifestEntry instance.
-		final String filename = pacManifestEntry.getName();
+	public final void testGetName() {
+		// Get the name of the test PacROMSetManifestEntry instance.
+		final String name = manifestEntry.getName();
 		// Print the output.
-		System.out.println("Test PacManifest entry name: " + filename);
-		// Assert whether the two filename strings are the same.
-		assertSame(filename, TEST_NAME);
+		System.out.println("Test PacManifest entry name: " + name);
+		// Assert whether the two name strings are the same.
+		assertSame(name, TEST_NAME);
 	}
 	
 	/**
-	 * A test method for the {@link PacROMSetManifestEntry#getSize()} method.
+	 * A test method for the {@link PacROMSetManifestEntry#getSize()}
+	 * method.
 	 * 
 	 * @since 1.0.0
 	 * @author GarlicDude
@@ -93,8 +101,8 @@ public final class TestROMSetPacManifestEntry {
 	 */
 	@Test
 	public final void testGetSize() {
-		// Get the size of the test PacManifestEntry instance.
-		final int size = pacManifestEntry.getSize();
+		// Get the size of the test PacROMSetManifestEntry instance.
+		final int size = manifestEntry.getSize();
 		// Print the output.
 		System.out.println("Test PacManifest entry size: " + size);
 		// Assert whether the two sizes are equal.
