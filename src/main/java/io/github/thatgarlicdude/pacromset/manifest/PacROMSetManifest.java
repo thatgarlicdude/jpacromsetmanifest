@@ -33,46 +33,46 @@ public final class PacROMSetManifest {
 	
 	// TODO: Rename them to ROMList.
 	
-	private final List<PacROMSetManifestEntry> programROMs;
+	private final List<PacROMSetManifestEntry> programROMList;
 	
-	private final List<PacROMSetManifestEntry> graphicROMs;
+	private final List<PacROMSetManifestEntry> graphicROMList;
 	
-	private final List<PacROMSetManifestEntry> colorROMs;
+	private final List<PacROMSetManifestEntry> colorROMList;
 	
-	private final List<PacROMSetManifestEntry> paletteROMs;
+	private final List<PacROMSetManifestEntry> paletteROMList;
 	
-	private final List<PacROMSetManifestEntry> soundROMs;
+	private final List<PacROMSetManifestEntry> soundROMList;
 	
-	private final List<PacROMSetManifestEntry> mysteryROMs;
+	private final List<PacROMSetManifestEntry> mysteryROMList;
 	
-	public final List<PacROMSetManifestEntry> getProgramROMs() {
+	public final List<PacROMSetManifestEntry> getProgramROMList() {
 		// Return the program ROM list.
-		return this.programROMs;
+		return this.programROMList;
 	}
 	
-	public final List<PacROMSetManifestEntry> getGraphicROMs() {
+	public final List<PacROMSetManifestEntry> getGraphicROMList() {
 		// Return the graphic ROM list.
-		return this.graphicROMs;
+		return this.graphicROMList;
 	}
 	
-	public final List<PacROMSetManifestEntry> getColorROMs() {
+	public final List<PacROMSetManifestEntry> getColorROMList() {
 		// Return the color ROM list.
-		return this.colorROMs;
+		return this.colorROMList;
 	}
 	
-	public final List<PacROMSetManifestEntry> getPaletteROMs() {
+	public final List<PacROMSetManifestEntry> getPaletteROMList() {
 		// Return the palette ROM list.
-		return this.paletteROMs;
+		return this.paletteROMList;
 	}
 	
-	public final List<PacROMSetManifestEntry> getSoundROMs() {
+	public final List<PacROMSetManifestEntry> getSoundROMList() {
 		// Return the sound ROM list.
-		return this.soundROMs;
+		return this.soundROMList;
 	}
 	
-	public final List<PacROMSetManifestEntry> getMysteryROMs() {
+	public final List<PacROMSetManifestEntry> getMysteryROMList() {
 		// Return the mystery ROM list.
-		return this.mysteryROMs;
+		return this.mysteryROMList;
 	}
 	
 	/**
@@ -83,11 +83,11 @@ public final class PacROMSetManifest {
 	 */
 	public PacROMSetManifest() {
 		// Set up each of the lists.
-		this.programROMs = new ArrayList<PacROMSetManifestEntry>();
-		this.graphicROMs = new ArrayList<PacROMSetManifestEntry>();
-		this.colorROMs = new ArrayList<PacROMSetManifestEntry>();
-		this.paletteROMs = new ArrayList<PacROMSetManifestEntry>();
-		this.soundROMs = new ArrayList<PacROMSetManifestEntry>();
-		this.mysteryROMs = new ArrayList<PacROMSetManifestEntry>();
+		this.programROMList = new ArrayList<PacROMSetManifestEntry>();
+		this.graphicROMList = new ArrayList<PacROMSetManifestEntry>();
+		this.colorROMList = new ArrayList<PacROMSetManifestEntry>();
+		this.paletteROMList = new ArrayList<PacROMSetManifestEntry>();
+		this.soundROMList = new ArrayList<PacROMSetManifestEntry>();
+		this.mysteryROMList = new ArrayList<PacROMSetManifestEntry>();
 	}
 }
