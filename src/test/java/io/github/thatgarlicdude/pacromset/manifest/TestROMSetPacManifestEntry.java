@@ -67,17 +67,17 @@ public final class TestROMSetPacManifestEntry {
 	
 	
 	/**
-	 * A test method for the {@link PacROMSetManifestEntry#getFilename()}
+	 * A test method for the {@link PacROMSetManifestEntry#getName()}
 	 * method.
 	 * 
 	 * @since 1.0.0
 	 * @author GarlicDude
-	 * @see PacROMSetManifestEntry#getFilename()
+	 * @see PacROMSetManifestEntry#getName()
 	 */
 	@Test
 	public final void testGetFilename() {
 		// Get the filename of the test PacManifestEntry instance.
-		final String filename = pacManifestEntry.getFilename();
+		final String filename = pacManifestEntry.getName();
 		// Print the output.
 		System.out.println("Test PacManifest entry name: " + filename);
 		// Assert whether the two filename strings are the same.
