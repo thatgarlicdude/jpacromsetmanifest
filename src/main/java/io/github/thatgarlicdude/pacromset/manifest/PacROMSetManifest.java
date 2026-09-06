@@ -21,12 +21,6 @@ import java.util.List;
 
 // TODO: Elaborate more on the class description.
 
-/*
- * TODO: Change the name to PacROMSetManifest, since PacROMManifest is a
- * name that sounds like a manifest for Pac-Man ROMs when Pac-Man is a
- * ROM set.
- */
-
 /**
  * A class that represents a <b><i>Pac-Man</i> ROM set manifest</b>.
  * 
@@ -52,26 +46,32 @@ public final class PacROMSetManifest {
 	private final List<PacROMSetManifestEntry> mysteryROMs;
 	
 	public final List<PacROMSetManifestEntry> getProgramROMs() {
+		// Return the program ROM list.
 		return this.programROMs;
 	}
 	
 	public final List<PacROMSetManifestEntry> getGraphicROMs() {
+		// Return the graphic ROM list.
 		return this.graphicROMs;
 	}
 	
 	public final List<PacROMSetManifestEntry> getColorROMs() {
+		// Return the color ROM list.
 		return this.colorROMs;
 	}
 	
 	public final List<PacROMSetManifestEntry> getPaletteROMs() {
+		// Return the palette ROM list.
 		return this.paletteROMs;
 	}
 	
 	public final List<PacROMSetManifestEntry> getSoundROMs() {
+		// Return the sound ROM list.
 		return this.soundROMs;
 	}
 	
 	public final List<PacROMSetManifestEntry> getMysteryROMs() {
+		// Return the mystery ROM list.
 		return this.mysteryROMs;
 	}
 	
@@ -82,6 +82,7 @@ public final class PacROMSetManifest {
 	 * @author GarlicDude
 	 */
 	public PacROMSetManifest() {
+		// Set up each of the lists.
 		this.programROMs = new ArrayList<PacROMSetManifestEntry>();
 		this.graphicROMs = new ArrayList<PacROMSetManifestEntry>();
 		this.colorROMs = new ArrayList<PacROMSetManifestEntry>();
