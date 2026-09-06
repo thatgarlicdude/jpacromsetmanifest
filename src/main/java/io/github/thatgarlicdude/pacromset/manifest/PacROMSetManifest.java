@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.thatgarlicdude.pacrom.manifest;
+package io.github.thatgarlicdude.pacromset.manifest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,60 +33,60 @@ import java.util.List;
  * @since 1.0.0
  * @author GarlicDude
  */
-public final class PacROMManifest {
+public final class PacROMSetManifest {
 	
 	// TODO: Add Javadoc comments on the variables and methods.
 	
 	// TODO: Rename them to ROMList.
 	
-	private final List<PacROMManifestEntry> programROMs;
+	private final List<PacROMSetManifestEntry> programROMs;
 	
-	private final List<PacROMManifestEntry> graphicROMs;
+	private final List<PacROMSetManifestEntry> graphicROMs;
 	
-	private final List<PacROMManifestEntry> colorROMs;
+	private final List<PacROMSetManifestEntry> colorROMs;
 	
-	private final List<PacROMManifestEntry> paletteROMs;
+	private final List<PacROMSetManifestEntry> paletteROMs;
 	
-	private final List<PacROMManifestEntry> soundROMs;
+	private final List<PacROMSetManifestEntry> soundROMs;
 	
-	private final List<PacROMManifestEntry> mysteryROMs;
+	private final List<PacROMSetManifestEntry> mysteryROMs;
 	
-	public final List<PacROMManifestEntry> getProgramROMs() {
+	public final List<PacROMSetManifestEntry> getProgramROMs() {
 		return this.programROMs;
 	}
 	
-	public final List<PacROMManifestEntry> getGraphicROMs() {
+	public final List<PacROMSetManifestEntry> getGraphicROMs() {
 		return this.graphicROMs;
 	}
 	
-	public final List<PacROMManifestEntry> getColorROMs() {
+	public final List<PacROMSetManifestEntry> getColorROMs() {
 		return this.colorROMs;
 	}
 	
-	public final List<PacROMManifestEntry> getPaletteROMs() {
+	public final List<PacROMSetManifestEntry> getPaletteROMs() {
 		return this.paletteROMs;
 	}
 	
-	public final List<PacROMManifestEntry> getSoundROMs() {
+	public final List<PacROMSetManifestEntry> getSoundROMs() {
 		return this.soundROMs;
 	}
 	
-	public final List<PacROMManifestEntry> getMysteryROMs() {
+	public final List<PacROMSetManifestEntry> getMysteryROMs() {
 		return this.mysteryROMs;
 	}
 	
 	/**
-	 * Constructs an instance of the {@link PacROMManifest} class.
+	 * Constructs an instance of the {@link PacROMSetManifest} class.
 	 * 
 	 * @since 1.0.0
 	 * @author GarlicDude
 	 */
-	public PacROMManifest() {
-		this.programROMs = new ArrayList<PacROMManifestEntry>();
-		this.graphicROMs = new ArrayList<PacROMManifestEntry>();
-		this.colorROMs = new ArrayList<PacROMManifestEntry>();
-		this.paletteROMs = new ArrayList<PacROMManifestEntry>();
-		this.soundROMs = new ArrayList<PacROMManifestEntry>();
-		this.mysteryROMs = new ArrayList<PacROMManifestEntry>();
+	public PacROMSetManifest() {
+		this.programROMs = new ArrayList<PacROMSetManifestEntry>();
+		this.graphicROMs = new ArrayList<PacROMSetManifestEntry>();
+		this.colorROMs = new ArrayList<PacROMSetManifestEntry>();
+		this.paletteROMs = new ArrayList<PacROMSetManifestEntry>();
+		this.soundROMs = new ArrayList<PacROMSetManifestEntry>();
+		this.mysteryROMs = new ArrayList<PacROMSetManifestEntry>();
 	}
 }

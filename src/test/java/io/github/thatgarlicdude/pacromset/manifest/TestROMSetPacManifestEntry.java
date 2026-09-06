@@ -14,46 +14,46 @@
  * limitations under the License.
  */
 
-package io.github.thatgarlicdude.pacrom.manifest;
+package io.github.thatgarlicdude.pacromset.manifest;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**
- * A test class for the {@link PacROMManifestEntry} class.
+ * A test class for the {@link PacROMSetManifestEntry} class.
  * 
  * @since 1.0.0
  * @author GarlicDude
- * @see PacROMManifestEntry
+ * @see PacROMSetManifestEntry
  */
-public final class TestROMPacManifestEntry {
+public final class TestROMSetPacManifestEntry {
 	
 	// TODO: Reword the descriptions for both TEST_SIZE and TEST_NAME.
 	
 	/**
 	 * The set name for the {@link #pacManifestEntry}, a test {@link
-	 * PacROMManifestEntry} instance.
+	 * PacROMSetManifestEntry} instance.
 	 * 
 	 * @since 1.0.0
 	 * @author GarlicDude
 	 * @see #pacManifestEntry
-	 * @see PacROMManifestEntry
+	 * @see PacROMSetManifestEntry
 	 */
 	private static final String TEST_NAME = "testEntry";
 	
 	/**
 	 * The set size for the {@link #pacManifestEntry}, a test {@link
-	 * PacROMManifestEntry} instance.
+	 * PacROMSetManifestEntry} instance.
 	 * 
 	 * @since 1.0.0
 	 * @author GarlicDude
 	 * @see #pacManifestEntry
-	 * @see PacROMManifestEntry
+	 * @see PacROMSetManifestEntry
 	 */
 	private static final int TEST_SIZE = 256;
 	
 	/**
-	 * The {@link PacROMManifestEntry} instance used for testing purposes.
+	 * The {@link PacROMSetManifestEntry} instance used for testing purposes.
 	 * 
 	 * @since 1.0.0
 	 * @author GarlicDude
@@ -62,17 +62,17 @@ public final class TestROMPacManifestEntry {
 	 * @see #testGetFilename()
 	 * @see #testGetSize()
 	 */
-	private final PacROMManifestEntry pacManifestEntry =
-			new PacROMManifestEntry(TEST_NAME, TEST_SIZE);
+	private final PacROMSetManifestEntry pacManifestEntry =
+			new PacROMSetManifestEntry(TEST_NAME, TEST_SIZE);
 	
 	
 	/**
-	 * A test method for the {@link PacROMManifestEntry#getFilename()}
+	 * A test method for the {@link PacROMSetManifestEntry#getFilename()}
 	 * method.
 	 * 
 	 * @since 1.0.0
 	 * @author GarlicDude
-	 * @see PacROMManifestEntry#getFilename()
+	 * @see PacROMSetManifestEntry#getFilename()
 	 */
 	@Test
 	public final void testGetFilename() {
@@ -85,11 +85,11 @@ public final class TestROMPacManifestEntry {
 	}
 	
 	/**
-	 * A test method for the {@link PacROMManifestEntry#getSize()} method.
+	 * A test method for the {@link PacROMSetManifestEntry#getSize()} method.
 	 * 
 	 * @since 1.0.0
 	 * @author GarlicDude
-	 * @see PacROMManifestEntry#getSize()
+	 * @see PacROMSetManifestEntry#getSize()
 	 */
 	@Test
 	public final void testGetSize() {

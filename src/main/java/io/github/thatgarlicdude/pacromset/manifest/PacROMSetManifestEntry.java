@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.thatgarlicdude.pacrom.manifest;
+package io.github.thatgarlicdude.pacromset.manifest;
 
 // TODO: Maybe give the description of this class an upgrade.
 
@@ -24,7 +24,7 @@ package io.github.thatgarlicdude.pacrom.manifest;
  * @since 1.0.0
  * @author GarlicDude
  */
-public final class PacROMManifestEntry {
+public final class PacROMSetManifestEntry {
 	
 	/**
 	 * The maximum file size for a PacManifest entry, which is a maximum
@@ -90,7 +90,7 @@ public final class PacROMManifestEntry {
 	}
 	
 	/**
-	 * Constructs an instance of the {@link PacROMManifestEntry} class.
+	 * Constructs an instance of the {@link PacROMSetManifestEntry} class.
 	 * 
 	 * @param size The file size of the PacManifest entry.
 	 * @param filename The filename of the PacManifest entry.
@@ -99,7 +99,7 @@ public final class PacROMManifestEntry {
 	 * @since 1.0.0
 	 * @author GarlicDude
 	 */
-	public PacROMManifestEntry(final String filename, final int size) {
+	public PacROMSetManifestEntry(final String filename, final int size) {
 		// Throw an error if the size is out of range.
 		if (size < MIN_SIZE || size > MAX_SIZE) {
 			throw new IllegalArgumentException(

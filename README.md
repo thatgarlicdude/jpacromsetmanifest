@@ -1,8 +1,8 @@
-# JPacROMManifest
+# JPacROMSetManifest
 
 ## Overview
 
-JPacROMManifest is a Java library for reading and writing .pacrommanifest files.
+JPacROMSetManifest is a Java library for reading and writing .pacromsetmanifest files.
 
 ## Status
 
