@@ -29,6 +29,26 @@ import java.util.List;
  */
 public final class PacROMSetManifest {
 	
+	/**
+	 * The <b>magic signature</b> of a <i>Pac-Man</i> ROM set manifest
+	 * file.
+	 * 
+	 * <p>This is used at the beginning of a .pacromsetmanifest file to
+	 * verify that it's actually a <i>Pac-Man</i> ROM set manifest file.
+	 * Without it, there's no way for the system to tell that a file is
+	 * designed for the {@link PacROMSetManifest} class in mind, which
+	 * could lead to problems down the lane. Therefore, that's why this
+	 * variable exists. It is used for validity reasons.</p>
+	 * 
+	 * <p>This {@code String} can alternatively be obtained by calling the
+	 * {@link #getMagic()} method.</p>
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #getMagic()
+	 */
+	public static final String MAGIC = "PACROMSETMANIFEST";
+	
 	// TODO: Add Javadoc comments on the variables and methods.
 	
 	// TODO: Rename them to ROMList.
@@ -44,6 +64,33 @@ public final class PacROMSetManifest {
 	private final List<PacROMSetManifestEntry> soundROMList;
 	
 	private final List<PacROMSetManifestEntry> mysteryROMList;
+	
+	/**
+	 * Gets {@link #MAGIC}, which is the <b>magic signature</b> for the
+	 * <i>Pac-Man</i> ROM set manifest files.
+	 * 
+	 * <p>As stated in the description of the {@link #MAGIC} variable, the
+	 * magic signature is used at the beginning of a .pacromsetmanifest
+	 * file. It's used to verify whether a file is actually designed for
+	 * the {@link PacROMSetManifest} class in mind. Without it, there's no
+	 * way of identifying the manifest files properly, which could lead to
+	 * problems down the lane. That being said, this magic signature is
+	 * used for validity reasons.</p>
+	 * 
+	 * <p>Because {@link #MAGIC} is a public static variable, it can
+	 * alternatively be obtained by simply getting from the {@link
+	 * PacROMSetManifest} class itself.</p>
+	 * 
+	 * @return A {@code String} that is the magic signature used for the
+	 * <i>Pac-Man</i> ROM set manifest files.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #MAGIC
+	 */
+	public static final String getMagic() {
+		// Return the magic signature used for Pac-Man ROM manifest files.
+		return MAGIC;
+	}
 	
 	public final List<PacROMSetManifestEntry> getProgramROMList() {
 		// Return the program ROM list.
