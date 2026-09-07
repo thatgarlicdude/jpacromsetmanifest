@@ -49,6 +49,27 @@ public final class PacROMSetManifest {
 	 */
 	public static final String MAGIC = "PACROMSETMANIFEST";
 	
+	/**
+	 * The <b>file extension</b> for a <i>Pac-Man</i> ROM set manifest
+	 * file.
+	 * 
+	 * <p>This is used to label files with the <b>.pacromsetmanifest</b>
+	 * extension, which is especially useful for UI tools like the {@code
+	 * JFileChooser} class. Without it, there's no way of categorizing
+	 * files designed for the {@link PacROMSetManifest} class in mind,
+	 * which could lead to problems along the way. In that case, the
+	 * variable is used for identification and categorization
+	 * purposes.</p>
+	 * 
+	 * <p>This {@code String} can alternatively be obtained by calling the
+	 * {@link #getExtension()} method.</p>
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #getExtension()
+	 */
+	public static final String EXTENSION = "pacromsetmanifest";
+	
 	// TODO: Add Javadoc comments on the variables and methods.
 	
 	// TODO: Rename them to ROMList.
@@ -78,18 +99,44 @@ public final class PacROMSetManifest {
 	 * used for validity reasons.</p>
 	 * 
 	 * <p>Because {@link #MAGIC} is a public static variable, it can
-	 * alternatively be obtained by simply getting from the {@link
+	 * alternatively be obtained by simply getting it from the {@link
 	 * PacROMSetManifest} class itself.</p>
 	 * 
-	 * @return A {@code String} that is the magic signature used for the
-	 * <i>Pac-Man</i> ROM set manifest files.
+	 * @return A {@code String} that says "PACROMSETMANIFEST".
 	 * @since 1.0.0
 	 * @author GarlicDude
 	 * @see #MAGIC
 	 */
 	public static final String getMagic() {
-		// Return the magic signature used for Pac-Man ROM manifest files.
+		// Return the magic signature used for the manifest files.
 		return MAGIC;
+	}
+	
+	/**
+	 * Gets {@link #EXTENSION}, which is the <b>file extension</b> for the
+	 * <i>Pac-Man</i> ROM set manifest files.
+	 * 
+	 * <p>As stated in the description of the {@link #EXTENSION} variable,
+	 * the file extension is used to label files with the
+	 * <b>.pacromsetmanifest</b> extension. This is useful for UI tools,
+	 * such as the {@code JFileChooser} class, as they can filter and
+	 * categorize the manifest files easily. Without it, there's no way of
+	 * identifying the files with this label, which could lead to some
+	 * problems along the way. In that case, the file extension is used
+	 * for identification and categorization purposes.</p>
+	 * 
+	 * <p>Because {@link #EXTENSION} is a public static variable, it can
+	 * alternatively be obtained by simply getting it from the {@link
+	 * PacROMSetManifest} class itself.</p>
+	 * 
+	 * @return A {code String} that says "pacromsetmanifest".
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #EXTENSION
+	 */
+	public static final String getExtension() {
+		// Return the file extension used to label the manifest files.
+		return EXTENSION;
 	}
 	
 	public final List<PacROMSetManifestEntry> getProgramROMList() {
