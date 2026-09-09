@@ -16,7 +16,10 @@
 
 package io.github.thatgarlicdude.pacromset.manifest;
 
-import java.nio.file.Path;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Objects;
 
 // TODO: Elaborate more on the class description.
 
@@ -26,33 +29,59 @@ import java.nio.file.Path;
  * @since 1.0.0
  * @author GarlicDude
  */
-public final class PacROMSetManifestWriter {
+public final class PacROMSetManifestWriter implements Closeable {
 	
 	// TODO: Make Javadoc comments for the variables and methods.
 	
-	private final Path path;
+	private final OutputStream outputStream;
 	
-	public final void write() {
-		if (!isFileExtensionValid()) {
-			// TODO: Throw an exception error here.
-		}
-		// TODO: Add code here.
+	public final void write() throws IOException {
+		// Write the magic signature at the start of the file.
+		writeMagic();
+		// TODO: Write the version number next to the magic signature.
+		// Close the file.
+		close();
 	}
 	
-	// TODO: Make sure this method actually checks the file extension.
+	/**
+	 * Writes the magic signature to the <i>Pac-Man</i> ROM set manifest
+	 * file.
+	 * 
+	 * <p>The magic signature is "PACROMSETMANIFEST".</p>
+	 * 
+	 * @throws IOException When writing the .pacromsetmanifest file fails.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see PacROMSetManifest#MAGIC
+	 */
+	private final void writeMagic() throws IOException {
+		// Write the magic signature to the beginning of the file.
+		outputStream.write(PacROMSetManifest.MAGIC.getBytes());
+	}
 	
-	private final boolean isFileExtensionValid() {
-		return true;
+	/**
+	 * Closes the {@link #outputStream}.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #outputStream
+	 */
+	@Override
+	public final void close() throws IOException {
+		// Close the OutputStream.
+		outputStream.close();
 	}
 	
 	/**
 	 * Constructs an instance of the {@link PacROMSetManifestWriter} class.
 	 * 
-	 * @param path The file path to write the .pacromsetmanifest to disk.
+	 * @param outputStream The {@code OutputStream} required to write the
+	 * .pacromsetmanifest file to disk.
 	 * @since 1.0.0
 	 * @author GarlicDude
 	 */
-	public PacROMSetManifestWriter(final Path path) {
-		this.path = path;
+	public PacROMSetManifestWriter(final OutputStream outputStream) {
+		// Set up the OutputStream that shouldn't be null.
+		this.outputStream = Objects.requireNonNull(outputStream);
 	}
 }
