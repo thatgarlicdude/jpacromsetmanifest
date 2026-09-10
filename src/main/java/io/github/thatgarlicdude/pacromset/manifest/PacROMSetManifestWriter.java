@@ -33,6 +33,8 @@ public final class PacROMSetManifestWriter implements Closeable {
 	
 	// TODO: Make Javadoc comments for the variables and methods.
 	
+	private final PacROMSetManifest pacROMSetManifest;
+	
 	private final OutputStream outputStream;
 	
 	public final void write() throws IOException {
@@ -75,13 +77,20 @@ public final class PacROMSetManifestWriter implements Closeable {
 	/**
 	 * Constructs an instance of the {@link PacROMSetManifestWriter} class.
 	 * 
+	 * @param pacROMSetManifest The {@link PacROMSetManifest} instance
+	 * required to write the .pacromsetmanifest file to disk.
 	 * @param outputStream The {@code OutputStream} required to write the
 	 * .pacromsetmanifest file to disk.
+	 * @throws NullPointerException When {@code pacROMSetManifest} or
+	 * {@code outputStream} are null.
 	 * @since 1.0.0
 	 * @author GarlicDude
 	 */
-	public PacROMSetManifestWriter(final OutputStream outputStream) {
-		// Set up the OutputStream that shouldn't be null.
+	public PacROMSetManifestWriter(
+			final PacROMSetManifest pacROMSetManifest,
+			final OutputStream outputStream) {
+		// Set up the variables that shouldn't be null.
+		this.pacROMSetManifest = Objects.requireNonNull(pacROMSetManifest);
 		this.outputStream = Objects.requireNonNull(outputStream);
 	}
 }
