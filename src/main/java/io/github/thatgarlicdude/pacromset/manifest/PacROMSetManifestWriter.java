@@ -40,7 +40,9 @@ public final class PacROMSetManifestWriter implements Closeable {
 	public final void write() throws IOException {
 		// Write the magic signature at the start of the file.
 		writeMagic();
-		// TODO: Write the version number next to the magic signature.
+		// Then write the current version.
+		writeVersion();
+		// TODO: Write the contents to the file.
 		// Close the file.
 		close();
 	}
@@ -59,6 +61,19 @@ public final class PacROMSetManifestWriter implements Closeable {
 	private final void writeMagic() throws IOException {
 		// Write the magic signature to the beginning of the file.
 		outputStream.write(PacROMSetManifest.MAGIC.getBytes());
+	}
+	
+	/**
+	 * Writes the version to the <i>Pac-Man</i> ROM set manifest file.
+	 * 
+	 * @throws IOException When writing the .pacromsetmanifest file fails.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see PacROMSetManifest#VERSION
+	 */
+	private final void writeVersion() throws IOException {
+		// Write the current version to the file.
+		outputStream.write(PacROMSetManifest.VERSION);
 	}
 	
 	/**
