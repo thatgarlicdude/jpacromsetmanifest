@@ -154,8 +154,16 @@ public final class PacROMSetManifest {
 	// TODO: Elaborate more on the getVersion method.
 	
 	/**
-	 * Gets the instance's {@link #version}, which is the version that
-	 * the manifest is on.
+	 * Gets the instance's {@link #version}, which is the <b>version</b>
+	 * that the manifest is on.
+	 * 
+	 * <p>The version variable is used to identify what kind of
+	 * <i>Pac-Man</i> ROM set manifest file the system is reading and
+	 * writing. Without it, there's no way of telling whether a manifest
+	 * file is on the cherry version (version #1) or the strawberry version
+	 * (version #2), as they have different features from each other. That
+	 * being said, the version number is used for identification
+	 * purposes.</p>
 	 * 
 	 * @return A {@code byte} that is the manifest's version.
 	 * @since 1.0.0
@@ -166,6 +174,8 @@ public final class PacROMSetManifest {
 		// Return the version of the manifest.
 		return this.version;
 	}
+	
+	// TODO: Add the Javadoc comments on the methods.
 	
 	public final List<PacROMSetManifestEntry> getProgramROMList() {
 		// Return the program ROM list.
