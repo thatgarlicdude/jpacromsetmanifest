@@ -70,6 +70,39 @@ public final class PacROMSetManifest {
 	 */
 	public static final String EXTENSION = "pacromsetmanifest";
 	
+	/*
+	 * TODO: Instead of using a static variable, make the version number
+	 * a variable of the instance. This could be used for future classes,
+	 * like PacROMSetManifestCherry and PacROMSetManifestStrawberry.
+	 * 
+	 * PacROMSetManifestCherry = Version 1.
+	 * PacROMSetManifestStrawberry = Version 2.
+	 * PacROMSetManifestOrange = Version 3.
+	 * 
+	 * ...and so on. You get the idea.
+	 */
+	
+	/**
+	 * The current <b>version</b> of the <i>Pac-Man</i> ROM set manifest
+	 * file format.
+	 * 
+	 * <p>This is used to identify what kind of PacROMSetManifest file the
+	 * system is reading or writing. Without it, there's no way of telling
+	 * whether a manifest file is a cherry version (version #1) or a
+	 * strawberry version (version #2). Those kinds of manifest files are
+	 * different from each other in terms of features and functionality.
+	 * In that case, this variable is used for identification
+	 * purposes.</p>
+	 * 
+	 * <p>This {@code byte} can alternatively be obtained by calling the
+	 * {@link #getVersion()} method.</p>
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #getVersion()
+	 */
+	public static final byte VERSION = 1;
+	
 	// TODO: Add Javadoc comments on the variables and methods.
 	
 	// TODO: Rename them to ROMList.
@@ -137,6 +170,33 @@ public final class PacROMSetManifest {
 	public static final String getExtension() {
 		// Return the file extension used to label the manifest files.
 		return EXTENSION;
+	}
+	
+	/**
+	 * Gets {@link #VERSION}, which is the current <b>version</b> of the
+	 * <i>Pac-Man</i> ROM set manifest file format.
+	 * 
+	 * <p>As stated in the {@link #VERSION} variable, the version is used
+	 * to identify what kind of PacROMSetManifest file the system is
+	 * reading or writing. Without it, there's no way of telling whether
+	 * the manifest file is a cherry version (version #1) or a strawberry
+	 * version (version #2), as these kinds of manifest work differently.
+	 * In that case, the version variable is used for identification
+	 * purposes.</p>
+	 * 
+	 * <p>Because {@link #VERSION} is a public static variable, it can
+	 * alternatively be obtained by simply getting it from the {@link
+	 * PacROMSetManifest} class itself.</p>
+	 * 
+	 * @return A {@code char} that is the current version of the
+	 * manifest file format.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #VERSION
+	 */
+	public static final byte getVersion() {
+		// Return the current version of the class.
+		return VERSION;
 	}
 	
 	public final List<PacROMSetManifestEntry> getProgramROMList() {
