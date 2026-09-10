@@ -16,6 +16,7 @@
 
 package io.github.thatgarlicdude.pacromset.manifest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -42,7 +43,14 @@ public final class TestPacROMSetManifest {
 	 * @see #testGetSoundROMList()
 	 * @see #testGetMysteryROMList()
 	 */
-	private final PacROMSetManifest manifest = new PacROMSetManifest();
+	private final PacROMSetManifest manifest = new PacROMSetManifest(
+			(byte) 1,
+			new ArrayList<PacROMSetManifestEntry>(),
+			new ArrayList<PacROMSetManifestEntry>(),
+			new ArrayList<PacROMSetManifestEntry>(),
+			new ArrayList<PacROMSetManifestEntry>(),
+			new ArrayList<PacROMSetManifestEntry>(),
+			new ArrayList<PacROMSetManifestEntry>());
 	
 	/**
 	 * A test method for the {@link PacROMSetManifest#getProgramROMList()}

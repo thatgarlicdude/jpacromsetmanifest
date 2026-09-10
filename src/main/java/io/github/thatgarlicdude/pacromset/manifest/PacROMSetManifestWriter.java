@@ -69,11 +69,11 @@ public final class PacROMSetManifestWriter implements Closeable {
 	 * @throws IOException When writing the .pacromsetmanifest file fails.
 	 * @since 1.0.0
 	 * @author GarlicDude
-	 * @see PacROMSetManifest#VERSION
+	 * @see PacROMSetManifest#getVersion()
 	 */
 	private final void writeVersion() throws IOException {
 		// Write the current version to the file.
-		outputStream.write(PacROMSetManifest.VERSION);
+		outputStream.write(pacROMSetManifest.getVersion());
 	}
 	
 	/**

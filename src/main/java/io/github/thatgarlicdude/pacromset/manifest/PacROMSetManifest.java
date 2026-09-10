@@ -16,8 +16,8 @@
 
 package io.github.thatgarlicdude.pacromset.manifest;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 // TODO: Elaborate more on the class description.
 
@@ -70,38 +70,17 @@ public final class PacROMSetManifest {
 	 */
 	public static final String EXTENSION = "pacromsetmanifest";
 	
-	/*
-	 * TODO: Instead of using a static variable, make the version number
-	 * a variable of the instance. This could be used for future classes,
-	 * like PacROMSetManifestCherry and PacROMSetManifestStrawberry.
-	 * 
-	 * PacROMSetManifestCherry = Version 1.
-	 * PacROMSetManifestStrawberry = Version 2.
-	 * PacROMSetManifestOrange = Version 3.
-	 * 
-	 * ...and so on. You get the idea.
-	 */
+	// TODO: Elaborate more on the version variable.
 	
 	/**
-	 * The current <b>version</b> of the <i>Pac-Man</i> ROM set manifest
-	 * file format.
-	 * 
-	 * <p>This is used to identify what kind of PacROMSetManifest file the
-	 * system is reading or writing. Without it, there's no way of telling
-	 * whether a manifest file is a cherry version (version #1) or a
-	 * strawberry version (version #2). Those kinds of manifest files are
-	 * different from each other in terms of features and functionality.
-	 * In that case, this variable is used for identification
-	 * purposes.</p>
-	 * 
-	 * <p>This {@code byte} can alternatively be obtained by calling the
-	 * {@link #getVersion()} method.</p>
+	 * The <b>version</b> that the {@link PacROMSetManifest} instance is
+	 * on.
 	 * 
 	 * @since 1.0.0
 	 * @author GarlicDude
 	 * @see #getVersion()
 	 */
-	public static final byte VERSION = 1;
+	private final byte version;
 	
 	// TODO: Add Javadoc comments on the variables and methods.
 	
@@ -172,31 +151,20 @@ public final class PacROMSetManifest {
 		return EXTENSION;
 	}
 	
+	// TODO: Elaborate more on the getVersion method.
+	
 	/**
-	 * Gets {@link #VERSION}, which is the current <b>version</b> of the
-	 * <i>Pac-Man</i> ROM set manifest file format.
+	 * Gets the instance's {@link #version}, which is the version that
+	 * the manifest is on.
 	 * 
-	 * <p>As stated in the {@link #VERSION} variable, the version is used
-	 * to identify what kind of PacROMSetManifest file the system is
-	 * reading or writing. Without it, there's no way of telling whether
-	 * the manifest file is a cherry version (version #1) or a strawberry
-	 * version (version #2), as these kinds of manifest work differently.
-	 * In that case, the version variable is used for identification
-	 * purposes.</p>
-	 * 
-	 * <p>Because {@link #VERSION} is a public static variable, it can
-	 * alternatively be obtained by simply getting it from the {@link
-	 * PacROMSetManifest} class itself.</p>
-	 * 
-	 * @return A {@code char} that is the current version of the
-	 * manifest file format.
+	 * @return A {@code byte} that is the manifest's version.
 	 * @since 1.0.0
 	 * @author GarlicDude
-	 * @see #VERSION
+	 * @see #version
 	 */
-	public static final byte getVersion() {
-		// Return the current version of the class.
-		return VERSION;
+	public final byte getVersion() {
+		// Return the version of the manifest.
+		return this.version;
 	}
 	
 	public final List<PacROMSetManifestEntry> getProgramROMList() {
@@ -235,13 +203,22 @@ public final class PacROMSetManifest {
 	 * @since 1.0.0
 	 * @author GarlicDude
 	 */
-	public PacROMSetManifest() {
-		// Set up each of the lists.
-		this.programROMList = new ArrayList<PacROMSetManifestEntry>();
-		this.graphicROMList = new ArrayList<PacROMSetManifestEntry>();
-		this.colorROMList = new ArrayList<PacROMSetManifestEntry>();
-		this.paletteROMList = new ArrayList<PacROMSetManifestEntry>();
-		this.soundROMList = new ArrayList<PacROMSetManifestEntry>();
-		this.mysteryROMList = new ArrayList<PacROMSetManifestEntry>();
+	public PacROMSetManifest(
+			final byte version,
+			final List<PacROMSetManifestEntry> programROMList,
+			final List<PacROMSetManifestEntry> graphicROMList,
+			final List<PacROMSetManifestEntry> colorROMList,
+			final List<PacROMSetManifestEntry> paletteROMList,
+			final List<PacROMSetManifestEntry> soundROMList,
+			final List<PacROMSetManifestEntry> mysteryROMList) {
+		// Set up the version of the manifest class.
+		this.version = version;
+		// Set up each of the lists that shouldn't be null.
+		this.programROMList = Objects.requireNonNull(programROMList);
+		this.graphicROMList = Objects.requireNonNull(graphicROMList);
+		this.colorROMList = Objects.requireNonNull(colorROMList);
+		this.paletteROMList = Objects.requireNonNull(paletteROMList);
+		this.soundROMList = Objects.requireNonNull(soundROMList);
+		this.mysteryROMList = Objects.requireNonNull(mysteryROMList);
 	}
 }
