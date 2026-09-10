@@ -27,7 +27,7 @@ import java.util.Objects;
  * @since 1.0.0
  * @author GarlicDude
  */
-public final class PacROMSetManifest {
+public class PacROMSetManifest {
 	
 	/**
 	 * The <b>magic signature</b> of a <i>Pac-Man</i> ROM set manifest
