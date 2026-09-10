@@ -32,10 +32,20 @@ import org.junit.Test;
 public final class TestPacROMSetManifest {
 	
 	/**
+	 * The test version of the manifest.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #testGetVersion()
+	 */
+	private static final byte TEST_VERSION = 1;
+	
+	/**
 	 * The {@link PacROMSetManifest} instance used for testing purposes.
 	 * 
 	 * @since 1.0.0
 	 * @author GarlicDude
+	 * @see #testGetVersion()
 	 * @see #testGetProgramROMsList()
 	 * @see #testGetGraphicROMList()
 	 * @see #testGetColorROMList()
@@ -44,13 +54,31 @@ public final class TestPacROMSetManifest {
 	 * @see #testGetMysteryROMList()
 	 */
 	private final PacROMSetManifest manifest = new PacROMSetManifest(
-			(byte) 1,
+			TEST_VERSION,
 			new ArrayList<PacROMSetManifestEntry>(),
 			new ArrayList<PacROMSetManifestEntry>(),
 			new ArrayList<PacROMSetManifestEntry>(),
 			new ArrayList<PacROMSetManifestEntry>(),
 			new ArrayList<PacROMSetManifestEntry>(),
 			new ArrayList<PacROMSetManifestEntry>());
+	
+	/**
+	 * A test method for the {@link PacROMSetManifest#getVersion()}
+	 * method.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see PacROMSetManifest#getVersion()
+	 */
+	@Test
+	public final void testGetVersion() {
+		// Get the version of the manifest file.
+		final byte version = manifest.getVersion();
+		// Print the version.
+		System.out.println("PacROMSetManifest Version: " + version);
+		// Assert whether the two variables are equal to each other.
+		assertEquals(version, TEST_VERSION);
+	}
 	
 	/**
 	 * A test method for the {@link PacROMSetManifest#getProgramROMList()}
