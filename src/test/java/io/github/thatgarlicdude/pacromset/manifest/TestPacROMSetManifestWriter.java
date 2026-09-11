@@ -83,7 +83,15 @@ public final class TestPacROMSetManifestWriter {
 		// Create the file output stream with the path.
 		final FileOutputStream fileOutputStream =
 				new FileOutputStream(testPath);
-		// TODO: Create the PacROMSetManifestWriter instance here.
+		// Create the manifest writer.
+		final PacROMSetManifestWriter pacROMSetManifestWriter =
+				new PacROMSetManifestWriter(
+						pacROMSetManifest,
+						fileOutputStream);
+		// Write with the writer class.
+		pacROMSetManifestWriter.write();
+		// Close the output classes.
+		pacROMSetManifestWriter.close();
 		fileOutputStream.close();
 	}
 }
