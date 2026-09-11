@@ -16,6 +16,8 @@
 
 package io.github.thatgarlicdude.pacromset.manifest;
 
+import java.util.Objects;
+
 /**
  * A class that represents an entry in a <i>Pac-Man</i> ROM set manifest.
  * 
@@ -148,6 +150,7 @@ public final class PacROMSetManifestEntry {
 	 * manifest.
 	 * @throws IllegalArgumentException When the {@code size} is out of
 	 * its expected range (0 - 65,535).
+	 * @throws NullPointerException When the {@code name} is null.
 	 * @since 1.0.0
 	 * @author GarlicDude
 	 */
@@ -157,7 +160,7 @@ public final class PacROMSetManifestEntry {
 			throw new IllegalArgumentException(ERROR_MESSAGE);
 		}
 		// Set the variables in the instance.
-		this.name = name;
+		this.name = Objects.requireNonNull(name);
 		this.size = size;
 	}
 }
