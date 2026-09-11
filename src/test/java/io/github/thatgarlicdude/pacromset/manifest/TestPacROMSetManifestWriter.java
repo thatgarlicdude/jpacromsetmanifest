@@ -18,7 +18,9 @@ package io.github.thatgarlicdude.pacromset.manifest;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -30,7 +32,43 @@ import org.junit.Test;
  */
 public final class TestPacROMSetManifestWriter {
 	
+	/**
+	 * The test {@link PacROMSetManifest} instance used to write onto the
+	 * disk.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #initPacROMSetManifest()
+	 * @see #testWrite()
+	 */
 	private PacROMSetManifest pacROMSetManifest;
+	
+	/**
+	 * Initializes the {@link #pacROMSetManifest} with all the created
+	 * manifest entries.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #pacROMSetManifest
+	 */
+	@Before
+	public final void initPacROMSetManifest() {
+		// Automatically initialize the PacROMSetManifest.
+		pacROMSetManifest =
+				PacROMSetManifests.newPacROMSetManifestCherry();
+		// Set up the program ROM list.
+		final List<PacROMSetManifestEntry> programROMList =
+				pacROMSetManifest.getProgramROMList();
+		// Set up the first program ROM entry.
+		final PacROMSetManifestEntry programROMEntry1 =
+				new PacROMSetManifestEntry("test_prog1.bin", 256);
+		// Set up the second program ROM entry.
+		final PacROMSetManifestEntry programROMEntry2 =
+				new PacROMSetManifestEntry("test_prog2.bin", 256);
+		// Add the entries to the list.
+		programROMList.add(programROMEntry1);
+		programROMList.add(programROMEntry2);
+	}
 	
 	@Test
 	public final void testWrite() throws IOException {
