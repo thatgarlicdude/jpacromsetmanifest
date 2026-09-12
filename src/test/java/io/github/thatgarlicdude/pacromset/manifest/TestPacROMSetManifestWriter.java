@@ -23,34 +23,10 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * A test class for the {@link PacROMSetManifestWriter} class.
- * 
- * @since 1.0.0
- * @author GarlicDude
- * @see PacROMSetManifestWriter
- */
 public final class TestPacROMSetManifestWriter {
 	
-	/**
-	 * The test {@link PacROMSetManifest} instance used to write onto the
-	 * disk.
-	 * 
-	 * @since 1.0.0
-	 * @author GarlicDude
-	 * @see #initPacROMSetManifest()
-	 * @see #testWrite()
-	 */
 	private PacROMSetManifest pacROMSetManifest;
 	
-	/**
-	 * Initializes the {@link #pacROMSetManifest} with all the created
-	 * manifest entries.
-	 * 
-	 * @since 1.0.0
-	 * @author GarlicDude
-	 * @see #pacROMSetManifest
-	 */
 	@Before
 	public final void initPacROMSetManifest() {
 		// Automatically initialize the PacROMSetManifest.

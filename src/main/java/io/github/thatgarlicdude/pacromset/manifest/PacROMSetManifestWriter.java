@@ -21,14 +21,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Objects;
 
-// TODO: Elaborate more on the class description.
-
-/**
- * A writer class that writes {@link PacROMSetManifest} classes to disk.
- * 
- * @since 1.0.0
- * @author GarlicDude
- */
 public final class PacROMSetManifestWriter implements Closeable {
 	
 	// TODO: Make Javadoc comments for the variables and methods.
@@ -47,60 +39,22 @@ public final class PacROMSetManifestWriter implements Closeable {
 		close();
 	}
 	
-	/**
-	 * Writes the magic signature to the <i>Pac-Man</i> ROM set manifest
-	 * file.
-	 * 
-	 * <p>The magic signature is "PACROMSETMANIFEST".</p>
-	 * 
-	 * @throws IOException When writing the .pacromsetmanifest file fails.
-	 * @since 1.0.0
-	 * @author GarlicDude
-	 * @see PacROMSetManifest#MAGIC
-	 */
 	private final void writeMagic() throws IOException {
 		// Write the magic signature to the beginning of the file.
 		outputStream.write(PacROMSetManifest.MAGIC.getBytes());
 	}
 	
-	/**
-	 * Writes the version to the <i>Pac-Man</i> ROM set manifest file.
-	 * 
-	 * @throws IOException When writing the .pacromsetmanifest file fails.
-	 * @since 1.0.0
-	 * @author GarlicDude
-	 * @see PacROMSetManifest#getVersion()
-	 */
 	private final void writeVersion() throws IOException {
 		// Write the current version to the file.
 		outputStream.write(pacROMSetManifest.getVersion());
 	}
 	
-	/**
-	 * Closes the {@link #outputStream}.
-	 * 
-	 * @since 1.0.0
-	 * @author GarlicDude
-	 * @see #outputStream
-	 */
 	@Override
 	public final void close() throws IOException {
 		// Close the OutputStream.
 		outputStream.close();
 	}
 	
-	/**
-	 * Constructs an instance of the {@link PacROMSetManifestWriter} class.
-	 * 
-	 * @param pacROMSetManifest The {@link PacROMSetManifest} instance
-	 * required to write the .pacromsetmanifest file to disk.
-	 * @param outputStream The {@code OutputStream} required to write the
-	 * .pacromsetmanifest file to disk.
-	 * @throws NullPointerException When {@code pacROMSetManifest} or
-	 * {@code outputStream} are null.
-	 * @since 1.0.0
-	 * @author GarlicDude
-	 */
 	public PacROMSetManifestWriter(
 			final PacROMSetManifest pacROMSetManifest,
 			final OutputStream outputStream) {

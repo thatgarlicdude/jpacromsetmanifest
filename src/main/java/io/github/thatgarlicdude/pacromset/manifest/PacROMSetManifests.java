@@ -20,29 +20,8 @@ import java.lang.UnsupportedOperationException;
 import java.util.ArrayList;
 import java.util.List;
 
-// TODO: Add the description to the class.
-
-/**
- * 
- * 
- * @since 1.0.0
- * @author GarlicDude
- * @see PacROMSetManifest
- */
 public final class PacROMSetManifests {
 	
-	/**
-	 * Creates a new {@link PacROMSetManifest} instance to memory.
-	 * 
-	 * <p>This will automatically set up the ROM list objects in the
-	 * manifest class, as well as its version variable. This is done to
-	 * make construction of the {@link PacROMSetManifest} easier.</p>
-	 * 
-	 * @return A new {@link PacROMSetManifest} instance with everything
-	 * set up.
-	 * @since 1.0.0
-	 * @author GarlicDude
-	 */
 	public static final PacROMSetManifest newPacROMSetManifestCherry() {
 		// Initialize the version of the manifest file.
 		final byte version = 1;
@@ -77,18 +56,6 @@ public final class PacROMSetManifests {
 	
 	// TODO: Add savePacROMSetManifestCherry() and loadPacROMSetManifest().
 	
-	/**
-	 * Constructs an instance of the {@link PacROMSetManifests} class.
-	 * 
-	 * <p>Because this is a private constructor, it cannot be called by
-	 * any way possible. Even if it did get called, it will throw an
-	 * {@code UnsupportedOperationException} instead.</p>
-	 * 
-	 * @throws UnsupportedOperationException When the constructor has been
-	 * called.
-	 * @since 1.0.0
-	 * @author GarlicDude
-	 */
 	private PacROMSetManifests() {
 		// Throw the error in case the constructor was actually called.
 		throw new UnsupportedOperationException();

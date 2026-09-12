@@ -22,37 +22,10 @@ import java.util.List;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-/**
- * A test class for the {@link PacROMSetManifest} class.
- * 
- * @since 1.0.0
- * @author GarlicDude
- * @see PacROMSetManifest
- */
 public final class TestPacROMSetManifest {
 	
-	/**
-	 * The test version of the manifest.
-	 * 
-	 * @since 1.0.0
-	 * @author GarlicDude
-	 * @see #testGetVersion()
-	 */
 	private static final byte TEST_VERSION = 1;
 	
-	/**
-	 * The {@link PacROMSetManifest} instance used for testing purposes.
-	 * 
-	 * @since 1.0.0
-	 * @author GarlicDude
-	 * @see #testGetVersion()
-	 * @see #testGetProgramROMsList()
-	 * @see #testGetGraphicROMList()
-	 * @see #testGetColorROMList()
-	 * @see #testGetPaletteROMList()
-	 * @see #testGetSoundROMList()
-	 * @see #testGetMysteryROMList()
-	 */
 	private final PacROMSetManifest manifest = new PacROMSetManifest(
 			TEST_VERSION,
 			new ArrayList<PacROMSetManifestEntry>(),
@@ -62,14 +35,6 @@ public final class TestPacROMSetManifest {
 			new ArrayList<PacROMSetManifestEntry>(),
 			new ArrayList<PacROMSetManifestEntry>());
 	
-	/**
-	 * A test method for the {@link PacROMSetManifest#getVersion()}
-	 * method.
-	 * 
-	 * @since 1.0.0
-	 * @author GarlicDude
-	 * @see PacROMSetManifest#getVersion()
-	 */
 	@Test
 	public final void testGetVersion() {
 		// Get the version of the manifest file.
@@ -80,14 +45,6 @@ public final class TestPacROMSetManifest {
 		assertEquals(version, TEST_VERSION);
 	}
 	
-	/**
-	 * A test method for the {@link PacROMSetManifest#getProgramROMList()}
-	 * method.
-	 * 
-	 * @since 1.0.0
-	 * @author GarlicDude
-	 * @see PacROMSetManifest#getProgramROMList()
-	 */
 	@Test
 	public final void testGetProgramROMList() {
 		// Get the program ROM list.
@@ -97,14 +54,6 @@ public final class TestPacROMSetManifest {
 		assertNotNull(programROMList);
 	}
 	
-	/**
-	 * A test method for the {@link PacROMSetManifest#getGraphicROMList()}
-	 * method.
-	 * 
-	 * @since 1.0.0
-	 * @author GarlicDude
-	 * @see PacROMSetManifest#getGraphicROMList()
-	 */
 	@Test
 	public final void testGetGraphicROMList() {
 		// Get the graphic ROM list.
@@ -114,14 +63,6 @@ public final class TestPacROMSetManifest {
 		assertNotNull(graphicROMList);
 	}
 	
-	/**
-	 * A test method for the {@link PacROMSetManifest#getColorROMList()}
-	 * method.
-	 * 
-	 * @since 1.0.0
-	 * @author GarlicDude
-	 * @see PacROMSetManifest#getColorROMList()
-	 */
 	@Test
 	public final void testGetColorROMList() {
 		// Get the color ROM list.
@@ -131,14 +72,6 @@ public final class TestPacROMSetManifest {
 		assertNotNull(colorROMList);
 	}
 	
-	/**
-	 * A test method for the {@link PacROMSetManifest#getPaletteROMList()}
-	 * method.
-	 * 
-	 * @since 1.0.0
-	 * @author GarlicDude
-	 * @see PacROMSetManifest#getPaletteROMList()
-	 */
 	@Test
 	public final void testGetPaletteROMList() {
 		// Get the palette ROM list.
@@ -148,14 +81,6 @@ public final class TestPacROMSetManifest {
 		assertNotNull(paletteROMList);
 	}
 	
-	/**
-	 * A test method for the {@link PacROMSetManifest#getSoundROMList()}
-	 * method.
-	 * 
-	 * @since 1.0.0
-	 * @author GarlicDude
-	 * @see PacROMSetManifest#getSoundROMList()
-	 */
 	@Test
 	public final void testGetSoundROMList() {
 		// Get the sound ROM list.
@@ -165,14 +90,6 @@ public final class TestPacROMSetManifest {
 		assertNotNull(soundROMList);
 	}
 	
-	/**
-	 * A test method for the {@link PacROMSetManifest#getMysteryROMList()}
-	 * method.
-	 * 
-	 * @since 1.0.0
-	 * @author GarlicDude
-	 * @see PacROMSetManifest#getMysteryROMList()
-	 */
 	@Test
 	public final void testGetMysteryROMList() {
 		// Get the mystery ROM list.

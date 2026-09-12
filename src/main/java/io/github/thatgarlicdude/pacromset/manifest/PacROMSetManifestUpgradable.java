@@ -16,24 +16,7 @@
 
 package io.github.thatgarlicdude.pacromset.manifest;
 
-/**
- * An interface used for {@link PacROMSetManifest} classes that can be
- * upgraded to the next version.
- * 
- * @param <T> A generic {@link PacROMSetManifest} used for converting to
- * the next version.
- * @since 1.0.0
- * @author GarlicDude
- */
 public interface PacROMSetManifestUpgradable<T extends PacROMSetManifest> {
 	
-	/**
-	 * Upgrades the manifest class to the next version.
-	 * 
-	 * @return A new <i>Pac-Man</i> ROM set manifest class that represents
-	 * the next version of the previous class.
-	 * @since 1.0.0
-	 * @author GarlicDude
-	 */
 	public abstract T upgrade();
 }
