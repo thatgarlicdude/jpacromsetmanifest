@@ -22,26 +22,21 @@ public final class PacROMSetManifestEntry {
 	
 	private static final String ERROR_MESSAGE =
 			"PacROMSetManifestEntry's size is out of range. It must be"
-			+ "within 0 or 65,535.";
+			+ "within 0 or 65,534.";
 	
-	public static final int MAX_SIZE = 0xFFFF;
+	public static final int MAX_SIZE = 0xFFFE;
 	
 	public static final int MIN_SIZE = 0;
 	
 	private final String name;
 	
-	private final boolean required;
-	
 	private final int size;
+	
+	private final boolean required;
 	
 	public final String getName() {
 		// Return the name of the manifest entry.
 		return this.name;
-	}
-	
-	public final boolean isRequired() {
-		// Return the necessity of the manifest entry.
-		return this.required;
 	}
 	
 	public final int getSize() {
@@ -49,17 +44,22 @@ public final class PacROMSetManifestEntry {
 		return this.size;
 	}
 	
+	public final boolean isRequired() {
+		// Return the necessity of the manifest entry.
+		return this.required;
+	}
+	
 	public PacROMSetManifestEntry(
 			final String name,
-			final boolean required,
-			final int size) {
+			final int size,
+			final boolean required) {
 		// Throw an error if the size is out of range.
 		if (size < MIN_SIZE || size > MAX_SIZE) {
 			throw new IllegalArgumentException(ERROR_MESSAGE);
 		}
 		// Set the variables in the instance.
 		this.name = Objects.requireNonNull(name);
-		this.required = required;
 		this.size = size;
+		this.required = required;
 	}
 }
