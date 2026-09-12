@@ -30,6 +30,8 @@ public final class PacROMSetManifestEntry {
 	
 	private final String name;
 	
+	private final boolean required;
+	
 	private final int size;
 	
 	public final String getName() {
@@ -37,18 +39,27 @@ public final class PacROMSetManifestEntry {
 		return this.name;
 	}
 	
+	public final boolean isRequired() {
+		// Return the necessity of the manifest entry.
+		return this.required;
+	}
+	
 	public final int getSize() {
 		// Return the size of the manifest entry.
 		return this.size;
 	}
 	
-	public PacROMSetManifestEntry(final String name, final int size) {
+	public PacROMSetManifestEntry(
+			final String name,
+			final boolean required,
+			final int size) {
 		// Throw an error if the size is out of range.
 		if (size < MIN_SIZE || size > MAX_SIZE) {
 			throw new IllegalArgumentException(ERROR_MESSAGE);
 		}
 		// Set the variables in the instance.
 		this.name = Objects.requireNonNull(name);
+		this.required = required;
 		this.size = size;
 	}
 }

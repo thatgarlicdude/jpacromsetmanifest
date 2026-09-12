@@ -23,10 +23,15 @@ public final class TestPacROMSetManifestEntry {
 	
 	private static final String TEST_NAME = "testEntry";
 	
+	private static final boolean TEST_REQUIRED = true;
+	
 	private static final int TEST_SIZE = 256;
 	
 	private final PacROMSetManifestEntry manifestEntry =
-			new PacROMSetManifestEntry(TEST_NAME, TEST_SIZE);
+			new PacROMSetManifestEntry(
+					TEST_NAME,
+					TEST_REQUIRED,
+					TEST_SIZE);
 	
 	@Test
 	public final void testGetName() {
@@ -36,6 +41,16 @@ public final class TestPacROMSetManifestEntry {
 		System.out.println("Test PacManifest entry name: " + name);
 		// Assert whether the two name strings are the same.
 		assertSame(name, TEST_NAME);
+	}
+	
+	@Test
+	public final void testIsRequired() {
+		// Get the necessity of the test PacROMSetManifestEntry instance.
+		final boolean required = manifestEntry.isRequired();
+		// Print the output.
+		System.out.println("Test PacManifest entry required: " + required);
+		// Assert whether the two necessities are equal.
+		assertEquals(required, TEST_REQUIRED);
 	}
 	
 	@Test
