@@ -36,6 +36,16 @@ public final class TestPacROMSetManifest {
 			new ArrayList<PacROMSetManifestEntry>());
 	
 	@Test
+	public final void testGetListSeparator() {
+		// Get the list separator byte in the manifest file.
+		final byte listSeparator = PacROMSetManifest.getListSeparator();
+		// Print the separator.
+		System.out.println("List Separator Byte: " + listSeparator);
+		// Assert whether the two variables are equal.
+		assertEquals(listSeparator, PacROMSetManifest.LIST_SEPARATOR);
+	}
+	
+	@Test
 	public final void testGetVersion() {
 		// Get the version of the manifest file.
 		final byte version = manifest.getVersion();
