@@ -34,6 +34,20 @@ public final class PacROMSetManifestEntry {
 	
 	private final boolean required;
 	
+	public PacROMSetManifestEntry(
+			final String name,
+			final int size,
+			final boolean required) {
+		// Throw an error if the size is out of range.
+		if (size < MIN_SIZE || size > MAX_SIZE) {
+			throw new IllegalArgumentException(ERROR_MESSAGE);
+		}
+		// Set the variables in the instance.
+		this.name = Objects.requireNonNull(name);
+		this.size = size;
+		this.required = required;
+	}
+	
 	public static final int getMaxSize() {
 		// Return the max size of the manifest entry.
 		return MAX_SIZE;
@@ -73,19 +87,5 @@ public final class PacROMSetManifestEntry {
 			final boolean required) {
 		// Return a new manifest entry with the new necessity.
 		return new PacROMSetManifestEntry(this.name, this.size, required);
-	}
-	
-	public PacROMSetManifestEntry(
-			final String name,
-			final int size,
-			final boolean required) {
-		// Throw an error if the size is out of range.
-		if (size < MIN_SIZE || size > MAX_SIZE) {
-			throw new IllegalArgumentException(ERROR_MESSAGE);
-		}
-		// Set the variables in the instance.
-		this.name = Objects.requireNonNull(name);
-		this.size = size;
-		this.required = required;
 	}
 }
