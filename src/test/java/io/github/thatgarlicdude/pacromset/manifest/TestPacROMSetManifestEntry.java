@@ -34,6 +34,26 @@ public final class TestPacROMSetManifestEntry {
 					TEST_REQUIRED);
 	
 	@Test
+	public final void testGetMaxSize() {
+		// Get the max size of the PacROMSetManifestEntry class.
+		final int maxSize = PacROMSetManifestEntry.getMaxSize();
+		// Print the output.
+		System.out.println("PacManifest entry max size: " + maxSize);
+		// Assert whether the two values are equal.
+		assertEquals(maxSize, PacROMSetManifestEntry.MAX_SIZE);
+	}
+	
+	@Test
+	public final void testGetMinSize() {
+		// Get the min size of the PacROMSetManifestEntry class.
+		final int minSize = PacROMSetManifestEntry.getMinSize();
+		// Print the output.
+		System.out.println("PacManifest entry min size: " + minSize);
+		// Assert whether the two values are equal.
+		assertEquals(minSize, PacROMSetManifestEntry.MIN_SIZE);
+	}
+	
+	@Test
 	public final void testGetName() {
 		// Get the name of the test PacROMSetManifestEntry instance.
 		final String name = manifestEntry.getName();
