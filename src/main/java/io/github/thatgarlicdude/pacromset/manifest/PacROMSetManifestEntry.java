@@ -22,9 +22,9 @@ public final class PacROMSetManifestEntry {
 	
 	private static final String ERROR_MESSAGE =
 			"PacROMSetManifestEntry's size is out of range. It must be"
-			+ "within 0 or 65,534.";
+			+ "within 0 or 16,383.";
 	
-	public static final int MAX_SIZE = 0xFFFE;
+	public static final int MAX_SIZE = 0b00111111_11111111;
 	
 	public static final int MIN_SIZE = 0;
 	
@@ -33,6 +33,16 @@ public final class PacROMSetManifestEntry {
 	private final int size;
 	
 	private final boolean required;
+	
+	public static final int getMaxSize() {
+		// Return the max size of the manifest entry.
+		return MAX_SIZE;
+	}
+	
+	public static final int getMinSize() {
+		// Return the min size of the manifest entry.
+		return MIN_SIZE;
+	}
 	
 	public final String getName() {
 		// Return the name of the manifest entry.
