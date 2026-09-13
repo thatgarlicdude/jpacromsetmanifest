@@ -23,8 +23,6 @@ import java.util.List;
 public final class PacROMSetManifests {
 	
 	public static final PacROMSetManifest newPacROMSetManifestCherry() {
-		// Initialize the version of the manifest file.
-		final byte version = 1;
 		// Initialize the program ROM list.
 		final List<PacROMSetManifestEntry> programROMList =
 				new ArrayList<PacROMSetManifestEntry>();
@@ -45,7 +43,6 @@ public final class PacROMSetManifests {
 				new ArrayList<PacROMSetManifestEntry>();
 		// Return the newly created PacROMSetManifest instance.
 		return new PacROMSetManifest(
-				version,
 				programROMList,
 				graphicROMList,
 				colorROMList,

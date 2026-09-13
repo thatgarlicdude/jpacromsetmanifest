@@ -19,13 +19,13 @@ package io.github.thatgarlicdude.pacromset.manifest;
 import java.util.List;
 import java.util.Objects;
 
-public class PacROMSetManifest {
+public final class PacROMSetManifest {
 	
 	public static final String MAGIC = "PACROMSETMANIFEST";
 	
 	public static final String EXTENSION = "pacromsetmanifest";
 	
-	private final byte version;
+	public static final byte VERSION = 1;
 	
 	private final List<PacROMSetManifestEntry> programROMList;
 	
@@ -49,9 +49,9 @@ public class PacROMSetManifest {
 		return EXTENSION;
 	}
 	
-	public final byte getVersion() {
-		// Return the version of the manifest.
-		return this.version;
+	public static final byte getVersion() {
+		// Return the current version of the manifest.
+		return VERSION;
 	}
 	
 	public final List<PacROMSetManifestEntry> getProgramROMList() {
@@ -85,15 +85,12 @@ public class PacROMSetManifest {
 	}
 	
 	public PacROMSetManifest(
-			final byte version,
 			final List<PacROMSetManifestEntry> programROMList,
 			final List<PacROMSetManifestEntry> graphicROMList,
 			final List<PacROMSetManifestEntry> colorROMList,
 			final List<PacROMSetManifestEntry> paletteROMList,
 			final List<PacROMSetManifestEntry> soundROMList,
 			final List<PacROMSetManifestEntry> mysteryROMList) {
-		// Set up the version of the manifest class.
-		this.version = version;
 		// Set up each of the lists that shouldn't be null.
 		this.programROMList = Objects.requireNonNull(programROMList);
 		this.graphicROMList = Objects.requireNonNull(graphicROMList);

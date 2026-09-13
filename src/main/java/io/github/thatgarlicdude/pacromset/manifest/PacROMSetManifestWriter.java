@@ -46,7 +46,7 @@ public final class PacROMSetManifestWriter implements Closeable {
 	
 	private final void writeVersion() throws IOException {
 		// Write the current version to the file.
-		outputStream.write(pacROMSetManifest.getVersion());
+		outputStream.write(PacROMSetManifest.getVersion());
 	}
 	
 	@Override

@@ -24,10 +24,7 @@ import org.junit.Test;
 
 public final class TestPacROMSetManifest {
 	
-	private static final byte TEST_VERSION = 1;
-	
 	private final PacROMSetManifest manifest = new PacROMSetManifest(
-			TEST_VERSION,
 			new ArrayList<PacROMSetManifestEntry>(),
 			new ArrayList<PacROMSetManifestEntry>(),
 			new ArrayList<PacROMSetManifestEntry>(),
@@ -38,11 +35,11 @@ public final class TestPacROMSetManifest {
 	@Test
 	public final void testGetVersion() {
 		// Get the version of the manifest file.
-		final byte version = manifest.getVersion();
+		final byte version = PacROMSetManifest.getVersion();
 		// Print the version.
 		System.out.println("PacROMSetManifest Version: " + version);
 		// Assert whether the two variables are equal to each other.
-		assertEquals(version, TEST_VERSION);
+		assertEquals(version, PacROMSetManifest.VERSION);
 	}
 	
 	@Test
