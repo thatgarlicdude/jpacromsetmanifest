@@ -19,6 +19,7 @@ package io.github.thatgarlicdude.pacromset.manifest;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.List;
 import java.util.Objects;
 
 public final class PacROMSetManifestWriter implements Closeable {
@@ -34,7 +35,8 @@ public final class PacROMSetManifestWriter implements Closeable {
 		writeMagic();
 		// Then write the current version.
 		writeVersion();
-		// TODO: Write the contents to the file.
+		// Write the entries an each ROM list in the manifest.
+		writeROMList(pacROMSetManifest.getProgramROMList());
 		// Close the file.
 		close();
 	}
@@ -49,6 +51,45 @@ public final class PacROMSetManifestWriter implements Closeable {
 		outputStream.write(PacROMSetManifest.getVersion());
 	}
 	
+	private final void writeROMList(
+			final List<PacROMSetManifestEntry> romList)
+					throws IOException {
+		// Get the size of the ROM list.
+		final int size = romList.size();
+		// Go through each of the entries in the ROM list.
+		for (int index = 0; index < size; index++) {
+			writeManifestEntry(romList.get(index));
+		}
+	}
+	
+	/*
+	 *  TODO: Add an parameter indicating there are more entries in the
+	 *  same ROM list.
+	 */
+	
+	private final void writeManifestEntry(
+			final PacROMSetManifestEntry entry) throws IOException {
+		// Write the name of the manifest entry.
+		writeName(entry.getName());
+		// Initialize the metadata.
+		int metadata = 0;
+		metadata = (metadata | entry.getSize());
+		// Write the metadata in big-endian.
+		for (int index = 8; index > -1; index = index - 8) {
+			outputStream.write((metadata >> index) & 0xFF);
+		}
+	}
+	
+	private final void writeName(final String name)
+			throws IOException {
+		// Get the bytes from the manifest entry name.
+		final byte[] nameBytes = name.getBytes();
+		// Write the bytes onto the outputStream.
+		outputStream.write(nameBytes);
+		// Write the null terminator at the end.
+		outputStream.write(0);
+	}
+	
 	@Override
 	public final void close() throws IOException {
 		// Close the OutputStream.
@@ -59,7 +100,9 @@ public final class PacROMSetManifestWriter implements Closeable {
 			final PacROMSetManifest pacROMSetManifest,
 			final OutputStream outputStream) {
 		// Set up the variables that shouldn't be null.
-		this.pacROMSetManifest = Objects.requireNonNull(pacROMSetManifest);
-		this.outputStream = Objects.requireNonNull(outputStream);
+		this.pacROMSetManifest =
+				Objects.requireNonNull(pacROMSetManifest);
+		this.outputStream =
+				Objects.requireNonNull(outputStream);
 	}
 }
