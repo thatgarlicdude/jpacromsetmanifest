@@ -25,8 +25,6 @@ public class PacROMSetManifest {
 	
 	public static final String EXTENSION = "pacromsetmanifest";
 	
-	public static final byte LIST_SEPARATOR = 0x1D;
-	
 	private final byte version;
 	
 	private final List<PacROMSetManifestEntry> programROMList;
@@ -49,11 +47,6 @@ public class PacROMSetManifest {
 	public static final String getExtension() {
 		// Return the file extension used to label the manifest files.
 		return EXTENSION;
-	}
-	
-	public static final byte getListSeparator() {
-		// Return the list separator byte.
-		return LIST_SEPARATOR;
 	}
 	
 	public final byte getVersion() {
