@@ -59,6 +59,22 @@ public final class PacROMSetManifestEntry {
 		return this.required;
 	}
 	
+	public final PacROMSetManifestEntry withName(final String name) {
+		// Return a new manifest entry with the new name.
+		return new PacROMSetManifestEntry(name, this.size, this.required);
+	}
+	
+	public final PacROMSetManifestEntry withSize(final int size) {
+		// Return a new manifest entry with the new name.
+		return new PacROMSetManifestEntry(this.name, size, this.required);
+	}
+	
+	public final PacROMSetManifestEntry withRequired(
+			final boolean required) {
+		// Return a new manifest entry with the new necessity.
+		return new PacROMSetManifestEntry(this.name, this.size, required);
+	}
+	
 	public PacROMSetManifestEntry(
 			final String name,
 			final int size,
