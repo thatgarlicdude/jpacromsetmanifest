@@ -72,9 +72,11 @@ public final class PacROMSetManifestWriter implements Closeable {
 		writeName(entry.getName());
 		// Initialize the metadata.
 		int metadata = 0;
-		metadata = (metadata | entry.getSize());
-		metadata = (metadata | (entry.isRequired() ? 1 : 0) << 14);
-		metadata = (metadata | (isContinuous ? 1 : 0) << 15);
+		metadata |= entry.getSize();
+		metadata |= entry.isRequired() ?
+				PacROMSetManifestEntry.REQUIRED_MASK : 0;
+		metadata |= isContinuous ?
+				PacROMSetManifestEntry.CONTINUOUS_MASK : 0;
 		// Write the metadata in big-endian.
 		for (int index = 8; index > -1; index = index - 8) {
 			outputStream.write((metadata >> index) & 0xFF);
