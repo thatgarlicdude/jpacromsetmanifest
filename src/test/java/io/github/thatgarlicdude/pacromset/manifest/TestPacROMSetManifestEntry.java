@@ -53,6 +53,34 @@ public final class TestPacROMSetManifestEntry {
 		assertEquals(minSize, PacROMSetManifestEntry.MIN_SIZE);
 	}
 	
+	@Test 
+	public final void testGetRequiredMask() {
+		// Get the required flag mask for the manifest metadata.
+		final int requiredMask =
+				PacROMSetManifestEntry.getRequiredMask();
+		// Print the output.
+		System.out.println(
+				"Manifest entry required mask" + requiredMask);
+		// Assert whether the two flags are equal.
+		assertEquals(
+				requiredMask,
+				PacROMSetManifestEntry.REQUIRED_MASK);
+	}
+	
+	@Test
+	public final void testGetContinuousMask() {
+		// Get the continuous flag mask for the manifest metadata.
+		final int continuousMask =
+				PacROMSetManifestEntry.getContinuousMask();
+		// Print the output.
+		System.out.println(
+				"Manifest entry continuous mask" + continuousMask);
+		// Assert whether the two flags are equal.
+		assertEquals(
+				continuousMask,
+				PacROMSetManifestEntry.CONTINUOUS_MASK);
+	}
+	
 	@Test
 	public final void testGetName() {
 		// Get the name of the test PacROMSetManifestEntry instance.
