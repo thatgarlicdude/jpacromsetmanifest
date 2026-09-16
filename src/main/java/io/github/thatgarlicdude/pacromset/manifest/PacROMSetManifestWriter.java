@@ -67,24 +67,25 @@ public final class PacROMSetManifestWriter implements Closeable {
 	
 	private final void writeManifestEntry(
 			final PacROMSetManifestEntry entry) throws IOException {
-		// Write the name of the manifest entry.
+		// Write the manifest entry's data.
 		writeName(entry.getName());
-		// Get the size.
-		int size = entry.getSize();
-		// Write the size in big-endian.
-		for (int index = 8; index > -1; index = index - 8) {
-			outputStream.write(size >> index);
-		}
+		writeSize(entry.getSize());
 	}
 	
-	private final void writeName(final String name)
-			throws IOException {
+	private final void writeName(final String name) throws IOException {
 		// Get the bytes from the manifest entry name.
 		final byte[] nameBytes = name.getBytes();
 		// Write the bytes onto the outputStream.
 		outputStream.write(nameBytes);
 		// Write the null terminator at the end.
 		outputStream.write(0);
+	}
+	
+	private final void writeSize(final int size) throws IOException {
+		// Write the size in big-endian.
+		for (int index = 8; index > -1; index = index - 8) {
+			outputStream.write(size >> index);
+		}
 	}
 	
 	@Override
