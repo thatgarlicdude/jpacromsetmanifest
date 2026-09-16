@@ -56,6 +56,8 @@ public final class PacROMSetManifestWriter implements Closeable {
 					throws IOException {
 		// Get the size of the ROM list.
 		final int size = romList.size();
+		// Write the size of the manifest list first.
+		outputStream.write(size);
 		// Go through each of the entries in the ROM list.
 		for (int index = 0; index < size; index++) {
 			// Assign if there are more entries in the ROM list.
