@@ -60,28 +60,20 @@ public final class PacROMSetManifestWriter implements Closeable {
 		outputStream.write(size);
 		// Go through each of the entries in the ROM list.
 		for (int index = 0; index < size; index++) {
-			// Assign if there are more entries in the ROM list.
-			final boolean isContinuous = index != size - 1;
 			// Write the manifest entry.
-			writeManifestEntry(romList.get(index), isContinuous);
+			writeManifestEntry(romList.get(index));
 		}
 	}
 	
 	private final void writeManifestEntry(
-			final PacROMSetManifestEntry entry,
-			final boolean isContinuous) throws IOException {
+			final PacROMSetManifestEntry entry) throws IOException {
 		// Write the name of the manifest entry.
 		writeName(entry.getName());
-		// Initialize the metadata.
-		int metadata = 0;
-		metadata |= entry.getSize();
-		metadata |= entry.isRequired() ?
-				PacROMSetManifestEntry.REQUIRED_MASK : 0;
-		metadata |= isContinuous ?
-				PacROMSetManifestEntry.CONTINUOUS_MASK : 0;
-		// Write the metadata in big-endian.
+		// Get the size.
+		int size = entry.getSize();
+		// Write the size in big-endian.
 		for (int index = 8; index > -1; index = index - 8) {
-			outputStream.write((metadata >> index) & 0xFF);
+			outputStream.write(size >> index);
 		}
 	}
 	
