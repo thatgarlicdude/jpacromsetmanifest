@@ -25,13 +25,8 @@ public final class TestPacROMSetManifestEntry {
 	
 	private static final int TEST_SIZE = 256;
 	
-	private static final boolean TEST_REQUIRED = true;
-	
 	private final PacROMSetManifestEntry manifestEntry =
-			new PacROMSetManifestEntry(
-					TEST_NAME,
-					TEST_SIZE,
-					TEST_REQUIRED);
+			new PacROMSetManifestEntry(TEST_NAME, TEST_SIZE);
 	
 	@Test
 	public final void testGetMaxSize() {
@@ -53,34 +48,6 @@ public final class TestPacROMSetManifestEntry {
 		assertEquals(minSize, PacROMSetManifestEntry.MIN_SIZE);
 	}
 	
-	@Test 
-	public final void testGetRequiredMask() {
-		// Get the required flag mask for the manifest metadata.
-		final int requiredMask =
-				PacROMSetManifestEntry.getRequiredMask();
-		// Print the output.
-		System.out.println(
-				"Manifest entry required mask" + requiredMask);
-		// Assert whether the two flags are equal.
-		assertEquals(
-				requiredMask,
-				PacROMSetManifestEntry.REQUIRED_MASK);
-	}
-	
-	@Test
-	public final void testGetContinuousMask() {
-		// Get the continuous flag mask for the manifest metadata.
-		final int continuousMask =
-				PacROMSetManifestEntry.getContinuousMask();
-		// Print the output.
-		System.out.println(
-				"Manifest entry continuous mask" + continuousMask);
-		// Assert whether the two flags are equal.
-		assertEquals(
-				continuousMask,
-				PacROMSetManifestEntry.CONTINUOUS_MASK);
-	}
-	
 	@Test
 	public final void testGetName() {
 		// Get the name of the test PacROMSetManifestEntry instance.
@@ -99,16 +66,6 @@ public final class TestPacROMSetManifestEntry {
 		System.out.println("Test manifest entry size: " + size);
 		// Assert whether the two sizes are equal.
 		assertEquals(size, TEST_SIZE);
-	}
-	
-	@Test
-	public final void testIsRequired() {
-		// Get the necessity of the test PacROMSetManifestEntry instance.
-		final boolean required = manifestEntry.isRequired();
-		// Print the output.
-		System.out.println("Test manifest entry required: " + required);
-		// Assert whether the two necessities are equal.
-		assertEquals(required, TEST_REQUIRED);
 	}
 	
 	@Test
@@ -141,24 +98,5 @@ public final class TestPacROMSetManifestEntry {
 		// Assert these values.
 		assertNotNull(newManifestEntry);
 		assertEquals(size, newSize);
-	}
-	
-	@Test
-	public final void testWithRequired() {
-		// Initialize the new necessity.
-		final boolean newRequired = false;
-		/*
-		 * Create a PacROMSetManifestEntry instance with the new
-		 * necessity.
-		 */
-		final PacROMSetManifestEntry newManifestEntry =
-				manifestEntry.withRequired(newRequired);
-		// Get the necessity from the new PacROMSetManifestEntry instance.
-		final boolean required = newManifestEntry.isRequired();
-		// Print the output.
-		System.out.println("New manifest entry required: " + required);
-		// Assert these values.
-		assertNotNull(newManifestEntry);
-		assertEquals(required, newRequired);
 	}
 }

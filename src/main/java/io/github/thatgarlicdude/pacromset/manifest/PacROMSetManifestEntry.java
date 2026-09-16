@@ -22,26 +22,19 @@ public final class PacROMSetManifestEntry {
 	
 	private static final String ERROR_MESSAGE =
 			"PacROMSetManifestEntry's size is out of range. It must be"
-			+ "within 0 or 16,383.";
+			+ "within 0 or 65,535.";
 	
-	public static final int MAX_SIZE = 0x3FFF;
+	public static final int MAX_SIZE = 0xFFFF;
 	
 	public static final int MIN_SIZE = 0;
-	
-	public static final int REQUIRED_MASK = 0x4000;
-	
-	public static final int CONTINUOUS_MASK = 0x8000;
 	
 	private final String name;
 	
 	private final int size;
 	
-	private final boolean required;
-	
 	public PacROMSetManifestEntry(
 			final String name,
-			final int size,
-			final boolean required) {
+			final int size) {
 		// Throw an error if the size is out of range.
 		if (size < MIN_SIZE || size > MAX_SIZE) {
 			throw new IllegalArgumentException(ERROR_MESSAGE);
@@ -49,7 +42,6 @@ public final class PacROMSetManifestEntry {
 		// Set the variables in the instance.
 		this.name = Objects.requireNonNull(name);
 		this.size = size;
-		this.required = required;
 	}
 	
 	public static final int getMaxSize() {
@@ -62,16 +54,6 @@ public final class PacROMSetManifestEntry {
 		return MIN_SIZE;
 	}
 	
-	public static final int getRequiredMask() {
-		// Return the mask used for the isRequired flag of the entry.
-		return REQUIRED_MASK;
-	}
-	
-	public static final int getContinuousMask() {
-		// Return the mask used for the isContinuous flag of the entry.
-		return CONTINUOUS_MASK;
-	}
-	
 	public final String getName() {
 		// Return the name of the manifest entry.
 		return this.name;
@@ -82,24 +64,13 @@ public final class PacROMSetManifestEntry {
 		return this.size;
 	}
 	
-	public final boolean isRequired() {
-		// Return the necessity of the manifest entry.
-		return this.required;
-	}
-	
 	public final PacROMSetManifestEntry withName(final String name) {
 		// Return a new manifest entry with the new name.
-		return new PacROMSetManifestEntry(name, this.size, this.required);
+		return new PacROMSetManifestEntry(name, this.size);
 	}
 	
 	public final PacROMSetManifestEntry withSize(final int size) {
 		// Return a new manifest entry with the new name.
-		return new PacROMSetManifestEntry(this.name, size, this.required);
-	}
-	
-	public final PacROMSetManifestEntry withRequired(
-			final boolean required) {
-		// Return a new manifest entry with the new necessity.
-		return new PacROMSetManifestEntry(this.name, this.size, required);
+		return new PacROMSetManifestEntry(this.name, size);
 	}
 }

@@ -33,23 +33,29 @@ public final class TestPacROMSetManifestWriter {
 		pacROMSetManifest =
 				PacROMSetManifests.newPacROMSetManifestCherry();
 		// Set up the program ROM list.
-		final List<PacROMSetManifestEntry> programROMList =
+		final List<PacROMSetManifestEntry> programList =
 				pacROMSetManifest.getProgramROMList();
-		// Set up the first program ROM entry.
-		final PacROMSetManifestEntry programROMEntry1 =
+		// Set up the first program entry.
+		final PacROMSetManifestEntry programEntry1 =
 				new PacROMSetManifestEntry(
-						"test_prog1.bin",
-						256,
-						true);
-		// Set up the second program ROM entry.
-		final PacROMSetManifestEntry programROMEntry2 =
+						"test_program1.bin", 0x1FF);
+		// Set up the second program entry.
+		final PacROMSetManifestEntry programEntry2 =
 				new PacROMSetManifestEntry(
-						"test_prog2.bin",
-						256,
-						true);
+						"test_program2.bin", 0x1FF);
+		// Set up the second program entry.
+		final PacROMSetManifestEntry programEntry3 =
+				new PacROMSetManifestEntry(
+						"test_program3.bin", 0x1FF);
+		// Set up the second program entry.
+		final PacROMSetManifestEntry programEntry4 =
+				new PacROMSetManifestEntry(
+						"test_program4.bin", 0x1FF);
 		// Add the entries to the list.
-		programROMList.add(programROMEntry1);
-		programROMList.add(programROMEntry2);
+		programList.add(programEntry1);
+		programList.add(programEntry2);
+		programList.add(programEntry3);
+		programList.add(programEntry4);
 	}
 	
 	@Test
