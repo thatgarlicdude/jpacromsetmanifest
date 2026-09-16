@@ -30,6 +30,16 @@ public final class PacROMSetManifestWriter implements Closeable {
 	
 	private final OutputStream outputStream;
 	
+	public PacROMSetManifestWriter(
+			final PacROMSetManifest pacROMSetManifest,
+			final OutputStream outputStream) {
+		// Set up the variables that shouldn't be null.
+		this.pacROMSetManifest =
+				Objects.requireNonNull(pacROMSetManifest);
+		this.outputStream =
+				Objects.requireNonNull(outputStream);
+	}
+	
 	public final void write() throws IOException {
 		// Write the magic signature at the start of the file.
 		writeMagic();
@@ -92,15 +102,5 @@ public final class PacROMSetManifestWriter implements Closeable {
 	public final void close() throws IOException {
 		// Close the OutputStream.
 		outputStream.close();
-	}
-	
-	public PacROMSetManifestWriter(
-			final PacROMSetManifest pacROMSetManifest,
-			final OutputStream outputStream) {
-		// Set up the variables that shouldn't be null.
-		this.pacROMSetManifest =
-				Objects.requireNonNull(pacROMSetManifest);
-		this.outputStream =
-				Objects.requireNonNull(outputStream);
 	}
 }
