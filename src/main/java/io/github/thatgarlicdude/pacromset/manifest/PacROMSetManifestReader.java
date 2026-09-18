@@ -19,7 +19,9 @@ package io.github.thatgarlicdude.pacromset.manifest;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public final class PacROMSetManifestReader {
@@ -39,6 +41,9 @@ public final class PacROMSetManifestReader {
 		checkMagic();
 		// Then check the version of the manifest file.
 		checkVersion();
+		// Read the program list in the manifest file.
+		final List<PacROMSetManifestEntry> programList =
+				readManifestList();
 		// Return the loaded manifest.
 		return manifest;
 	}
@@ -75,5 +80,23 @@ public final class PacROMSetManifestReader {
 		if (version != PacROMSetManifest.VERSION) {
 			throw new IOException("Invalid PacROMSetManifest version");
 		}
+	}
+	
+	private final List<PacROMSetManifestEntry> readManifestList()
+			throws IOException {
+		// Initialize the manifest list first.
+		final List<PacROMSetManifestEntry> manifestList =
+				new ArrayList<PacROMSetManifestEntry>();
+		// Read the size of the manifest list.
+		final int size = inputStream.read();
+		// Make sure there's a size variable in the manifest list.
+		if (size == -1) {
+			throw new EOFException("Manifest list size not found");
+		}
+		// Go through each of the manifest entries in the list.
+		for (int index = 0; index < size; index++) {
+			// TODO: Read the manifest entries.
+		}
+		return manifestList;
 	}
 }
