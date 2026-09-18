@@ -69,14 +69,14 @@ public final class PacROMSetManifestWriter implements Closeable {
 	private final void writeManifestList(
 			final List<PacROMSetManifestEntry> manifestList)
 					throws IOException {
-		// Get the size of the manifest list.
-		final int size = manifestList.size();
 		/**
 		 * TODO: Implement a proper maximum size cap for the manifest
 		 * list.
 		 */
+		// Get the size of the manifest list.
+		final int size = Math.min(manifestList.size(), 0xFF);
 		// Write the size of the manifest list first.
-		outputStream.write(Math.min(size, 0xFF));
+		outputStream.write(size);
 		// Go through each of the entries in the manifest list.
 		for (int index = 0; index < size; index++) {
 			// Write the manifest entry.
