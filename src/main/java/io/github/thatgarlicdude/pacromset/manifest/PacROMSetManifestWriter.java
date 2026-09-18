@@ -92,8 +92,8 @@ public final class PacROMSetManifestWriter implements Closeable {
 		final byte[] nameBytes = name.getBytes();
 		// Write the bytes onto the outputStream.
 		outputStream.write(nameBytes);
-		// Write the null terminator at the end.
-		outputStream.write(0);
+		// Write the name terminator at the end.
+		outputStream.write(PacROMSetManifestEntry.NAME_TERMINATOR);
 	}
 	
 	private final void writeSize(final int size) throws IOException {
