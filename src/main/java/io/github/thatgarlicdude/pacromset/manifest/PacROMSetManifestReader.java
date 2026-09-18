@@ -36,8 +36,6 @@ public final class PacROMSetManifestReader {
 	}
 	
 	public final PacROMSetManifest read() throws IOException {
-		// Create the manifest to memory.
-		final PacROMSetManifest manifest = null;
 		// Check the magic signature from the file first.
 		checkMagic();
 		// Then check the version of the manifest file.
@@ -45,8 +43,29 @@ public final class PacROMSetManifestReader {
 		// Read the program list in the manifest file.
 		final List<PacROMSetManifestEntry> programList =
 				readManifestList();
+		// Read the graphic list in the manifest file.
+		final List<PacROMSetManifestEntry> graphicList =
+				readManifestList();
+		// Read the color list in the manifest file.
+		final List<PacROMSetManifestEntry> colorList =
+				readManifestList();
+		// Read the palette list in the manifest file.
+		final List<PacROMSetManifestEntry> paletteList =
+				readManifestList();
+		// Read the sound list in the manifest file.
+		final List<PacROMSetManifestEntry> soundList =
+				readManifestList();
+		// Read the mystery list in the manifest file.
+		final List<PacROMSetManifestEntry> mysteryList =
+				readManifestList();
 		// Return the loaded manifest.
-		return manifest;
+		return new PacROMSetManifest(
+				programList,
+				graphicList,
+				colorList,
+				paletteList,
+				soundList,
+				mysteryList);
 	}
 	
 	private final void checkMagic() throws IOException {
