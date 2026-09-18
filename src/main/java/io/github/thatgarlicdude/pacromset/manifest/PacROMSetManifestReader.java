@@ -47,7 +47,7 @@ public final class PacROMSetManifestReader {
 		// Go through each of the bytes in the original magic signature.
 		for (int index = 0; index < originalMagicSize; index++) {
 			System.out.println("Magic index #" + index + ": "
-					+ originalMagicBytes[index]);
+					+ (char) originalMagicBytes[index]);
 		}
 	}
 }
