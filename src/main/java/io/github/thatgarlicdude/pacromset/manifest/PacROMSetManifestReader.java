@@ -37,6 +37,8 @@ public final class PacROMSetManifestReader {
 		final PacROMSetManifest manifest = null;
 		// Check the magic signature from the file first.
 		checkMagic();
+		// Then check the version of the manifest file.
+		checkVersion();
 		// Return the loaded manifest.
 		return manifest;
 	}
@@ -58,6 +60,20 @@ public final class PacROMSetManifestReader {
 		if (!Arrays.equals(magicBytes1, magicBytes2)) {
 			// Throw an error if the magic signatures don't match.
 			throw new IOException("Invalid PacROMSetManifest signature");
+		}
+	}
+	
+	private final void checkVersion() throws IOException {
+		// Read the version of the manifest file.
+		final int version = inputStream.read();
+		// Make sure there's a version number in the file.
+		if (version == -1) {
+			// Throw an error if there isn't a version number.
+			throw new EOFException("PacROMSetManifest version not found");
+		}
+		// Make sure the manifest file is on a correct version.
+		if (version != PacROMSetManifest.VERSION) {
+			throw new IOException("Invalid PacROMSetManifest version");
 		}
 	}
 }
