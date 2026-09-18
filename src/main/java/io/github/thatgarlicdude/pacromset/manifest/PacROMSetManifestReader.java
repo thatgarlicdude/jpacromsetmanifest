@@ -16,6 +16,7 @@
 
 package io.github.thatgarlicdude.pacromset.manifest;
 
+import java.io.ByteArrayOutputStream;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -95,8 +96,61 @@ public final class PacROMSetManifestReader {
 		}
 		// Go through each of the manifest entries in the list.
 		for (int index = 0; index < size; index++) {
-			// TODO: Read the manifest entries.
+			// Read the manifest entry, and add it to the list.
+			final PacROMSetManifestEntry manifestEntry =
+					readManifestEntry();
+			manifestList.add(manifestEntry);
 		}
+		// Return the loaded manifest list.
 		return manifestList;
+	}
+	
+	private final PacROMSetManifestEntry readManifestEntry()
+			throws IOException {
+		// Read the name from the file first.
+		final String name = readName();
+		// Then the size.
+		final int size = readSize();
+		// Return a new manifest entry with the loaded name and size.
+		return new PacROMSetManifestEntry(name, size);
+	}
+	
+	private final String readName() throws IOException {
+		// Initialize the byte array output stream.
+		final ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+		// Initialize the current byte.
+		int readByte = 0;
+		// Read the bytes until it hits the name terminator.
+		while ((readByte = inputStream.read()) !=
+				PacROMSetManifestEntry.NAME_TERMINATOR) {
+			// Make sure the file doesn't end midway through.
+			if (readByte == -1) {
+				// Throw an error if it does.
+				throw new EOFException("Incomplete manifest entry name");
+			}
+			// Write the read byte onto the byte array output stream.
+			bytes.write(readByte);
+		}
+		// Return the byte array as a string.
+		return new String(bytes.toByteArray());
+	}
+	
+	private final int readSize() throws IOException {
+		// Initialize the size.
+		int size = 0;
+		// Read the manifest entry's size in big-endian.
+		for (int index = 8; index > -1; index = index - 8) {
+			// Read the current size byte.
+			final int sizeByte = inputStream.read();
+			// Make sure the file doesn't end midway through.
+			if (sizeByte == -1) {
+				// Throw an error if it does.
+				throw new EOFException("Incomplete manifest entry size");
+			}
+			// Put the sizeByte in its respective position.
+			size |= sizeByte << index;
+		}
+		// Return the size.
+		return size;
 	}
 }
