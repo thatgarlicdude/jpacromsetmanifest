@@ -17,6 +17,7 @@
 package io.github.thatgarlicdude.pacromset.manifest;
 
 import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,7 +26,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public final class PacROMSetManifestReader {
+public final class PacROMSetManifestReader implements Closeable {
 	
 	private final InputStream inputStream;
 	
@@ -171,5 +172,11 @@ public final class PacROMSetManifestReader {
 		}
 		// Return the size.
 		return size;
+	}
+
+	@Override
+	public void close() throws IOException {
+		// Close the input stream.
+		inputStream.close();
 	}
 }
