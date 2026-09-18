@@ -22,10 +22,10 @@ import org.junit.Test;
 public final class TestPacROMSetManifests {
 	
 	@Test
-	public final void testNewPacROMSetManifestCherry() {
+	public final void testCreate() {
 		// Automatically set up the PacROMSetManifest instance.
 		final PacROMSetManifest pacROMSetManifest =
-				PacROMSetManifests.newPacROMSetManifestCherry();
+				PacROMSetManifests.create();
 		// Assert if it's not null.
 		assertNotNull(pacROMSetManifest);
 	}

@@ -17,12 +17,13 @@
 package io.github.thatgarlicdude.pacromset.manifest;
 
 import java.lang.UnsupportedOperationException;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
 public final class PacROMSetManifests {
 	
-	public static final PacROMSetManifest newPacROMSetManifestCherry() {
+	public static final PacROMSetManifest create() {
 		// Initialize the program ROM list.
 		final List<PacROMSetManifestEntry> programROMList =
 				new ArrayList<PacROMSetManifestEntry>();
@@ -52,6 +53,22 @@ public final class PacROMSetManifests {
 	}
 	
 	// TODO: Add savePacROMSetManifestCherry() and loadPacROMSetManifest().
+	
+	public static final void save(final String path) {
+		return;
+	}
+	
+	public static final void save(final Path path) {
+		return;
+	}
+	
+	public static final PacROMSetManifest load(final String path) {
+		return null;
+	}
+	
+	public static final PacROMSetManifest load(final Path path) {
+		return null;
+	}
 	
 	private PacROMSetManifests() {
 		// Throw the error in case the constructor was actually called.

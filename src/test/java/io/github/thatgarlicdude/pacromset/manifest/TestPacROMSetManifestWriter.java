@@ -31,7 +31,7 @@ public final class TestPacROMSetManifestWriter {
 	public final void initPacROMSetManifest() {
 		// Automatically initialize the PacROMSetManifest.
 		pacROMSetManifest =
-				PacROMSetManifests.newPacROMSetManifestCherry();
+				PacROMSetManifests.create();
 		// Initialize the manifest's lists.
 		initProgramList();
 		initGraphicList();
