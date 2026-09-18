@@ -28,6 +28,8 @@ public final class PacROMSetManifestEntry {
 	
 	public static final int MIN_SIZE = 0;
 	
+	public static final byte NAME_TERMINATOR = -1;
+	
 	private final String name;
 	
 	private final int size;
@@ -52,6 +54,11 @@ public final class PacROMSetManifestEntry {
 	public static final int getMinSize() {
 		// Return the min size of the manifest entry.
 		return MIN_SIZE;
+	}
+	
+	public static final byte getNameTerminator() {
+		// Return the terminator for the manifest entry's name.
+		return NAME_TERMINATOR;
 	}
 	
 	public final String getName() {
