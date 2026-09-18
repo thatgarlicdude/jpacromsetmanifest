@@ -46,12 +46,12 @@ public final class PacROMSetManifestWriter implements Closeable {
 		// Then write the current version.
 		writeVersion();
 		// Write the entries an each ROM list in the manifest.
-		writeROMList(pacROMSetManifest.getProgramROMList());
-		writeROMList(pacROMSetManifest.getGraphicROMList());
-		writeROMList(pacROMSetManifest.getColorROMList());
-		writeROMList(pacROMSetManifest.getPaletteROMList());
-		writeROMList(pacROMSetManifest.getSoundROMList());
-		writeROMList(pacROMSetManifest.getMysteryROMList());
+		writeManifestList(pacROMSetManifest.getProgramROMList());
+		writeManifestList(pacROMSetManifest.getGraphicROMList());
+		writeManifestList(pacROMSetManifest.getColorROMList());
+		writeManifestList(pacROMSetManifest.getPaletteROMList());
+		writeManifestList(pacROMSetManifest.getSoundROMList());
+		writeManifestList(pacROMSetManifest.getMysteryROMList());
 		// Close the file.
 		close();
 	}
@@ -66,17 +66,17 @@ public final class PacROMSetManifestWriter implements Closeable {
 		outputStream.write(PacROMSetManifest.getVersion());
 	}
 	
-	private final void writeROMList(
-			final List<PacROMSetManifestEntry> romList)
+	private final void writeManifestList(
+			final List<PacROMSetManifestEntry> manifestList)
 					throws IOException {
-		// Get the size of the ROM list.
-		final int size = romList.size();
+		// Get the size of the manifest list.
+		final int size = manifestList.size();
 		// Write the size of the manifest list first.
 		outputStream.write(size);
-		// Go through each of the entries in the ROM list.
+		// Go through each of the entries in the manifest list.
 		for (int index = 0; index < size; index++) {
 			// Write the manifest entry.
-			writeManifestEntry(romList.get(index));
+			writeManifestEntry(manifestList.get(index));
 		}
 	}
 	
