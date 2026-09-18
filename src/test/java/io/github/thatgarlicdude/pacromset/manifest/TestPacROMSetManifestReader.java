@@ -18,6 +18,7 @@ package io.github.thatgarlicdude.pacromset.manifest;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.List;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -37,9 +38,26 @@ public final class TestPacROMSetManifestReader {
 		// Create the file input stream with the path.
 		final FileInputStream fileInputStream =
 				new FileInputStream(testPath);
+		// Create the manifest reader.
 		final PacROMSetManifestReader pacROMSetManifestReader =
 				new PacROMSetManifestReader(fileInputStream);
+		// Load the manifest with the reader.
 		final PacROMSetManifest manifest =
 				pacROMSetManifestReader.read();
+		// Close the input classes.
+		fileInputStream.close();
+		pacROMSetManifestReader.close();
+		// Assert whether the manifest is not null.
+		assertNotNull(manifest);
+		// Get the program list.
+		final List<PacROMSetManifestEntry> programList =
+				manifest.getProgramROMList();
+		// Print each of the entries in the program list.
+		for (int index = 0; index < programList.size(); index++) {
+			System.out.println("Program entry #" + index + " name: "
+					+ programList.get(index).getName());
+			System.out.println("Program entry #" + index + " size: "
+					+ programList.get(index).getSize());
+		}
 	}
 }
