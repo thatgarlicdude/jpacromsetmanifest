@@ -156,7 +156,7 @@ public final class TestPacROMSetManifestWriter {
 	@Test
 	public final void testWrite() throws IOException {
 		// Initialize the file path.
-		final String filePath = "./testWrite.pacromsetmanifest";
+		final String filePath = "./testWrite1.pacromsetmanifest";
 		// Get the absolute path to the testWrite.pacromsetmanifest file.
 		final String testPath = TestPacROMSetManifestWriter
 				.class
