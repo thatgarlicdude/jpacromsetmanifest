@@ -16,8 +16,10 @@
 
 package io.github.thatgarlicdude.pacromset.manifest;
 
+import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.Objects;
 
 public final class PacROMSetManifestReader {
@@ -40,14 +42,22 @@ public final class PacROMSetManifestReader {
 	}
 	
 	private final void checkMagic() throws IOException {
-		// Initialize the variables regarding the magic signature.
-		final String originalMagic = PacROMSetManifest.MAGIC;
-		final byte[] originalMagicBytes = originalMagic.getBytes();
-		final int originalMagicSize = originalMagicBytes.length;
-		// Go through each of the bytes in the original magic signature.
-		for (int index = 0; index < originalMagicSize; index++) {
-			System.out.println("Magic index #" + index + ": "
-					+ (char) originalMagicBytes[index]);
+		// Get the bytes from the base magic signature.
+		final byte[] magicBytes1 = PacROMSetManifest.MAGIC.getBytes();
+		// Create another byte array with the signature's length.
+		final byte[] magicBytes2 = new byte[magicBytes1.length];
+		// Read the magic signature in the file.
+		final int bytesRead = inputStream.read(magicBytes2);
+		// Make sure the amount of bytes read are correct.
+		if (bytesRead != magicBytes2.length) {
+			// Throw an error if the magic signature is incomplete.
+			throw new EOFException(
+					"Incomplete PacROMSetManifest signature");
+		}
+		// Make sure the magic signatures match.
+		if (!Arrays.equals(magicBytes1, magicBytes2)) {
+			// Throw an error if the magic signatures don't match.
+			throw new IOException("Invalid PacROMSetManifest signature");
 		}
 	}
 }
