@@ -14,14 +14,24 @@
  * limitations under the License.
  */
 
-// TODO: Maybe elaborate more on the package description.
-
 /**
- * The package that is used for working with <i>Pac-Man</i> ROM set
- * manifests.
+ * The main package of the <i>JPacROMSetManifest</i> Java library.
  * 
- * <p>This package is the main package that the Java library,
- * <i>JPacROMSetManifest</i>, uses.</p>
+ * <p>This package is used to work with manifests designed for the
+ * <i>Pac-Man</i> ROM set. It is a home for the {@link PacROMSetManifest},
+ * {@link PacROMSetManifestEntry}, and {@link PacROMSetManifests} classes.
+ * The {@link PacROMSetManifest} class is the main class that has
+ * categorized lists that contain entries called the
+ * {@link PacROMSetManifestEntry} class. The {@link PacROMSetManifestEntry}
+ * class contains data like the expected <b>name</b> and <b>size</b> of a
+ * <i>Pac-Man</i> ROM, and the {@link PacROMSetManifests} serves as an
+ * easy gateway for creating {@link PacROMSetManifest} instances, as well
+ * as reading and writing them to this system's disk. Additionally, the
+ * package has the {@link PacROMSetManifestReader} class, which reads
+ * <b>.pacromsetmanifest</b> files from disk, and the
+ * {@link PacROMSetManifestWriter} writes them to disk. The
+ * <i>JPacROMSetManifest</i> Java library is used at its core to work with
+ * <i>Pac-Man</i> ROM set manifests.</p>
  * 
  * @version 1.0.0
  * @author GarlicDude
