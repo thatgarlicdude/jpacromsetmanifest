@@ -28,6 +28,20 @@ public final class TestPacROMSetManifestEntry {
 	private final PacROMSetManifestEntry manifestEntry =
 			new PacROMSetManifestEntry(TEST_NAME, TEST_SIZE);
 	
+	public static final void check(final PacROMSetManifestEntry entry) {
+		// Get the variables in the manifest entry.
+		final String name = entry.getName();
+		final int size = entry.getSize();
+		// Print the variables to the output.
+		System.out.println("Manifest entry name: " + name);
+		System.out.println("Manifest entry size: " + size);
+		// Assert the two variables.
+		assertNotNull(name);
+		assertTrue(
+				size >= PacROMSetManifestEntry.MIN_SIZE ||
+				size <= PacROMSetManifestEntry.MAX_SIZE);
+	}
+	
 	@Test
 	public final void testGetMaxSize() {
 		// Get the max size of the PacROMSetManifestEntry class.
