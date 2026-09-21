@@ -115,6 +115,14 @@ public final class PacROMSetManifest {
 	 */
 	public static final byte VERSION = 1;
 	
+	/**
+	 * The list that can hold entries related to the <b>program</b> ROMs
+	 * in the <i>Pac-Man</i> ROM set.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #getProgramList()
+	 */
 	private final List<PacROMSetManifestEntry> programList;
 	
 	private final List<PacROMSetManifestEntry> graphicList;
