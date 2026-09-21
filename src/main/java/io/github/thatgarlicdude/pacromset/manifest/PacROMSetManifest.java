@@ -65,6 +65,9 @@ public final class PacROMSetManifest {
 	 * signature is used to make sure whether a file is actually a
 	 * <i>Pac-Man</i> ROM set manifest file.</p>
 	 * 
+	 * <p>Alternatively, the field can be obtained by calling the
+	 * {@link #getMagic()} method, which returns this value.</p>
+	 * 
 	 * @since 1.0.0
 	 * @author GarlicDude
 	 * @see #getMagic()
@@ -81,6 +84,9 @@ public final class PacROMSetManifest {
 	 * like {@code JFileChooser} and {@code JFileFilter}, since they can
 	 * filter files using this file extension.</p>
 	 * 
+	 * <p>Alternatively, the field can be obtained by calling the
+	 * {@link #getExtension()} method, which returns this value.</p>
+	 * 
 	 * @since 1.0.0
 	 * @author GarlicDude
 	 * @see #getExtension()
@@ -89,8 +95,7 @@ public final class PacROMSetManifest {
 	public static final String EXTENSION = "pacromsetmanifest";
 	
 	/**
-	 * The current version of the <i>Pac-Man</i> ROM set manifest, which
-	 * is {@value #VERSION}.
+	 * The current version of the <i>Pac-Man</i> ROM set manifest.
 	 * 
 	 * <p>This field is used to identify what version the ROM set manifest
 	 * is on. It is also written and read next to the {@link #MAGIC} when
@@ -102,7 +107,7 @@ public final class PacROMSetManifest {
 	 * trying to read or write onto disk.</p>
 	 * 
 	 * <p>Alternatively, the field can be obtained by calling the
-	 * {@link #getVersion()} method.</p>
+	 * {@link #getVersion()} method, which returns the value.</p>
 	 * 
 	 * @since 1.0.0
 	 * @author GarlicDude
