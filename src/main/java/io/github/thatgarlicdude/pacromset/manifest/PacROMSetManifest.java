@@ -57,7 +57,7 @@ public final class PacROMSetManifest {
 	 * The magic signature found at the beginning of a
 	 * <b>.pacromsetmanifest</b> file.
 	 * 
-	 * </p>This field is used to identify whether a file is truly a
+	 * <p>This field is used to identify whether a file is truly a
 	 * <i>Pac-Man</i> ROM set manifest file. It is written at the start
 	 * of a file whenever it is being saved to disk. When the file is
 	 * being loaded from disk, it must look for that signature before
@@ -72,6 +72,20 @@ public final class PacROMSetManifest {
 	 */
 	public static final String MAGIC = "PACROMSETMANIFEST";
 	
+	/**
+	 * The file extension for a <b>.pacromsetmanifest</b> file.
+	 * 
+	 * <p>This field is used to label files as <i>Pac-Man</i> ROM set
+	 * manifest files, not to be confused with {@link #MAGIC}, which
+	 * identifies them as one. This is especially useful for UI classes
+	 * like {@code JFileChooser} and {@code JFileFilter}, since they can
+	 * filter files using this file extension.</p>
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #getExtension()
+	 * @see #MAGIC
+	 */
 	public static final String EXTENSION = "pacromsetmanifest";
 	
 	public static final byte VERSION = 1;
@@ -87,6 +101,22 @@ public final class PacROMSetManifest {
 	private final List<PacROMSetManifestEntry> soundList;
 	
 	private final List<PacROMSetManifestEntry> mysteryList;
+	
+	public PacROMSetManifest(
+			final List<PacROMSetManifestEntry> programList,
+			final List<PacROMSetManifestEntry> graphicList,
+			final List<PacROMSetManifestEntry> colorList,
+			final List<PacROMSetManifestEntry> paletteList,
+			final List<PacROMSetManifestEntry> soundList,
+			final List<PacROMSetManifestEntry> mysteryList) {
+		// Set up each of the lists that shouldn't be null.
+		this.programList = Objects.requireNonNull(programList);
+		this.graphicList = Objects.requireNonNull(graphicList);
+		this.colorList = Objects.requireNonNull(colorList);
+		this.paletteList = Objects.requireNonNull(paletteList);
+		this.soundList = Objects.requireNonNull(soundList);
+		this.mysteryList = Objects.requireNonNull(mysteryList);
+	}
 	
 	public static final String getMagic() {
 		// Return the magic signature used for the manifest files.
@@ -131,21 +161,5 @@ public final class PacROMSetManifest {
 	public final List<PacROMSetManifestEntry> getMysteryList() {
 		// Return the mystery list.
 		return this.mysteryList;
-	}
-	
-	public PacROMSetManifest(
-			final List<PacROMSetManifestEntry> programList,
-			final List<PacROMSetManifestEntry> graphicList,
-			final List<PacROMSetManifestEntry> colorList,
-			final List<PacROMSetManifestEntry> paletteList,
-			final List<PacROMSetManifestEntry> soundList,
-			final List<PacROMSetManifestEntry> mysteryList) {
-		// Set up each of the lists that shouldn't be null.
-		this.programList = Objects.requireNonNull(programList);
-		this.graphicList = Objects.requireNonNull(graphicList);
-		this.colorList = Objects.requireNonNull(colorList);
-		this.paletteList = Objects.requireNonNull(paletteList);
-		this.soundList = Objects.requireNonNull(soundList);
-		this.mysteryList = Objects.requireNonNull(mysteryList);
 	}
 }
