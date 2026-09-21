@@ -145,10 +145,34 @@ public final class PacROMSetManifest {
 	 */
 	private final List<PacROMSetManifestEntry> colorList;
 	
+	/**
+	 * The list that can hold entries related to the <b>palette</b> ROMs
+	 * in the <i>Pac-Man</i> ROM set.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #getPaletteList()
+	 */
 	private final List<PacROMSetManifestEntry> paletteList;
 	
+	/**
+	 * The list that can hold entries related to the <b>sound</b> ROMs
+	 * in the <i>Pac-Man</i> ROM set.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #getSoundList()
+	 */
 	private final List<PacROMSetManifestEntry> soundList;
 	
+	/**
+	 * The list that can hold entries related to the <b>mystery</b> ROMs
+	 * in the <i>Pac-Man</i> ROM set.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #getMysteryList()
+	 */
 	private final List<PacROMSetManifestEntry> mysteryList;
 	
 	public PacROMSetManifest(
