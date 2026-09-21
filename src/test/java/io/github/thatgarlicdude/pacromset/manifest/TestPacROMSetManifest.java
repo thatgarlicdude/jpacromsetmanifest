@@ -32,6 +32,34 @@ public final class TestPacROMSetManifest {
 			new ArrayList<PacROMSetManifestEntry>(),
 			new ArrayList<PacROMSetManifestEntry>());
 	
+	public static final void check(final PacROMSetManifest manifest) {
+		// Assert if the manifest is not null.
+		assertNotNull(manifest);
+		// Check the program list.
+		check(manifest.getProgramROMList());
+		// Check the graphic list.
+		check(manifest.getGraphicROMList());
+		// Check the color list.
+		check(manifest.getColorROMList());
+		// Check the palette list.
+		check(manifest.getPaletteROMList());
+		// Check the sound list.
+		check(manifest.getPaletteROMList());
+		// Check the mystery list.
+		check(manifest.getMysteryROMList());
+	}
+	
+	public static final void check(
+			final List<PacROMSetManifestEntry> list) {
+		// Assert if the list is not null.
+		assertNotNull(list);
+		// Go through each of the entries in the list.
+		for (final PacROMSetManifestEntry entry : list) {
+			// Check if the entry is valid.
+			TestPacROMSetManifestEntry.check(entry);
+		}
+	}
+	
 	@Test
 	public final void testGetVersion() {
 		// Get the version of the manifest file.
