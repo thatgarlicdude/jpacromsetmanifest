@@ -53,6 +53,8 @@ public final class TestPacROMSetManifest {
 			final List<PacROMSetManifestEntry> list) {
 		// Assert if the list is not null.
 		assertNotNull(list);
+		// Print the size of the list.
+		System.out.println("Manifest list size: " + list.size());
 		// Go through each of the entries in the list.
 		for (final PacROMSetManifestEntry entry : list) {
 			// Check if the entry is valid.
