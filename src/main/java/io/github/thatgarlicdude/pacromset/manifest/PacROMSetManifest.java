@@ -88,6 +88,26 @@ public final class PacROMSetManifest {
 	 */
 	public static final String EXTENSION = "pacromsetmanifest";
 	
+	/**
+	 * The current version of the <i>Pac-Man</i> ROM set manifest, which
+	 * is {@value #VERSION}.
+	 * 
+	 * <p>This field is used to identify what version the ROM set manifest
+	 * is on. It is also written and read next to the {@link #MAGIC} when
+	 * a <b>.pacromsetmanifest</b> file is being accessed from the
+	 * system's disk. It is especially important because, in the future,
+	 * the <i>JPacROMSetManifest</i> Java library may change or introduce
+	 * things to the manifest and its entries. The system should not be
+	 * confused on what type of <i>Pac-Man</i> ROM set manifest it is
+	 * trying to read or write onto disk.</p>
+	 * 
+	 * <p>Alternatively, the field can be obtained by calling the
+	 * {@link #getVersion()} method.</p>
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #getVersion()
+	 */
 	public static final byte VERSION = 1;
 	
 	private final List<PacROMSetManifestEntry> programList;
