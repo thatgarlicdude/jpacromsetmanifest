@@ -175,6 +175,23 @@ public final class PacROMSetManifest {
 	 */
 	private final List<PacROMSetManifestEntry> mysteryList;
 	
+	/**
+	 * Constructs an instance of the {@link PacROMSetManifest} class.
+	 * 
+	 * <p>When constructing an instance of this class, the lists cannot
+	 * point to null. If that happens, it will throw an error, saying that
+	 * a list is null.</p>
+	 * 
+	 * @param programList The list that holds program ROM entries.
+	 * @param graphicList The list that holds graphic ROM entries.
+	 * @param colorList The list that holds color ROM entries.
+	 * @param paletteList The list that holds palette ROM entries.
+	 * @param soundList The list that holds sound ROM entries.
+	 * @param mysteryList The list that holds mystery ROM entries.
+	 * @throws NullPointerException When one of the lists are null.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	public PacROMSetManifest(
 			final List<PacROMSetManifestEntry> programList,
 			final List<PacROMSetManifestEntry> graphicList,
