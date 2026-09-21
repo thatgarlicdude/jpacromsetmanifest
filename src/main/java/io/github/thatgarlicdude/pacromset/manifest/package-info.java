@@ -38,7 +38,7 @@
  * @see PacROMSetManifest
  * @see PacROMSetManifestEntry
  * @see PacROMSetManifests
- * @see PacROMSetReader
- * @see PacROMSetWriter
+ * @see PacROMSetManifestReader
+ * @see PacROMSetManifestWriter
  */
 package io.github.thatgarlicdude.pacromset.manifest;
