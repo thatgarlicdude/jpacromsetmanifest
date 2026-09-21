@@ -73,7 +73,7 @@ public final class TestPacROMSetManifest {
 	}
 	
 	@Test
-	public final void testGetProgramROMList() {
+	public final void testGetProgramList() {
 		// Get the program ROM list.
 		final List<PacROMSetManifestEntry> programROMList =
 				manifest.getProgramList();
@@ -82,7 +82,7 @@ public final class TestPacROMSetManifest {
 	}
 	
 	@Test
-	public final void testGetGraphicROMList() {
+	public final void testGetGraphicList() {
 		// Get the graphic ROM list.
 		final List<PacROMSetManifestEntry> graphicROMList =
 				manifest.getGraphicList();
@@ -91,7 +91,7 @@ public final class TestPacROMSetManifest {
 	}
 	
 	@Test
-	public final void testGetColorROMList() {
+	public final void testGetColorList() {
 		// Get the color ROM list.
 		final List<PacROMSetManifestEntry> colorROMList =
 				manifest.getColorList();
@@ -100,7 +100,7 @@ public final class TestPacROMSetManifest {
 	}
 	
 	@Test
-	public final void testGetPaletteROMList() {
+	public final void testGetPaletteList() {
 		// Get the palette ROM list.
 		final List<PacROMSetManifestEntry> paletteROMList =
 				manifest.getPaletteList();
@@ -109,7 +109,7 @@ public final class TestPacROMSetManifest {
 	}
 	
 	@Test
-	public final void testGetSoundROMList() {
+	public final void testGetSoundList() {
 		// Get the sound ROM list.
 		final List<PacROMSetManifestEntry> soundROMList =
 				manifest.getSoundList();
@@ -118,7 +118,7 @@ public final class TestPacROMSetManifest {
 	}
 	
 	@Test
-	public final void testGetMysteryROMList() {
+	public final void testGetMysteryList() {
 		// Get the mystery ROM list.
 		final List<PacROMSetManifestEntry> mysteryROMList =
 				manifest.getMysteryList();
