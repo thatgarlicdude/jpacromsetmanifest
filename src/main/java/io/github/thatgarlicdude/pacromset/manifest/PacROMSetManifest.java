@@ -53,6 +53,23 @@ import java.util.Objects;
  */
 public final class PacROMSetManifest {
 	
+	/**
+	 * The magic signature found at the beginning of a
+	 * <b>.pacromsetmanifest</b> file.
+	 * 
+	 * </p>This field is used to identify whether a file is truly a
+	 * <i>Pac-Man</i> ROM set manifest file. It is written at the start
+	 * of a file whenever it is being saved to disk. When the file is
+	 * being loaded from disk, it must look for that signature before
+	 * proceeding to the other contents. That being said, the magic
+	 * signature is used to make sure whether a file is actually a
+	 * <i>Pac-Man</i> ROM set manifest file.</p>
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #getMagic()
+	 * @see #EXTENSION
+	 */
 	public static final String MAGIC = "PACROMSETMANIFEST";
 	
 	public static final String EXTENSION = "pacromsetmanifest";
