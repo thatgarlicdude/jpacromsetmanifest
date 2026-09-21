@@ -16,7 +16,13 @@
 
 package io.github.thatgarlicdude.pacromset.manifest;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.lang.UnsupportedOperationException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,22 +58,62 @@ public final class PacROMSetManifests {
 				mysteryROMList);
 	}
 	
-	// TODO: Add savePacROMSetManifestCherry() and loadPacROMSetManifest().
-	
-	public static final void save(final String path) {
-		return;
+	public static final void save(
+			final PacROMSetManifest manifest,
+			final String path) throws IOException {
+		// Initialize the file output stream.
+		final FileOutputStream fos = new FileOutputStream(path);
+		// Initialize the manifest writer.
+		final PacROMSetManifestWriter writer =
+				new PacROMSetManifestWriter(manifest, fos);
+		// Simply write the file to disk.
+		writer.write();
+		// Close the writer.
+		writer.close();
 	}
 	
-	public static final void save(final Path path) {
-		return;
+	public static final void save(
+			final PacROMSetManifest manifest,
+			final Path path) throws IOException {
+		// Initialize the output stream with the file path.
+		final OutputStream os = Files.newOutputStream(path);
+		// Initialize the manifest writer.
+		final PacROMSetManifestWriter writer =
+				new PacROMSetManifestWriter(manifest, os);
+		// Simply write the file to disk.
+		writer.write();
+		// Close the writer.
+		writer.close();
 	}
 	
-	public static final PacROMSetManifest load(final String path) {
-		return null;
+	public static final PacROMSetManifest load(final String path)
+			throws IOException {
+		// Initialize the file input stream.
+		final FileInputStream fis = new FileInputStream(path);
+		// Initialize the manifest reader.
+		final PacROMSetManifestReader reader =
+				new PacROMSetManifestReader(fis);
+		// Simply read the file from disk.
+		final PacROMSetManifest manifest = reader.read();
+		// Close the reader.
+		reader.close();
+		// Return the newly loaded manifest.
+		return manifest;
 	}
 	
-	public static final PacROMSetManifest load(final Path path) {
-		return null;
+	public static final PacROMSetManifest load(final Path path)
+			throws IOException {
+		// Initialize the input stream with the file path.
+		final InputStream is = Files.newInputStream(path);
+		// Initialize the manifest reader.
+		final PacROMSetManifestReader reader =
+				new PacROMSetManifestReader(is);
+		// Simply read the file from disk.
+		final PacROMSetManifest manifest = reader.read();
+		// Close the reader.
+		reader.close();
+		// Return the newly loaded manifest.
+		return manifest;
 	}
 	
 	private PacROMSetManifests() {
