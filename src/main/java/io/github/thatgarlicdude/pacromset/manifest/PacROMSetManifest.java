@@ -19,6 +19,38 @@ package io.github.thatgarlicdude.pacromset.manifest;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * A class that represents a <i>Pac-Man</i> ROM set manifest.
+ * 
+ * <p>A <i>Pac-Man</i> ROM set manifest is a type of manifest that has
+ * six categorized lists that contain entries called a {@link
+ * PacROMSetManifestEntry}. Those lists are <b>program</b>,
+ * <b>graphic</b>, <b>color</b>, <b>palette</b>, <b>sound</b>, and
+ * <b>mystery</b>. Without these lists, there's no way of telling which
+ * ROM in a <i>Pac-Man</i> ROM set is considered a program ROM or a
+ * graphic ROM. The entries in a list do not contain copyrighted data,
+ * but they are used to find and work with specific, expected ROMs found
+ * in a <i>Pac-Man</i> ROM set.</p>
+ * 
+ * <p>In addition, the class contains other data, like {@link #MAGIC} used
+ * for reading and writing <b>.pacromsetmanifest</b> files, {@link
+ * #EXTENSION} for labeling files that have the <b>.pacromsetmanifest</b>
+ * file extension, and {@link #VERSION} to indicate what version the
+ * manifest class is on.</p>
+ * 
+ * <p>A <i>Pac-Man</i> ROM set manifest can be written to disk via the
+ * {@link PacROMSetManifestWriter} class, or can be read from disk via
+ * the {@link PacROMSetManifestReader} class. Alternatively, they can
+ * easily be saved or loaded from the {@link PacROMSetManifests} class,
+ * an easy gateway for working with manifests.</p>
+ * 
+ * @since 1.0.0
+ * @author GarlicDude
+ * @see PacROMSetManifestEntry
+ * @see PacROMSetManifests
+ * @see PacROMSetManifestReader
+ * @see PacROMSetManifestWriter
+ */
 public final class PacROMSetManifest {
 	
 	public static final String MAGIC = "PACROMSETMANIFEST";
