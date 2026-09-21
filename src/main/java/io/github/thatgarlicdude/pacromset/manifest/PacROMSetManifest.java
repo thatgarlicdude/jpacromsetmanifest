@@ -135,6 +135,14 @@ public final class PacROMSetManifest {
 	 */
 	private final List<PacROMSetManifestEntry> graphicList;
 	
+	/**
+	 * The list that can hold entries related to the <b>color</b> ROMs
+	 * in the <i>Pac-Man</i> ROM set.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #getColorList()
+	 */
 	private final List<PacROMSetManifestEntry> colorList;
 	
 	private final List<PacROMSetManifestEntry> paletteList;
