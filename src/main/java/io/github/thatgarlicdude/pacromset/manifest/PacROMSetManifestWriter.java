@@ -46,12 +46,12 @@ public final class PacROMSetManifestWriter implements Closeable {
 		// Then write the current version.
 		writeVersion();
 		// Write the entries an each ROM list in the manifest.
-		writeManifestList(pacROMSetManifest.getProgramROMList());
-		writeManifestList(pacROMSetManifest.getGraphicROMList());
-		writeManifestList(pacROMSetManifest.getColorROMList());
-		writeManifestList(pacROMSetManifest.getPaletteROMList());
-		writeManifestList(pacROMSetManifest.getSoundROMList());
-		writeManifestList(pacROMSetManifest.getMysteryROMList());
+		writeManifestList(pacROMSetManifest.getProgramList());
+		writeManifestList(pacROMSetManifest.getGraphicList());
+		writeManifestList(pacROMSetManifest.getColorList());
+		writeManifestList(pacROMSetManifest.getPaletteList());
+		writeManifestList(pacROMSetManifest.getSoundList());
+		writeManifestList(pacROMSetManifest.getMysteryList());
 		// Close the file.
 		close();
 	}

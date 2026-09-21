@@ -27,17 +27,17 @@ public final class PacROMSetManifest {
 	
 	public static final byte VERSION = 1;
 	
-	private final List<PacROMSetManifestEntry> programROMList;
+	private final List<PacROMSetManifestEntry> programList;
 	
-	private final List<PacROMSetManifestEntry> graphicROMList;
+	private final List<PacROMSetManifestEntry> graphicList;
 	
-	private final List<PacROMSetManifestEntry> colorROMList;
+	private final List<PacROMSetManifestEntry> colorList;
 	
-	private final List<PacROMSetManifestEntry> paletteROMList;
+	private final List<PacROMSetManifestEntry> paletteList;
 	
-	private final List<PacROMSetManifestEntry> soundROMList;
+	private final List<PacROMSetManifestEntry> soundList;
 	
-	private final List<PacROMSetManifestEntry> mysteryROMList;
+	private final List<PacROMSetManifestEntry> mysteryList;
 	
 	public static final String getMagic() {
 		// Return the magic signature used for the manifest files.
@@ -54,49 +54,49 @@ public final class PacROMSetManifest {
 		return VERSION;
 	}
 	
-	public final List<PacROMSetManifestEntry> getProgramROMList() {
-		// Return the program ROM list.
-		return this.programROMList;
+	public final List<PacROMSetManifestEntry> getProgramList() {
+		// Return the program list.
+		return this.programList;
 	}
 	
-	public final List<PacROMSetManifestEntry> getGraphicROMList() {
-		// Return the graphic ROM list.
-		return this.graphicROMList;
+	public final List<PacROMSetManifestEntry> getGraphicList() {
+		// Return the graphic list.
+		return this.graphicList;
 	}
 	
-	public final List<PacROMSetManifestEntry> getColorROMList() {
-		// Return the color ROM list.
-		return this.colorROMList;
+	public final List<PacROMSetManifestEntry> getColorList() {
+		// Return the color list.
+		return this.colorList;
 	}
 	
-	public final List<PacROMSetManifestEntry> getPaletteROMList() {
-		// Return the palette ROM list.
-		return this.paletteROMList;
+	public final List<PacROMSetManifestEntry> getPaletteList() {
+		// Return the palette list.
+		return this.paletteList;
 	}
 	
-	public final List<PacROMSetManifestEntry> getSoundROMList() {
-		// Return the sound ROM list.
-		return this.soundROMList;
+	public final List<PacROMSetManifestEntry> getSoundList() {
+		// Return the sound list.
+		return this.soundList;
 	}
 	
-	public final List<PacROMSetManifestEntry> getMysteryROMList() {
-		// Return the mystery ROM list.
-		return this.mysteryROMList;
+	public final List<PacROMSetManifestEntry> getMysteryList() {
+		// Return the mystery list.
+		return this.mysteryList;
 	}
 	
 	public PacROMSetManifest(
-			final List<PacROMSetManifestEntry> programROMList,
-			final List<PacROMSetManifestEntry> graphicROMList,
-			final List<PacROMSetManifestEntry> colorROMList,
-			final List<PacROMSetManifestEntry> paletteROMList,
-			final List<PacROMSetManifestEntry> soundROMList,
-			final List<PacROMSetManifestEntry> mysteryROMList) {
+			final List<PacROMSetManifestEntry> programList,
+			final List<PacROMSetManifestEntry> graphicList,
+			final List<PacROMSetManifestEntry> colorList,
+			final List<PacROMSetManifestEntry> paletteList,
+			final List<PacROMSetManifestEntry> soundList,
+			final List<PacROMSetManifestEntry> mysteryList) {
 		// Set up each of the lists that shouldn't be null.
-		this.programROMList = Objects.requireNonNull(programROMList);
-		this.graphicROMList = Objects.requireNonNull(graphicROMList);
-		this.colorROMList = Objects.requireNonNull(colorROMList);
-		this.paletteROMList = Objects.requireNonNull(paletteROMList);
-		this.soundROMList = Objects.requireNonNull(soundROMList);
-		this.mysteryROMList = Objects.requireNonNull(mysteryROMList);
+		this.programList = Objects.requireNonNull(programList);
+		this.graphicList = Objects.requireNonNull(graphicList);
+		this.colorList = Objects.requireNonNull(colorList);
+		this.paletteList = Objects.requireNonNull(paletteList);
+		this.soundList = Objects.requireNonNull(soundList);
+		this.mysteryList = Objects.requireNonNull(mysteryList);
 	}
 }

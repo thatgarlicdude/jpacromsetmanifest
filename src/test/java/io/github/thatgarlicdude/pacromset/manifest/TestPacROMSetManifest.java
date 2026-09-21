@@ -36,17 +36,17 @@ public final class TestPacROMSetManifest {
 		// Assert if the manifest is not null.
 		assertNotNull(manifest);
 		// Check the program list.
-		check(manifest.getProgramROMList());
+		check(manifest.getProgramList());
 		// Check the graphic list.
-		check(manifest.getGraphicROMList());
+		check(manifest.getGraphicList());
 		// Check the color list.
-		check(manifest.getColorROMList());
+		check(manifest.getColorList());
 		// Check the palette list.
-		check(manifest.getPaletteROMList());
+		check(manifest.getPaletteList());
 		// Check the sound list.
-		check(manifest.getPaletteROMList());
+		check(manifest.getPaletteList());
 		// Check the mystery list.
-		check(manifest.getMysteryROMList());
+		check(manifest.getMysteryList());
 	}
 	
 	public static final void check(
@@ -74,7 +74,7 @@ public final class TestPacROMSetManifest {
 	public final void testGetProgramROMList() {
 		// Get the program ROM list.
 		final List<PacROMSetManifestEntry> programROMList =
-				manifest.getProgramROMList();
+				manifest.getProgramList();
 		// Assert whether the list is not null.
 		assertNotNull(programROMList);
 	}
@@ -83,7 +83,7 @@ public final class TestPacROMSetManifest {
 	public final void testGetGraphicROMList() {
 		// Get the graphic ROM list.
 		final List<PacROMSetManifestEntry> graphicROMList =
-				manifest.getGraphicROMList();
+				manifest.getGraphicList();
 		// Assert whether the list is not null.
 		assertNotNull(graphicROMList);
 	}
@@ -92,7 +92,7 @@ public final class TestPacROMSetManifest {
 	public final void testGetColorROMList() {
 		// Get the color ROM list.
 		final List<PacROMSetManifestEntry> colorROMList =
-				manifest.getColorROMList();
+				manifest.getColorList();
 		// Assert whether the list is not null.
 		assertNotNull(colorROMList);
 	}
@@ -101,7 +101,7 @@ public final class TestPacROMSetManifest {
 	public final void testGetPaletteROMList() {
 		// Get the palette ROM list.
 		final List<PacROMSetManifestEntry> paletteROMList =
-				manifest.getPaletteROMList();
+				manifest.getPaletteList();
 		// Assert whether the list is not null.
 		assertNotNull(paletteROMList);
 	}
@@ -110,7 +110,7 @@ public final class TestPacROMSetManifest {
 	public final void testGetSoundROMList() {
 		// Get the sound ROM list.
 		final List<PacROMSetManifestEntry> soundROMList =
-				manifest.getSoundROMList();
+				manifest.getSoundList();
 		// Assert whether the list is not null.
 		assertNotNull(soundROMList);
 	}
@@ -119,7 +119,7 @@ public final class TestPacROMSetManifest {
 	public final void testGetMysteryROMList() {
 		// Get the mystery ROM list.
 		final List<PacROMSetManifestEntry> mysteryROMList =
-				manifest.getMysteryROMList();
+				manifest.getMysteryList();
 		// Assert whether the list is not null.
 		assertNotNull(mysteryROMList);
 	}

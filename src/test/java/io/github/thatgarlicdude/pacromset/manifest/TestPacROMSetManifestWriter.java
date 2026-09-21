@@ -44,7 +44,7 @@ public final class TestPacROMSetManifestWriter {
 	private final void initProgramList() {
 		// Get the program list.
 		final List<PacROMSetManifestEntry> programList =
-				pacROMSetManifest.getProgramROMList();
+				pacROMSetManifest.getProgramList();
 		// Set up the first program entry.
 		final PacROMSetManifestEntry programEntry1 =
 				new PacROMSetManifestEntry(
@@ -71,7 +71,7 @@ public final class TestPacROMSetManifestWriter {
 	private final void initGraphicList() {
 		// Get the graphic list.
 		final List<PacROMSetManifestEntry> graphicList =
-				pacROMSetManifest.getGraphicROMList();
+				pacROMSetManifest.getGraphicList();
 		// Set up the first graphic entry.
 		final PacROMSetManifestEntry graphicEntry1 =
 				new PacROMSetManifestEntry(
@@ -88,7 +88,7 @@ public final class TestPacROMSetManifestWriter {
 	private final void initColorList() {
 		// Get the color list.
 		final List<PacROMSetManifestEntry> colorList =
-				pacROMSetManifest.getColorROMList();
+				pacROMSetManifest.getColorList();
 		// Set up the first color entry.
 		final PacROMSetManifestEntry colorEntry1 =
 				new PacROMSetManifestEntry(
@@ -105,7 +105,7 @@ public final class TestPacROMSetManifestWriter {
 	private final void initPaletteList() {
 		// Get the palette list.
 		final List<PacROMSetManifestEntry> paletteList =
-				pacROMSetManifest.getPaletteROMList();
+				pacROMSetManifest.getPaletteList();
 		// Set up the first palette entry.
 		final PacROMSetManifestEntry paletteEntry1 =
 				new PacROMSetManifestEntry(
@@ -122,7 +122,7 @@ public final class TestPacROMSetManifestWriter {
 	private final void initSoundList() {
 		// Get the sound list.
 		final List<PacROMSetManifestEntry> soundList =
-				pacROMSetManifest.getSoundROMList();
+				pacROMSetManifest.getSoundList();
 		// Set up the first sound entry.
 		final PacROMSetManifestEntry soundEntry1 =
 				new PacROMSetManifestEntry(
@@ -139,7 +139,7 @@ public final class TestPacROMSetManifestWriter {
 	private final void initMysteryList() {
 		// Get the mystery list.
 		final List<PacROMSetManifestEntry> mysteryList =
-				pacROMSetManifest.getMysteryROMList();
+				pacROMSetManifest.getMysteryList();
 		// Set up the first mystery entry.
 		final PacROMSetManifestEntry mysteryEntry1 =
 				new PacROMSetManifestEntry(
