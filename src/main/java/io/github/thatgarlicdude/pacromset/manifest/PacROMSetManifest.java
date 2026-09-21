@@ -110,12 +110,24 @@ public final class PacROMSetManifest {
 			final List<PacROMSetManifestEntry> soundList,
 			final List<PacROMSetManifestEntry> mysteryList) {
 		// Set up each of the lists that shouldn't be null.
-		this.programList = Objects.requireNonNull(programList);
-		this.graphicList = Objects.requireNonNull(graphicList);
-		this.colorList = Objects.requireNonNull(colorList);
-		this.paletteList = Objects.requireNonNull(paletteList);
-		this.soundList = Objects.requireNonNull(soundList);
-		this.mysteryList = Objects.requireNonNull(mysteryList);
+		this.programList = Objects.requireNonNull(
+				programList,
+				"Program list must not be null");
+		this.graphicList = Objects.requireNonNull(
+				graphicList,
+				"Graphic list must not be null");
+		this.colorList = Objects.requireNonNull(
+				colorList,
+				"Color list must not be null");
+		this.paletteList = Objects.requireNonNull(
+				paletteList,
+				"Palette list must not be null");
+		this.soundList = Objects.requireNonNull(
+				soundList,
+				"Sound list must not be null");
+		this.mysteryList = Objects.requireNonNull(
+				mysteryList,
+				"Mystery list must not be null");
 	}
 	
 	public static final String getMagic() {
