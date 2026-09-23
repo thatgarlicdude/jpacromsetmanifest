@@ -220,7 +220,7 @@ public final class PacROMSetManifest {
 				"Mystery list must not be null");
 	}
 	
-	// TODO: Perhaps elaborate on it more?
+	// TODO: Perhaps elaborate on the static getters more?
 	
 	/**
 	 * Gets {@link #MAGIC}, which is the magic signature used at the
@@ -250,6 +250,15 @@ public final class PacROMSetManifest {
 		return EXTENSION;
 	}
 	
+	/**
+	 * Gets {@link #VERSION}, which is the current version of the
+	 * <i>Pac-Man</i> ROM set manifest.
+	 * 
+	 * @return A {@code byte} that is {@value #VERSION}.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #VERSION
+	 */
 	public static final byte getVersion() {
 		// Return the current version of the manifest.
 		return VERSION;
