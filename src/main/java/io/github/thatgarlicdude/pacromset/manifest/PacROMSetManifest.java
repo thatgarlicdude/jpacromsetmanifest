@@ -220,6 +220,17 @@ public final class PacROMSetManifest {
 				"Mystery list must not be null");
 	}
 	
+	// TODO: Perhaps elaborate on it more?
+	
+	/**
+	 * Gets {@link #MAGIC}, which is the magic signature used at the
+	 * beginning of a <b>.pacromsetmanifest</b> file.
+	 * 
+	 * @return A {@code String} that says {@value #MAGIC}.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #MAGIC
+	 */
 	public static final String getMagic() {
 		// Return the magic signature used for the manifest files.
 		return MAGIC;
