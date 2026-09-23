@@ -236,6 +236,15 @@ public final class PacROMSetManifest {
 		return MAGIC;
 	}
 	
+	/**
+	 * Gets {@link #EXTENSION}, which is the file extension that labels
+	 * files as <b>.pacromsetmanifest</b> files.
+	 * 
+	 * @return A {@code String} that says {@value #EXTENSION}.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #EXTENSION
+	 */
 	public static final String getExtension() {
 		// Return the file extension used to label the manifest files.
 		return EXTENSION;
