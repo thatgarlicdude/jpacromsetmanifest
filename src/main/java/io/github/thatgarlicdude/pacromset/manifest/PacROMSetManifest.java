@@ -315,6 +315,13 @@ public final class PacROMSetManifest {
 		return this.paletteList;
 	}
 	
+	/**
+	 * Gets the <b>sound</b> list of the <i>Pac-Man</i> ROM set manifest.
+	 * 
+	 * @return A {@code List} that can hold <b>sound</b> ROM entries.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	public final List<PacROMSetManifestEntry> getSoundList() {
 		// Return the sound list.
 		return this.soundList;
