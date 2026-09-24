@@ -327,6 +327,14 @@ public final class PacROMSetManifest {
 		return this.soundList;
 	}
 	
+	/**
+	 * Gets the <b>mystery</b> list of the <i>Pac-Man</i> ROM set
+	 * manifest.
+	 * 
+	 * @return A {@code List} that can hold <b>mystery</b> ROM entries.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	public final List<PacROMSetManifestEntry> getMysteryList() {
 		// Return the mystery list.
 		return this.mysteryList;
