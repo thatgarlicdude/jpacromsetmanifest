@@ -264,6 +264,13 @@ public final class PacROMSetManifest {
 		return VERSION;
 	}
 	
+	/**
+	 * Gets the program list of the <i>Pac-Man</i> ROM set manifest.
+	 * 
+	 * @return A {@code List} that can hold program ROM entries.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	public final List<PacROMSetManifestEntry> getProgramList() {
 		// Return the program list.
 		return this.programList;
