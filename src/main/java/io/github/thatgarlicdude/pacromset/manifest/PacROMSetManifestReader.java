@@ -80,12 +80,13 @@ public final class PacROMSetManifestReader implements Closeable {
 		if (bytesRead != magicBytes2.length) {
 			// Throw an error if the magic signature is incomplete.
 			throw new EOFException(
-					"Incomplete PacROMSetManifest signature");
+					"The PacROMSetManifest signature is incomplete.");
 		}
 		// Make sure the magic signatures match.
 		if (!Arrays.equals(magicBytes1, magicBytes2)) {
 			// Throw an error if the magic signatures don't match.
-			throw new IOException("Invalid PacROMSetManifest signature");
+			throw new IOException(
+					"The PacROMSetManifest signature is invalid.");
 		}
 	}
 	
@@ -95,11 +96,13 @@ public final class PacROMSetManifestReader implements Closeable {
 		// Make sure there's a version number in the file.
 		if (version == -1) {
 			// Throw an error if there isn't a version number.
-			throw new EOFException("PacROMSetManifest version not found");
+			throw new EOFException(
+					"The PacROMSetManifest version is not found.");
 		}
 		// Make sure the manifest file is on a correct version.
 		if (version != PacROMSetManifest.VERSION) {
-			throw new IOException("Invalid PacROMSetManifest version");
+			throw new IOException(
+					"The PacROMSetManifest version is invalid.");
 		}
 	}
 	
@@ -112,7 +115,8 @@ public final class PacROMSetManifestReader implements Closeable {
 		final int size = inputStream.read();
 		// Make sure there's a size variable in the manifest list.
 		if (size == -1) {
-			throw new EOFException("Manifest list size not found");
+			throw new EOFException(
+					"The manifest list size is not found.");
 		}
 		// Go through each of the manifest entries in the list.
 		for (int index = 0; index < size; index++) {
@@ -146,7 +150,8 @@ public final class PacROMSetManifestReader implements Closeable {
 			// Make sure the file doesn't end midway through.
 			if (readByte == -1) {
 				// Throw an error if it does.
-				throw new EOFException("Incomplete manifest entry name");
+				throw new EOFException(
+						"The manifest entry name is incomplete.");
 			}
 			// Write the read byte onto the byte array output stream.
 			bytes.write(readByte);
@@ -165,7 +170,8 @@ public final class PacROMSetManifestReader implements Closeable {
 			// Make sure the file doesn't end midway through.
 			if (sizeByte == -1) {
 				// Throw an error if it does.
-				throw new EOFException("Incomplete manifest entry size");
+				throw new EOFException(
+						"The manifest entry size is incomplete.");
 			}
 			// Put the sizeByte in its respective position.
 			size |= sizeByte << index;

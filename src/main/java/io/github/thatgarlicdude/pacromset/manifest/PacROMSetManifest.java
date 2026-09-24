@@ -202,22 +202,22 @@ public final class PacROMSetManifest {
 		// Set up each of the lists that shouldn't be null.
 		this.programList = Objects.requireNonNull(
 				programList,
-				"Program list must not be null");
+				"The program list must not be null.");
 		this.graphicList = Objects.requireNonNull(
 				graphicList,
-				"Graphic list must not be null");
+				"The graphic list must not be null.");
 		this.colorList = Objects.requireNonNull(
 				colorList,
-				"Color list must not be null");
+				"The color list must not be null.");
 		this.paletteList = Objects.requireNonNull(
 				paletteList,
-				"Palette list must not be null");
+				"The palette list must not be null.");
 		this.soundList = Objects.requireNonNull(
 				soundList,
-				"Sound list must not be null");
+				"The sound list must not be null.");
 		this.mysteryList = Objects.requireNonNull(
 				mysteryList,
-				"Mystery list must not be null");
+				"The mystery list must not be null.");
 	}
 	
 	// TODO: Perhaps elaborate on the static getters more?

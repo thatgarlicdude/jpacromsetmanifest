@@ -20,10 +20,6 @@ import java.util.Objects;
 
 public final class PacROMSetManifestEntry {
 	
-	private static final String ERROR_MESSAGE =
-			"PacROMSetManifestEntry's size is out of range. It must be"
-			+ "within 0 or 65,535.";
-	
 	public static final int MAX_SIZE = 0xFFFF;
 	
 	public static final int MIN_SIZE = 0x0000;
@@ -39,10 +35,14 @@ public final class PacROMSetManifestEntry {
 			final int size) {
 		// Throw an error if the size is out of range.
 		if (size < MIN_SIZE || size > MAX_SIZE) {
-			throw new IllegalArgumentException(ERROR_MESSAGE);
+			throw new IllegalArgumentException(
+					"The size is out of range. It must be within "
+					+ MIN_SIZE + " or " + MAX_SIZE + ".");
 		}
 		// Set the variables in the instance.
-		this.name = Objects.requireNonNull(name);
+		this.name = Objects.requireNonNull(
+				name,
+				"The manifest entry's name cannot be null.");
 		this.size = size;
 	}
 	
