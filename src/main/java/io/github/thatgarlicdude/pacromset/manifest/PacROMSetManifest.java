@@ -268,6 +268,12 @@ public final class PacROMSetManifest {
 	 * Gets the <b>program</b> list of the <i>Pac-Man</i> ROM set
 	 * manifest.
 	 * 
+	 * <p>The program list is a {@code List} object that can hold
+	 * {@link PacROMSetManifestEntry} instances, which are the ROM
+	 * entries. These instances do not contain any ROM data, but they
+	 * do have expected filenames and file sizes found in a
+	 * <i>Pac-Man</i> ROM set.</p>
+	 * 
 	 * @return A {@code List} that can hold <b>program</b> ROM entries.
 	 * @since 1.0.0
 	 * @author GarlicDude
@@ -281,6 +287,12 @@ public final class PacROMSetManifest {
 	 * Gets the <b>graphic</b> list of the <i>Pac-Man</i> ROM set
 	 * manifest.
 	 * 
+	 * <p>The graphic list is a {@code List} object that can hold
+	 * {@link PacROMSetManifestEntry} instances, which are the ROM
+	 * entries. These instances do not contain any ROM data, but they
+	 * do have expected filenames and file sizes found in a
+	 * <i>Pac-Man</i> ROM set.</p>
+	 * 
 	 * @return A {@code List} that can hold <b>graphic</b> ROM entries.
 	 * @since 1.0.0
 	 * @author GarlicDude
@@ -292,6 +304,12 @@ public final class PacROMSetManifest {
 	
 	/**
 	 * Gets the <b>color</b> list of the <i>Pac-Man</i> ROM set manifest.
+	 * 
+	 * <p>The color list is a {@code List} object that can hold
+	 * {@link PacROMSetManifestEntry} instances, which are the ROM
+	 * entries. These instances do not contain any ROM data, but they
+	 * do have expected filenames and file sizes found in a
+	 * <i>Pac-Man</i> ROM set.</p>
 	 * 
 	 * @return A {@code List} that can hold <b>color</b> ROM entries.
 	 * @since 1.0.0
@@ -306,6 +324,12 @@ public final class PacROMSetManifest {
 	 * Gets the <b>palette</b> list of the <i>Pac-Man</i> ROM set
 	 * manifest.
 	 * 
+	 * <p>The palette list is a {@code List} object that can hold
+	 * {@link PacROMSetManifestEntry} instances, which are the ROM
+	 * entries. These instances do not contain any ROM data, but they
+	 * do have expected filenames and file sizes found in a
+	 * <i>Pac-Man</i> ROM set.</p>
+	 * 
 	 * @return A {@code List} that can hold <b>palette</b> ROM entries.
 	 * @since 1.0.0
 	 * @author GarlicDude
@@ -317,6 +341,12 @@ public final class PacROMSetManifest {
 	
 	/**
 	 * Gets the <b>sound</b> list of the <i>Pac-Man</i> ROM set manifest.
+	 * 
+	 * <p>The sound list is a {@code List} object that can hold
+	 * {@link PacROMSetManifestEntry} instances, which are the ROM
+	 * entries. These instances do not contain any ROM data, but they
+	 * do have expected filenames and file sizes found in a
+	 * <i>Pac-Man</i> ROM set.</p>
 	 * 
 	 * @return A {@code List} that can hold <b>sound</b> ROM entries.
 	 * @since 1.0.0
@@ -330,6 +360,12 @@ public final class PacROMSetManifest {
 	/**
 	 * Gets the <b>mystery</b> list of the <i>Pac-Man</i> ROM set
 	 * manifest.
+	 * 
+	 * <p>The mystery list is a {@code List} object that can hold
+	 * {@link PacROMSetManifestEntry} instances, which are the ROM
+	 * entries. These instances do not contain any ROM data, but they
+	 * do have expected filenames and file sizes found in a
+	 * <i>Pac-Man</i> ROM set.</p>
 	 * 
 	 * @return A {@code List} that can hold <b>mystery</b> ROM entries.
 	 * @since 1.0.0
