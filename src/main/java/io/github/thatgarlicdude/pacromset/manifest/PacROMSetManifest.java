@@ -265,9 +265,10 @@ public final class PacROMSetManifest {
 	}
 	
 	/**
-	 * Gets the program list of the <i>Pac-Man</i> ROM set manifest.
+	 * Gets the <b>program</b> list of the <i>Pac-Man</i> ROM set
+	 * manifest.
 	 * 
-	 * @return A {@code List} that can hold program ROM entries.
+	 * @return A {@code List} that can hold <b>program</b> ROM entries.
 	 * @since 1.0.0
 	 * @author GarlicDude
 	 */
@@ -276,6 +277,14 @@ public final class PacROMSetManifest {
 		return this.programList;
 	}
 	
+	/**
+	 * Gets the <b>graphic</b> list of the <i>Pac-Man</i> ROM set
+	 * manifest.
+	 * 
+	 * @return A {@code List} that can hold <b>graphic</b> ROM entries.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	public final List<PacROMSetManifestEntry> getGraphicList() {
 		// Return the graphic list.
 		return this.graphicList;
