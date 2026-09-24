@@ -290,6 +290,13 @@ public final class PacROMSetManifest {
 		return this.graphicList;
 	}
 	
+	/**
+	 * Gets the <b>color</b> list of the <i>Pac-Man</i> ROM set manifest.
+	 * 
+	 * @return A {@code List} that can hold <b>color</b> ROM entries.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	public final List<PacROMSetManifestEntry> getColorList() {
 		// Return the color list.
 		return this.colorList;
