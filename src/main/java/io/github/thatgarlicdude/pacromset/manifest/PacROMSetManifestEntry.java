@@ -112,6 +112,11 @@ public final class PacROMSetManifestEntry {
 	 * parameters don't meet the requirements, it will throw an error
 	 * saying that the name is null or the size is out of range.</p>
 	 * 
+	 * <p>Also, as a note: The {@code name} parameter is the expected
+	 * filename found in a <i>Pac-Man</i> ROM set (directory or ZIP file).
+	 * An example for this would be <b>pacman.6e</b>, <b>pm1_prg1.6e</b>,
+	 * or <b>82s123.7f</b>.</p>
+	 * 
 	 * @param name The name of the manifest entry.
 	 * @param size The size of the manifest entry.
 	 * @throws NullPointerException When the name is null.
@@ -180,21 +185,59 @@ public final class PacROMSetManifestEntry {
 	
 	// TODO: Finish up the documentation of the methods.
 	
+	/**
+	 * Gets the <b>name</b> of the manifest entry.
+	 * 
+	 * <p>The name is basically an expected filename found in a
+	 * <i>Pac-Man</i> ROM set. An example for this would be
+	 * <b>pacman.6e</b>, <b>pm1_prg1.6e</b>, or <b>82s123.7f</b>.</p>
+	 * 
+	 * @return A {@code String} that is the name of the manifest entry.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	public final String getName() {
 		// Return the name of the manifest entry.
 		return this.name;
 	}
 	
+	/**
+	 * Gets the <b>size</b> of the manifest entry.
+	 * 
+	 * @return An {@code int} that is the size of the manifest entry.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	public final int getSize() {
 		// Return the size of the manifest entry.
 		return this.size;
 	}
 	
+	/**
+	 * Creates an entirely new {@link PacROMSetManifestEntry} instance
+	 * that has a new name.
+	 * 
+	 * @param name The name that the new manifest entry will have.
+	 * @return A new {@link PacROMSetManifestEntry} with the entered
+	 * {@code name}.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	public final PacROMSetManifestEntry withName(final String name) {
 		// Return a new manifest entry with the new name.
 		return new PacROMSetManifestEntry(name, this.size);
 	}
 	
+	/**
+	 * Creates an entirely new {@link PacROMSetManifestEntry} instance
+	 * that has a new size.
+	 * 
+	 * @param size The size that the new manifest entry will have.
+	 * @return A new {@link PacROMSetManifestEntry} with the entered
+	 * {@code size}.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	public final PacROMSetManifestEntry withSize(final int size) {
 		// Return a new manifest entry with the new name.
 		return new PacROMSetManifestEntry(this.name, size);
