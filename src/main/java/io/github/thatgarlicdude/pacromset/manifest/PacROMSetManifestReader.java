@@ -26,16 +26,66 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * A class that reads <b>.pacromsetmanifest</b> files from disk.
+ * 
+ * @since 1.0.0
+ * @author GarlicDude
+ * @see PacROMSetManifest
+ * @see PacROMSetManifestWriter
+ */
 public final class PacROMSetManifestReader implements Closeable {
 	
+	/**
+	 * The input stream required to read the <i>Pac-Man</i> ROM set
+	 * manifest file.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	private final InputStream inputStream;
 	
+	/**
+	 * Constructs an instance of the {@link PacROMSetManifestReader}
+	 * class.
+	 * 
+	 * <p>When constructing an instance of this class, the input stream
+	 * cannot point to null. If this happens, it will throw an error
+	 * saying that the said object is null.</p>
+	 * 
+	 * @param inputStream The input stream required to read the
+	 * <b>.pacromsetmanifest</b> file from disk.
+	 * @throws NullPointerException When the input stream is null.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	public PacROMSetManifestReader(
 			final InputStream inputStream) {
 		// Set up the input stream if it's not null.
-		this.inputStream = Objects.requireNonNull(inputStream);
+		this.inputStream = Objects.requireNonNull(
+				inputStream,
+				"The input stream cannot be null.");
 	}
 	
+	/**
+	 * Reads all of the information of the <b>.pacromsetmanifest</b>
+	 * file.
+	 * 
+	 * <p>By reading the file, it'll first check the file's signature,
+	 * which should be {@value PacROMSetManifest#MAGIC}. Then it will
+	 * check the version number of the manifest file, which should be
+	 * {@value PacROMSetManifest#VERSION}. Then it will load all the
+	 * categorized lists in order: <b>program</b>, <b>graphic</b>,
+	 * <b>color</b>, <b>palette</b>, <b>sound</b>, and then
+	 * <b>mystery</b>. If the signature, version number, lists, or
+	 * manifest entries are invalid or incomplete, it will throw an error,
+	 * therefore failing the reading process.</p>
+	 * 
+	 * @return A new {@link PacROMSetManifest} loaded from disk.
+	 * @throws IOException When reading the manifest file fails.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	public final PacROMSetManifest read() throws IOException {
 		// Check the magic signature from the file first.
 		checkMagic();
@@ -69,6 +119,14 @@ public final class PacROMSetManifestReader implements Closeable {
 				mysteryList);
 	}
 	
+	/**
+	 * Checks the <b>magic signature</b> at the start of the manifest
+	 * file, which should be {@value PacROMSetManifest#MAGIC}.
+	 * 
+	 * @throws IOException When the signature is invalid or incomplete.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	private final void checkMagic() throws IOException {
 		// Get the bytes from the base magic signature.
 		final byte[] magicBytes1 = PacROMSetManifest.MAGIC.getBytes();
@@ -90,6 +148,15 @@ public final class PacROMSetManifestReader implements Closeable {
 		}
 	}
 	
+	/**
+	 * Checks the <b>version number</b> in the manifest file, which should
+	 * be {@value PacROMSetManifest#VERSION}.
+	 * 
+	 * @throws IOException When the version number is invalid or cannot
+	 * be found.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	private final void checkVersion() throws IOException {
 		// Read the version of the manifest file.
 		final int version = inputStream.read();
@@ -106,6 +173,14 @@ public final class PacROMSetManifestReader implements Closeable {
 		}
 	}
 	
+	/**
+	 * Reads a <b>manifest list</b> by loading its entries to memory.
+	 * 
+	 * @return A {@code List} with the loaded manifest entries.
+	 * @throws IOException When the manifest size cannot be found.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	private final List<PacROMSetManifestEntry> readManifestList()
 			throws IOException {
 		// Initialize the manifest list first.
@@ -129,6 +204,15 @@ public final class PacROMSetManifestReader implements Closeable {
 		return manifestList;
 	}
 	
+	/**
+	 * Reads a <b>manifest entry</b> by loading its contents to disk.
+	 * 
+	 * @return A new {@link PacROMSetManifestEntry} with its loaded
+	 * contents.
+	 * @throws IOException When reading a manifest entry fails.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	private final PacROMSetManifestEntry readManifestEntry()
 			throws IOException {
 		// Read the name from the file first.
@@ -139,6 +223,14 @@ public final class PacROMSetManifestReader implements Closeable {
 		return new PacROMSetManifestEntry(name, size);
 	}
 	
+	/**
+	 * Reads the <b>name</b> in a manifest entry.
+	 * 
+	 * @return A {@code String} that is the loaded name.
+	 * @throws IOException When the name is cut off by an EOF error.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	private final String readName() throws IOException {
 		// Initialize the byte array output stream.
 		final ByteArrayOutputStream bytes = new ByteArrayOutputStream();
@@ -160,6 +252,14 @@ public final class PacROMSetManifestReader implements Closeable {
 		return new String(bytes.toByteArray());
 	}
 	
+	/**
+	 * Reads the <b>size</b> in a manifest entry in big-endian.
+	 * 
+	 * @return A {@code int} that is the loaded size.
+	 * @throws IOException When the size is cut off by an EOF error.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	private final int readSize() throws IOException {
 		// Initialize the size.
 		int size = 0;
@@ -179,7 +279,17 @@ public final class PacROMSetManifestReader implements Closeable {
 		// Return the size.
 		return size;
 	}
-
+	
+	/**
+	 * Closes the manifest reader.
+	 * 
+	 * <p>This will also close the input stream that the reader is using
+	 * to read the manifest file.</p>
+	 * 
+	 * @throws IOException When closing the reader fails.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	@Override
 	public void close() throws IOException {
 		// Close the input stream.
