@@ -27,35 +27,51 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A utility class for the {@link PacROMSetManifest} class.
+ * 
+ * @since 1.0.0
+ * @author GarlicDude
+ * @see PacROMSetManifest
+ */
 public final class PacROMSetManifests {
 	
+	/**
+	 * Creates a new {@link PacROMSetManifest} automatically without
+	 * needing to assign its lists manually.
+	 * 
+	 * @return A new {@link PacROMSetManifest} instance with its
+	 * automatically created lists.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	public static final PacROMSetManifest create() {
-		// Initialize the program ROM list.
-		final List<PacROMSetManifestEntry> programROMList =
+		// Initialize the program list.
+		final List<PacROMSetManifestEntry> programList =
 				new ArrayList<PacROMSetManifestEntry>();
-		// Initialize the graphic ROM list.
-		final List<PacROMSetManifestEntry> graphicROMList =
+		// Initialize the graphic list.
+		final List<PacROMSetManifestEntry> graphicList =
 				new ArrayList<PacROMSetManifestEntry>();
-		// Initialize the color ROM list.
-		final List<PacROMSetManifestEntry> colorROMList =
+		// Initialize the color list.
+		final List<PacROMSetManifestEntry> colorList =
 				new ArrayList<PacROMSetManifestEntry>();
-		// Initialize the palette ROM list.
-		final List<PacROMSetManifestEntry> paletteROMList =
+		// Initialize the palette list.
+		final List<PacROMSetManifestEntry> paletteList =
 				new ArrayList<PacROMSetManifestEntry>();
-		// Initialize the sound ROM list.
-		final List<PacROMSetManifestEntry> soundROMList =
+		// Initialize the sound list.
+		final List<PacROMSetManifestEntry> soundList =
 				new ArrayList<PacROMSetManifestEntry>();
-		// Initialize the mystery ROM list.
-		final List<PacROMSetManifestEntry> mysteryROMList =
+		// Initialize the mystery list.
+		final List<PacROMSetManifestEntry> mysteryList =
 				new ArrayList<PacROMSetManifestEntry>();
 		// Return the newly created PacROMSetManifest instance.
 		return new PacROMSetManifest(
-				programROMList,
-				graphicROMList,
-				colorROMList,
-				paletteROMList,
-				soundROMList,
-				mysteryROMList);
+				programList,
+				graphicList,
+				colorList,
+				paletteList,
+				soundList,
+				mysteryList);
 	}
 	
 	public static final void save(
