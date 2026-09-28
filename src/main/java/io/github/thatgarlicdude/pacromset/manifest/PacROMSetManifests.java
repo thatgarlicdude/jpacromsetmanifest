@@ -37,6 +37,20 @@ import java.util.List;
 public final class PacROMSetManifests {
 	
 	/**
+	 * A private constructor. The class cannot be constructed by any
+	 * means.
+	 * 
+	 * @throws UnsupportedOperationException When the constructor has
+	 * been called.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
+	private PacROMSetManifests() {
+		// Throw the error in case the constructor was actually called.
+		throw new UnsupportedOperationException();
+	}
+	
+	/**
 	 * Creates a new {@link PacROMSetManifest} automatically without
 	 * needing to assign its lists manually.
 	 * 
@@ -74,6 +88,19 @@ public final class PacROMSetManifests {
 				mysteryList);
 	}
 	
+	/**
+	 * Saves a {@link PacROMSetManifest} object as a
+	 * <b>.pacromsetmanifest</b> file using a file path as a {@code
+	 * String}.
+	 * 
+	 * @param manifest The {@link PacROMSetManifest} required to save
+	 * the manifest file.
+	 * @param path The file path to write the manifest.
+	 * @throws IOException The file path to write the manifest.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #save(PacROMSetManifest, Path)
+	 */
 	public static final void save(
 			final PacROMSetManifest manifest,
 			final String path) throws IOException {
@@ -88,6 +115,18 @@ public final class PacROMSetManifests {
 		writer.close();
 	}
 	
+	/**
+	 * Saves a {@link PacROMSetManifest} object as a
+	 * <b>.pacromsetmanifest</b> file using a file path as a {@code Path}.
+	 * 
+	 * @param manifest The {@link PacROMSetManifest} required to save
+	 * the manifest file.
+	 * @param path The file path to write the manifest.
+	 * @throws IOException The file path to write the manifest.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #save(PacROMSetManifest, String)
+	 */
 	public static final void save(
 			final PacROMSetManifest manifest,
 			final Path path) throws IOException {
@@ -102,6 +141,18 @@ public final class PacROMSetManifests {
 		writer.close();
 	}
 	
+	/**
+	 * Loads a {@link PacROMSetManifest} object from a
+	 * <b>.pacromsetmanifest</b> file using a {@code String} as the file
+	 * path.
+	 * 
+	 * @param path The file path to read the manifest.
+	 * @return A {@link PacROMSetManifest} loaded from disk.
+	 * @throws IOException When reading the manifest file fails.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #load(Path)
+	 */
 	public static final PacROMSetManifest load(final String path)
 			throws IOException {
 		// Initialize the file input stream.
@@ -117,6 +168,18 @@ public final class PacROMSetManifests {
 		return manifest;
 	}
 	
+	/**
+	 * Loads a {@link PacROMSetManifest} object from a
+	 * <b>.pacromsetmanifest</b> file using a {@code Path} as the file
+	 * path.
+	 * 
+	 * @param path The file path to read the manifest.
+	 * @return A {@link PacROMSetManifest} loaded from disk.
+	 * @throws IOException When reading the manifest file fails.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see #load(String)
+	 */
 	public static final PacROMSetManifest load(final Path path)
 			throws IOException {
 		// Initialize the input stream with the file path.
@@ -130,10 +193,5 @@ public final class PacROMSetManifests {
 		reader.close();
 		// Return the newly loaded manifest.
 		return manifest;
-	}
-	
-	private PacROMSetManifests() {
-		// Throw the error in case the constructor was actually called.
-		throw new UnsupportedOperationException();
 	}
 }
