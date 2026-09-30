@@ -22,8 +22,21 @@ import java.util.List;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+/**
+ * A test class for the {@link PacROMSetManifest} class.
+ * 
+ * @since 1.0.0
+ * @author GarlicDude
+ * @see PacROMSetManifest
+ */
 public final class TestPacROMSetManifest {
 	
+	/**
+	 * The <i>Pac-Man</i> ROM set manifest used for testing purposes.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	private final PacROMSetManifest manifest = new PacROMSetManifest(
 			new ArrayList<PacROMSetManifestEntry>(),
 			new ArrayList<PacROMSetManifestEntry>(),
@@ -32,6 +45,13 @@ public final class TestPacROMSetManifest {
 			new ArrayList<PacROMSetManifestEntry>(),
 			new ArrayList<PacROMSetManifestEntry>());
 	
+	/**
+	 * Checks the entire manifest, as well as its lists and entries.
+	 * 
+	 * @param manifest The manifest that is used to be checked.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	public static final void check(final PacROMSetManifest manifest) {
 		// Assert if the manifest is not null.
 		assertNotNull(manifest);
@@ -49,6 +69,13 @@ public final class TestPacROMSetManifest {
 		check(manifest.getMysteryList());
 	}
 	
+	/**
+	 * Checks a manifest list, as well as its entries.
+	 * 
+	 * @param list The list that is used to be checked.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	public static final void check(
 			final List<PacROMSetManifestEntry> list) {
 		// Assert if the list is not null.
@@ -62,6 +89,50 @@ public final class TestPacROMSetManifest {
 		}
 	}
 	
+	/**
+	 * A test method for the {@link PacROMSetManifest#getMagic()}
+	 * method.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see PacROMSetManifest#getMagic()
+	 */
+	@Test
+	public final void testGetMagic() {
+		// Get the magic signature of the manifest file.
+		final String magic = PacROMSetManifest.getMagic();
+		// Print the magic.
+		System.out.println("PacROMSetManifest Magic: " + magic);
+		// Assert whether the two variables are the same.
+		assertSame(magic, PacROMSetManifest.MAGIC);
+	}
+	
+	/**
+	 * A test method for the {@link PacROMSetManifest#getExtension()}
+	 * method.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see PacROMSetManifest#getExtension()
+	 */
+	@Test
+	public final void testGetExtension() {
+		// Get the file extension of the manifest file.
+		final String extension = PacROMSetManifest.getExtension();
+		// Print the extension.
+		System.out.println("PacROMSetManifest Extension: " + extension);
+		// Assert whether the two variables are the same.
+		assertSame(extension, PacROMSetManifest.EXTENSION);
+	}
+	
+	/**
+	 * A test method for the {@link PacROMSetManifest#getVersion()}
+	 * method.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see PacROMSetManifest#getVersion()
+	 */
 	@Test
 	public final void testGetVersion() {
 		// Get the version of the manifest file.
@@ -72,6 +143,14 @@ public final class TestPacROMSetManifest {
 		assertEquals(version, PacROMSetManifest.VERSION);
 	}
 	
+	/**
+	 * A test method for the {@link PacROMSetManifest#getProgramList()}
+	 * method.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see PacROMSetManifest#getProgramList()
+	 */
 	@Test
 	public final void testGetProgramList() {
 		// Get the program ROM list.
@@ -81,6 +160,14 @@ public final class TestPacROMSetManifest {
 		assertNotNull(programROMList);
 	}
 	
+	/**
+	 * A test method for the {@link PacROMSetManifest#getGraphicList()}
+	 * method.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see PacROMSetManifest#getGraphicList()
+	 */
 	@Test
 	public final void testGetGraphicList() {
 		// Get the graphic ROM list.
@@ -90,6 +177,14 @@ public final class TestPacROMSetManifest {
 		assertNotNull(graphicROMList);
 	}
 	
+	/**
+	 * A test method for the {@link PacROMSetManifest#getColorList()}
+	 * method.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see PacROMSetManifest#getColorList()
+	 */
 	@Test
 	public final void testGetColorList() {
 		// Get the color ROM list.
@@ -99,6 +194,14 @@ public final class TestPacROMSetManifest {
 		assertNotNull(colorROMList);
 	}
 	
+	/**
+	 * A test method for the {@link PacROMSetManifest#getPaletteList()}
+	 * method.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see PacROMSetManifest#getPaletteList()
+	 */
 	@Test
 	public final void testGetPaletteList() {
 		// Get the palette ROM list.
@@ -108,6 +211,14 @@ public final class TestPacROMSetManifest {
 		assertNotNull(paletteROMList);
 	}
 	
+	/**
+	 * A test method for the {@link PacROMSetManifest#getSoundList()}
+	 * method.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see PacROMSetManifest#getSoundList()
+	 */
 	@Test
 	public final void testGetSoundList() {
 		// Get the sound ROM list.
@@ -117,6 +228,14 @@ public final class TestPacROMSetManifest {
 		assertNotNull(soundROMList);
 	}
 	
+	/**
+	 * A test method for the {@link PacROMSetManifest#getMysteryList()}
+	 * method.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see PacROMSetManifest#getMysteryList()
+	 */
 	@Test
 	public final void testGetMysteryList() {
 		// Get the mystery ROM list.
