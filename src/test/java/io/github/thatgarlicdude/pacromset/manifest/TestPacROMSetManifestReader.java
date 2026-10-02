@@ -35,9 +35,10 @@ public final class TestPacROMSetManifestReader {
 	 * A test method for the {@link PacROMSetManifestReader#read()}
 	 * method.
 	 * 
-	 * @throws IOException
+	 * @throws IOException When reading the manifest file fails.
 	 * @since 1.0.0
 	 * @author GarlicDude
+	 * @see PacROMSetManifestReader#read()
 	 */
 	@Test
 	public final void testRead() throws IOException {

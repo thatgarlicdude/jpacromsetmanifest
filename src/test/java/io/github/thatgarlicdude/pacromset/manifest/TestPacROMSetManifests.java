@@ -19,8 +19,22 @@ package io.github.thatgarlicdude.pacromset.manifest;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+/**
+ * A test class for the {@link PacROMSetManifests} class.
+ * 
+ * @since 1.0.0
+ * @author GarlicDude
+ * @see PacROMSetManifests
+ */
 public final class TestPacROMSetManifests {
 	
+	/**
+	 * A test method for the {@link PacROMSetManifests#create()} method.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see PacROMSetManifests#create()
+	 */
 	@Test
 	public final void testCreate() {
 		// Automatically set up the PacROMSetManifest instance.
