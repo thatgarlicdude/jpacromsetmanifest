@@ -23,10 +23,30 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * A test class for the {@link PacROMSetManifestWriter} class.
+ * 
+ * @since 1.0.0
+ * @author GarlicDude
+ * @see PacROMSetManifestWriter
+ */
 public final class TestPacROMSetManifestWriter {
 	
+	/**
+	 * The <i>Pac-Man</i> ROM set manifest used to write onto the test
+	 * file.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	private PacROMSetManifest pacROMSetManifest;
 	
+	/**
+	 * Initiates the test <i>Pac-Man</i> ROM set manifest.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	@Before
 	public final void initPacROMSetManifest() {
 		// Automatically initialize the PacROMSetManifest.
@@ -41,6 +61,13 @@ public final class TestPacROMSetManifestWriter {
 		initMysteryList();
 	}
 	
+	/**
+	 * Initiates the program list for the test <i>Pac-Man</i> ROM set
+	 * manifest.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	private final void initProgramList() {
 		// Get the program list.
 		final List<PacROMSetManifestEntry> programList =
@@ -68,6 +95,13 @@ public final class TestPacROMSetManifestWriter {
 		programList.add(programEntry4);
 	}
 	
+	/**
+	 * Initiates the graphic list for the test <i>Pac-Man</i> ROM set
+	 * manifest.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	private final void initGraphicList() {
 		// Get the graphic list.
 		final List<PacROMSetManifestEntry> graphicList =
@@ -85,6 +119,13 @@ public final class TestPacROMSetManifestWriter {
 		graphicList.add(graphicEntry2);
 	}
 	
+	/**
+	 * Initiates the color list for the test <i>Pac-Man</i> ROM set
+	 * manifest.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	private final void initColorList() {
 		// Get the color list.
 		final List<PacROMSetManifestEntry> colorList =
@@ -102,6 +143,13 @@ public final class TestPacROMSetManifestWriter {
 		colorList.add(colorEntry2);
 	}
 	
+	/**
+	 * Initiates the palette list for the test <i>Pac-Man</i> ROM set
+	 * manifest.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	private final void initPaletteList() {
 		// Get the palette list.
 		final List<PacROMSetManifestEntry> paletteList =
@@ -119,6 +167,13 @@ public final class TestPacROMSetManifestWriter {
 		paletteList.add(paletteEntry2);
 	}
 	
+	/**
+	 * Initiates the sound list for the test <i>Pac-Man</i> ROM set
+	 * manifest.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	private final void initSoundList() {
 		// Get the sound list.
 		final List<PacROMSetManifestEntry> soundList =
@@ -136,6 +191,13 @@ public final class TestPacROMSetManifestWriter {
 		soundList.add(soundEntry2);
 	}
 	
+	/**
+	 * Initiates the mystery list for the test <i>Pac-Man</i> ROM set
+	 * manifest.
+	 * 
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	private final void initMysteryList() {
 		// Get the mystery list.
 		final List<PacROMSetManifestEntry> mysteryList =
@@ -153,6 +215,15 @@ public final class TestPacROMSetManifestWriter {
 		mysteryList.add(mysteryEntry2);
 	}
 	
+	/**
+	 * A test method for the {@link PacROMSetManifestWriter#write()}
+	 * method.
+	 * 
+	 * @throws IOException When writing the manifest file fails.
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 * @see PacROMSetManifestWriter#write()
+	 */
 	@Test
 	public final void testWrite() throws IOException {
 		// Initialize the file path.
