@@ -22,8 +22,23 @@ import java.io.IOException;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+/**
+ * A test class for the {@link PacROMSetManifestReader} class.
+ * 
+ * @since 1.0.0
+ * @author GarlicDude
+ * @see PacROMSetManifestReader
+ */
 public final class TestPacROMSetManifestReader {
 	
+	/**
+	 * A test method for the {@link PacROMSetManifestReader#read()}
+	 * method.
+	 * 
+	 * @throws IOException
+	 * @since 1.0.0
+	 * @author GarlicDude
+	 */
 	@Test
 	public final void testRead() throws IOException {
 		// Initialize the file path.
