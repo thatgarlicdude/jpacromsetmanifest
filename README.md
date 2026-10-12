@@ -1,4 +1,4 @@
-# ![JPacROMSetManifest](src/main/resources/logo/logo.svg)
+# ![JPacROMSetManifest](src/main/resources/logo/logo.png)
 
 ## Overview
 
