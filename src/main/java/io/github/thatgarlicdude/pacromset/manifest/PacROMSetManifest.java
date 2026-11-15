@@ -109,6 +109,20 @@ public final class PacROMSetManifest {
 	public static final byte LIST_SEPARATOR = 0x1D;
 	
 	/**
+	 * A byte that separates the manifest's entries inside a list when they
+	 * get written as a <b>.pacromsetmanifest</b> file to disk.
+	 * 
+	 * <p>This field was added to solve the limitation in the manifest
+	 * lists, as they were capped at 255. Without it, the manifest lists
+	 * will still be limited and won't work properly.</p>
+	 * 
+	 * @since 1.1.0
+	 * @author GarlicDude
+	 * @see #getEntrySeparator()
+	 */
+	public static final byte ENTRY_SEPARATOR = 0x1E;
+	
+	/**
 	 * The current version of the <i>Pac-Man</i> ROM set manifest.
 	 * 
 	 * <p>This field is used to identify what version the ROM set manifest
@@ -276,6 +290,20 @@ public final class PacROMSetManifest {
 	public static final byte getListSeparator() {
 		// Return the byte that separates lists in the manifest files.
 		return LIST_SEPARATOR;
+	}
+	
+	/**
+	 * Gets {@link #ENTRY_SEPARATOR}, which is the byte that separates
+	 * the manifest entries in the <b>.pacromsetmanifest</b> file.
+	 * 
+	 * @return A {@code byte} that says {@value #ENTRY_SEPARATOR}.
+	 * @since 1.1.0
+	 * @author GarlicDude
+	 * @see #ENTRY_SEPARATOR
+	 */
+	public static final byte getEntrySeparator() {
+		// Return the byte that separates entries in the manifest files.
+		return ENTRY_SEPARATOR;
 	}
 	
 	/**
