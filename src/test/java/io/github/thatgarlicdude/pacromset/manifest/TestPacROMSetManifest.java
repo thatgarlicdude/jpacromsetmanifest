@@ -125,6 +125,22 @@ public final class TestPacROMSetManifest {
 		assertSame(extension, PacROMSetManifest.EXTENSION);
 	}
 	
+	@Test
+	public final void testGetListSeparator() {
+		final byte listSeparator = PacROMSetManifest.getListSeparator();
+		System.out.println(
+				"PacROMSetManifest List Separator: " + listSeparator);
+		assertEquals(listSeparator, PacROMSetManifest.LIST_SEPARATOR);
+	}
+	
+	@Test
+	public final void testGetEntrySeparator() {
+		final byte entrySeparator = PacROMSetManifest.getEntrySeparator();
+		System.out.println(
+				"PacROMSetManifest Entry Separator: " + entrySeparator);
+		assertEquals(entrySeparator, PacROMSetManifest.ENTRY_SEPARATOR);
+	}
+	
 	/**
 	 * A test method for the {@link PacROMSetManifest#getVersion()}
 	 * method.
