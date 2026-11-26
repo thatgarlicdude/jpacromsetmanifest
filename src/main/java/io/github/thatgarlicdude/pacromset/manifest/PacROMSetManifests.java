@@ -25,7 +25,6 @@ import java.lang.UnsupportedOperationException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A utility class for the {@link PacROMSetManifest} class.
@@ -46,7 +45,6 @@ public final class PacROMSetManifests {
 	 * @author GarlicDude
 	 */
 	private PacROMSetManifests() {
-		// Throw the error in case the constructor was actually called.
 		throw new UnsupportedOperationException();
 	}
 	
@@ -60,32 +58,13 @@ public final class PacROMSetManifests {
 	 * @author GarlicDude
 	 */
 	public static final PacROMSetManifest create() {
-		// Initialize the program list.
-		final List<PacROMSetManifestEntry> programList =
-				new ArrayList<PacROMSetManifestEntry>();
-		// Initialize the graphic list.
-		final List<PacROMSetManifestEntry> graphicList =
-				new ArrayList<PacROMSetManifestEntry>();
-		// Initialize the color list.
-		final List<PacROMSetManifestEntry> colorList =
-				new ArrayList<PacROMSetManifestEntry>();
-		// Initialize the palette list.
-		final List<PacROMSetManifestEntry> paletteList =
-				new ArrayList<PacROMSetManifestEntry>();
-		// Initialize the sound list.
-		final List<PacROMSetManifestEntry> soundList =
-				new ArrayList<PacROMSetManifestEntry>();
-		// Initialize the mystery list.
-		final List<PacROMSetManifestEntry> mysteryList =
-				new ArrayList<PacROMSetManifestEntry>();
-		// Return the newly created PacROMSetManifest instance.
 		return new PacROMSetManifest(
-				programList,
-				graphicList,
-				colorList,
-				paletteList,
-				soundList,
-				mysteryList);
+				new ArrayList<PacROMSetManifestEntry>(),
+				new ArrayList<PacROMSetManifestEntry>(),
+				new ArrayList<PacROMSetManifestEntry>(),
+				new ArrayList<PacROMSetManifestEntry>(),
+				new ArrayList<PacROMSetManifestEntry>(),
+				new ArrayList<PacROMSetManifestEntry>());
 	}
 	
 	/**
@@ -104,14 +83,10 @@ public final class PacROMSetManifests {
 	public static final void save(
 			final PacROMSetManifest manifest,
 			final String path) throws IOException {
-		// Initialize the file output stream.
 		final FileOutputStream fos = new FileOutputStream(path);
-		// Initialize the manifest writer.
 		final PacROMSetManifestWriter writer =
 				new PacROMSetManifestWriter(manifest, fos);
-		// Simply write the file to disk.
 		writer.write();
-		// Close the writer.
 		writer.close();
 	}
 	
@@ -130,14 +105,10 @@ public final class PacROMSetManifests {
 	public static final void save(
 			final PacROMSetManifest manifest,
 			final Path path) throws IOException {
-		// Initialize the output stream with the file path.
 		final OutputStream os = Files.newOutputStream(path);
-		// Initialize the manifest writer.
 		final PacROMSetManifestWriter writer =
 				new PacROMSetManifestWriter(manifest, os);
-		// Simply write the file to disk.
 		writer.write();
-		// Close the writer.
 		writer.close();
 	}
 	
@@ -155,16 +126,11 @@ public final class PacROMSetManifests {
 	 */
 	public static final PacROMSetManifest load(final String path)
 			throws IOException {
-		// Initialize the file input stream.
 		final FileInputStream fis = new FileInputStream(path);
-		// Initialize the manifest reader.
 		final PacROMSetManifestReader reader =
 				new PacROMSetManifestReader(fis);
-		// Simply read the file from disk.
 		final PacROMSetManifest manifest = reader.read();
-		// Close the reader.
 		reader.close();
-		// Return the newly loaded manifest.
 		return manifest;
 	}
 	
@@ -182,16 +148,11 @@ public final class PacROMSetManifests {
 	 */
 	public static final PacROMSetManifest load(final Path path)
 			throws IOException {
-		// Initialize the input stream with the file path.
 		final InputStream is = Files.newInputStream(path);
-		// Initialize the manifest reader.
 		final PacROMSetManifestReader reader =
 				new PacROMSetManifestReader(is);
-		// Simply read the file from disk.
 		final PacROMSetManifest manifest = reader.read();
-		// Close the reader.
 		reader.close();
-		// Return the newly loaded manifest.
 		return manifest;
 	}
 }
