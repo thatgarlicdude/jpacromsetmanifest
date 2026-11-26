@@ -68,7 +68,6 @@ public final class PacROMSetManifestWriter implements Closeable {
 	public PacROMSetManifestWriter(
 			final PacROMSetManifest manifest,
 			final OutputStream outputStream) {
-		// Set up the variables that shouldn't be null.
 		this.manifest =
 				Objects.requireNonNull(
 						manifest,
@@ -96,19 +95,14 @@ public final class PacROMSetManifestWriter implements Closeable {
 	 * @author GarlicDude
 	 */
 	public final void write() throws IOException {
-		// Write the magic signature at the start of the file.
 		writeMagic();
-		// Then write the current version.
 		writeVersion();
-		// Write the entries an each ROM list in the manifest.
 		writeManifestList(manifest.getProgramList());
 		writeManifestList(manifest.getGraphicList());
 		writeManifestList(manifest.getColorList());
 		writeManifestList(manifest.getPaletteList());
 		writeManifestList(manifest.getSoundList());
 		writeManifestList(manifest.getMysteryList());
-		// Close the file.
-		close();
 	}
 	
 	/**
@@ -120,7 +114,6 @@ public final class PacROMSetManifestWriter implements Closeable {
 	 * @author GarlicDude
 	 */
 	private final void writeMagic() throws IOException {
-		// Write the magic signature to the beginning of the file.
 		outputStream.write(PacROMSetManifest.MAGIC.getBytes());
 	}
 	
@@ -133,7 +126,6 @@ public final class PacROMSetManifestWriter implements Closeable {
 	 * @author GarlicDude
 	 */
 	private final void writeVersion() throws IOException {
-		// Write the current version to the file.
 		outputStream.write(PacROMSetManifest.getVersion());
 	}
 	
@@ -150,11 +142,8 @@ public final class PacROMSetManifestWriter implements Closeable {
 	private final void writeManifestList(
 			final List<PacROMSetManifestEntry> manifestList)
 					throws IOException {
-		// Get the size of the manifest list.
 		final int size = manifestList.size();
-		// Go through each of the entries in the manifest list.
 		for (int index = 0; index < size; index++) {
-			// Write the manifest entry.
 			writeManifestEntry(manifestList.get(index));
 			if (index == size - 1) {
 				outputStream.write(PacROMSetManifest.LIST_SEPARATOR);
@@ -175,7 +164,6 @@ public final class PacROMSetManifestWriter implements Closeable {
 	 */
 	private final void writeManifestEntry(
 			final PacROMSetManifestEntry entry) throws IOException {
-		// Write the manifest entry's data.
 		writeName(entry.getName());
 		writeSize(entry.getSize());
 	}
@@ -189,11 +177,8 @@ public final class PacROMSetManifestWriter implements Closeable {
 	 * @author GarlicDude
 	 */
 	private final void writeName(final String name) throws IOException {
-		// Get the bytes from the manifest entry name.
 		final byte[] nameBytes = name.getBytes();
-		// Write the bytes onto the outputStream.
 		outputStream.write(nameBytes);
-		// Write the name terminator at the end.
 		outputStream.write(PacROMSetManifestEntry.NAME_TERMINATOR);
 	}
 	
@@ -206,7 +191,6 @@ public final class PacROMSetManifestWriter implements Closeable {
 	 * @author GarlicDude
 	 */
 	private final void writeSize(final int size) throws IOException {
-		// Write the size in big-endian.
 		for (int index = 8; index > -1; index = index - 8) {
 			outputStream.write(size >> index);
 		}
@@ -224,7 +208,6 @@ public final class PacROMSetManifestWriter implements Closeable {
 	 */
 	@Override
 	public final void close() throws IOException {
-		// Close the OutputStream.
 		outputStream.close();
 	}
 }

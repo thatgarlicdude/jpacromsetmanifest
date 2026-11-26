@@ -61,7 +61,6 @@ public final class PacROMSetManifestReader implements Closeable {
 	 */
 	public PacROMSetManifestReader(
 			final InputStream inputStream) {
-		// Set up the input stream if it's not null.
 		this.inputStream = Objects.requireNonNull(
 				inputStream,
 				"The input stream cannot be null.");
@@ -87,36 +86,15 @@ public final class PacROMSetManifestReader implements Closeable {
 	 * @author GarlicDude
 	 */
 	public final PacROMSetManifest read() throws IOException {
-		// Check the magic signature from the file first.
 		checkMagic();
-		// Then check the version of the manifest file.
 		checkVersion();
-		// Read the program list in the manifest file.
-		final List<PacROMSetManifestEntry> programList =
-				readManifestList();
-		// Read the graphic list in the manifest file.
-		final List<PacROMSetManifestEntry> graphicList =
-				readManifestList();
-		// Read the color list in the manifest file.
-		final List<PacROMSetManifestEntry> colorList =
-				readManifestList();
-		// Read the palette list in the manifest file.
-		final List<PacROMSetManifestEntry> paletteList =
-				readManifestList();
-		// Read the sound list in the manifest file.
-		final List<PacROMSetManifestEntry> soundList =
-				readManifestList();
-		// Read the mystery list in the manifest file.
-		final List<PacROMSetManifestEntry> mysteryList =
-				readManifestList();
-		// Return the loaded manifest.
 		return new PacROMSetManifest(
-				programList,
-				graphicList,
-				colorList,
-				paletteList,
-				soundList,
-				mysteryList);
+				readManifestList(),
+				readManifestList(),
+				readManifestList(),
+				readManifestList(),
+				readManifestList(),
+				readManifestList());
 	}
 	
 	/**
@@ -128,21 +106,14 @@ public final class PacROMSetManifestReader implements Closeable {
 	 * @author GarlicDude
 	 */
 	private final void checkMagic() throws IOException {
-		// Get the bytes from the base magic signature.
 		final byte[] magicBytes1 = PacROMSetManifest.MAGIC.getBytes();
-		// Create another byte array with the signature's length.
 		final byte[] magicBytes2 = new byte[magicBytes1.length];
-		// Read the magic signature in the file.
 		final int bytesRead = inputStream.read(magicBytes2);
-		// Make sure the amount of bytes read are correct.
 		if (bytesRead != magicBytes2.length) {
-			// Throw an error if the magic signature is incomplete.
 			throw new EOFException(
 					"The PacROMSetManifest signature is incomplete.");
 		}
-		// Make sure the magic signatures match.
 		if (!Arrays.equals(magicBytes1, magicBytes2)) {
-			// Throw an error if the magic signatures don't match.
 			throw new IOException(
 					"The PacROMSetManifest signature is invalid.");
 		}
@@ -158,15 +129,11 @@ public final class PacROMSetManifestReader implements Closeable {
 	 * @author GarlicDude
 	 */
 	private final void checkVersion() throws IOException {
-		// Read the version of the manifest file.
 		final int version = inputStream.read();
-		// Make sure there's a version number in the file.
 		if (version == -1) {
-			// Throw an error if there isn't a version number.
 			throw new EOFException(
 					"The PacROMSetManifest version is not found.");
 		}
-		// Make sure the manifest file is on a correct version.
 		if (version != PacROMSetManifest.VERSION) {
 			throw new IOException(
 					"The PacROMSetManifest version is invalid.");
@@ -183,7 +150,6 @@ public final class PacROMSetManifestReader implements Closeable {
 	 */
 	private final List<PacROMSetManifestEntry> readManifestList()
 			throws IOException {
-		// Initialize the manifest list first.
 		final List<PacROMSetManifestEntry> manifestList =
 				new ArrayList<PacROMSetManifestEntry>();
 		int separator = 0;
@@ -194,7 +160,6 @@ public final class PacROMSetManifestReader implements Closeable {
 			manifestList.add(manifestEntry);
 			separator = inputStream.read();
 		}
-		// Return the loaded manifest list.
 		return manifestList;
 	}
 	
@@ -209,11 +174,8 @@ public final class PacROMSetManifestReader implements Closeable {
 	 */
 	private final PacROMSetManifestEntry readManifestEntry()
 			throws IOException {
-		// Read the name from the file first.
 		final String name = readName();
-		// Then the size.
 		final int size = readSize();
-		// Return a new manifest entry with the loaded name and size.
 		return new PacROMSetManifestEntry(name, size);
 	}
 	
@@ -226,23 +188,16 @@ public final class PacROMSetManifestReader implements Closeable {
 	 * @author GarlicDude
 	 */
 	private final String readName() throws IOException {
-		// Initialize the byte array output stream.
 		final ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-		// Initialize the current byte.
 		int readByte = 0;
-		// Read the bytes until it hits the name terminator.
 		while ((readByte = inputStream.read()) !=
 				PacROMSetManifestEntry.NAME_TERMINATOR) {
-			// Make sure the file doesn't end midway through.
 			if (readByte == -1) {
-				// Throw an error if it does.
 				throw new EOFException(
 						"The manifest entry name is incomplete.");
 			}
-			// Write the read byte onto the byte array output stream.
 			bytes.write(readByte);
 		}
-		// Return the byte array as a string.
 		return new String(bytes.toByteArray());
 	}
 	
@@ -255,22 +210,15 @@ public final class PacROMSetManifestReader implements Closeable {
 	 * @author GarlicDude
 	 */
 	private final int readSize() throws IOException {
-		// Initialize the size.
 		int size = 0;
-		// Read the manifest entry's size in big-endian.
 		for (int index = 8; index > -1; index = index - 8) {
-			// Read the current size byte.
 			final int sizeByte = inputStream.read();
-			// Make sure the file doesn't end midway through.
 			if (sizeByte == -1) {
-				// Throw an error if it does.
 				throw new EOFException(
 						"The manifest entry size is incomplete.");
 			}
-			// Put the sizeByte in its respective position.
 			size |= sizeByte << index;
 		}
-		// Return the size.
 		return size;
 	}
 	
@@ -286,7 +234,6 @@ public final class PacROMSetManifestReader implements Closeable {
 	 */
 	@Override
 	public void close() throws IOException {
-		// Close the input stream.
 		inputStream.close();
 	}
 }

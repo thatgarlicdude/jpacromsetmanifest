@@ -22,49 +22,25 @@ import java.io.IOException;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-/**
- * A test class for the {@link PacROMSetManifestReader} class.
- * 
- * @since 1.0.0
- * @author GarlicDude
- * @see PacROMSetManifestReader
- */
 public final class TestPacROMSetManifestReader {
 	
-	/**
-	 * A test method for the {@link PacROMSetManifestReader#read()}
-	 * method.
-	 * 
-	 * @throws IOException When reading the manifest file fails.
-	 * @since 1.0.0
-	 * @author GarlicDude
-	 * @see PacROMSetManifestReader#read()
-	 */
 	@Test
 	public final void testRead() throws IOException {
-		// Initialize the file path.
 		final String filePath = "./testRead1.pacromsetmanifest";
-		// Get the absolute path to the testRead1.pacromsetmanifest file.
 		final String testPath = TestPacROMSetManifestReader
 				.class
 				.getClassLoader()
 				.getResource(filePath)
 				.getFile();
-		// Create the file input stream with the path.
 		final FileInputStream fileInputStream =
 				new FileInputStream(testPath);
-		// Create the manifest reader.
 		final PacROMSetManifestReader pacROMSetManifestReader =
 				new PacROMSetManifestReader(fileInputStream);
-		// Load the manifest with the reader.
 		final PacROMSetManifest manifest =
 				pacROMSetManifestReader.read();
-		// Close the input classes.
 		fileInputStream.close();
 		pacROMSetManifestReader.close();
-		// Assert if the manifest is not null.
 		assertNotNull(manifest);
-		// Check the manifest.
 		TestPacROMSetManifest.check(manifest);
 	}
 }

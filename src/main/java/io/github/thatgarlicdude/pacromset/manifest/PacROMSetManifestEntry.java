@@ -127,14 +127,12 @@ public final class PacROMSetManifestEntry {
 	public PacROMSetManifestEntry(
 			final String name,
 			final int size) {
-		// Throw an error if the size is out of range.
 		if (size < MIN_SIZE || size > MAX_SIZE) {
 			throw new IllegalArgumentException(
 					"The manifest entry's size is out of range."
 					+"It must be within " + MIN_SIZE + " or " + MAX_SIZE
 					+ ".");
 		}
-		// Set the variables in the instance.
 		this.name = Objects.requireNonNull(
 				name,
 				"The manifest entry's name cannot be null.");
@@ -151,7 +149,6 @@ public final class PacROMSetManifestEntry {
 	 * @see #MAX_SIZE
 	 */
 	public static final int getMaxSize() {
-		// Return the maximum size of a manifest entry.
 		return MAX_SIZE;
 	}
 	
@@ -165,7 +162,6 @@ public final class PacROMSetManifestEntry {
 	 * @see #MIN_SIZE
 	 */
 	public static final int getMinSize() {
-		// Return the minimum size of a manifest entry.
 		return MIN_SIZE;
 	}
 	
@@ -179,7 +175,6 @@ public final class PacROMSetManifestEntry {
 	 * @see #NAME_TERMINATOR
 	 */
 	public static final int getNameTerminator() {
-		// Return the terminator for a manifest entry's name.
 		return NAME_TERMINATOR;
 	}
 	
@@ -197,7 +192,6 @@ public final class PacROMSetManifestEntry {
 	 * @author GarlicDude
 	 */
 	public final String getName() {
-		// Return the name of the manifest entry.
 		return this.name;
 	}
 	
@@ -209,7 +203,6 @@ public final class PacROMSetManifestEntry {
 	 * @author GarlicDude
 	 */
 	public final int getSize() {
-		// Return the size of the manifest entry.
 		return this.size;
 	}
 	
@@ -224,7 +217,6 @@ public final class PacROMSetManifestEntry {
 	 * @author GarlicDude
 	 */
 	public final PacROMSetManifestEntry withName(final String name) {
-		// Return a new manifest entry with the new name.
 		return new PacROMSetManifestEntry(name, this.size);
 	}
 	
@@ -239,7 +231,6 @@ public final class PacROMSetManifestEntry {
 	 * @author GarlicDude
 	 */
 	public final PacROMSetManifestEntry withSize(final int size) {
-		// Return a new manifest entry with the new name.
 		return new PacROMSetManifestEntry(this.name, size);
 	}
 }
