@@ -1,3 +1,9 @@
+2026-11-26 GarlicDude <garlicdudedev@gmail.com>
+
+	JPacROMSetManifest Version 1.1.0
+	* Added ASCII separators in PacROMSetManifest.java.
+		* This is done so, when reading and writing .pacromsetmanifest files, it can now have as many entries as it wants instead of being capped at maximum of 255.
+
 2026-10-12 GarlicDude <garlicdudedev@gmail.com>
 
 	JPacROMSetManifest Version 1.0.0

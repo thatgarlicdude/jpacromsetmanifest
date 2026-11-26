@@ -186,19 +186,13 @@ public final class PacROMSetManifestReader implements Closeable {
 		// Initialize the manifest list first.
 		final List<PacROMSetManifestEntry> manifestList =
 				new ArrayList<PacROMSetManifestEntry>();
-		// Read the size of the manifest list.
-		final int size = inputStream.read();
-		// Make sure there's a size variable in the manifest list.
-		if (size == -1) {
-			throw new EOFException(
-					"The manifest list size is not found.");
-		}
-		// Go through each of the manifest entries in the list.
-		for (int index = 0; index < size; index++) {
-			// Read the manifest entry, and add it to the list.
+		int separator = 0;
+		while (separator != PacROMSetManifest.LIST_SEPARATOR &&
+				separator != -1) {
 			final PacROMSetManifestEntry manifestEntry =
 					readManifestEntry();
 			manifestList.add(manifestEntry);
+			separator = inputStream.read();
 		}
 		// Return the loaded manifest list.
 		return manifestList;
