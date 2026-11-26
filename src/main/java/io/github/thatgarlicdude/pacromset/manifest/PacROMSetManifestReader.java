@@ -187,7 +187,7 @@ public final class PacROMSetManifestReader implements Closeable {
 		final List<PacROMSetManifestEntry> manifestList =
 				new ArrayList<PacROMSetManifestEntry>();
 		int separator = 0;
-		while (separator != PacROMSetManifest.LIST_SEPARATOR ||
+		while (separator != PacROMSetManifest.LIST_SEPARATOR &&
 				separator != -1) {
 			final PacROMSetManifestEntry manifestEntry =
 					readManifestEntry();
