@@ -33,7 +33,7 @@
  * <i>JPacROMSetManifest</i> Java library is used at its core to work with
  * <i>Pac-Man</i> ROM set manifests.</p>
  * 
- * @version 1.0.0
+ * @version 1.1.0
  * @author GarlicDude
  * @see PacROMSetManifest
  * @see PacROMSetManifestEntry
