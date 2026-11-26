@@ -227,7 +227,6 @@ public final class PacROMSetManifest {
 			final List<PacROMSetManifestEntry> paletteList,
 			final List<PacROMSetManifestEntry> soundList,
 			final List<PacROMSetManifestEntry> mysteryList) {
-		// Set up each of the lists that shouldn't be null.
 		this.programList = Objects.requireNonNull(
 				programList,
 				"The program list must not be null.");
@@ -260,7 +259,6 @@ public final class PacROMSetManifest {
 	 * @see #MAGIC
 	 */
 	public static final String getMagic() {
-		// Return the magic signature used for the manifest files.
 		return MAGIC;
 	}
 	
@@ -274,7 +272,6 @@ public final class PacROMSetManifest {
 	 * @see #EXTENSION
 	 */
 	public static final String getExtension() {
-		// Return the file extension used to label the manifest files.
 		return EXTENSION;
 	}
 	
@@ -288,7 +285,6 @@ public final class PacROMSetManifest {
 	 * @see #LIST_SEPARATOR
 	 */
 	public static final byte getListSeparator() {
-		// Return the byte that separates lists in the manifest files.
 		return LIST_SEPARATOR;
 	}
 	
@@ -302,7 +298,6 @@ public final class PacROMSetManifest {
 	 * @see #ENTRY_SEPARATOR
 	 */
 	public static final byte getEntrySeparator() {
-		// Return the byte that separates entries in the manifest files.
 		return ENTRY_SEPARATOR;
 	}
 	
@@ -316,7 +311,6 @@ public final class PacROMSetManifest {
 	 * @see #VERSION
 	 */
 	public static final byte getVersion() {
-		// Return the current version of the manifest.
 		return VERSION;
 	}
 	
@@ -335,7 +329,6 @@ public final class PacROMSetManifest {
 	 * @author GarlicDude
 	 */
 	public final List<PacROMSetManifestEntry> getProgramList() {
-		// Return the program list.
 		return this.programList;
 	}
 	
@@ -354,7 +347,6 @@ public final class PacROMSetManifest {
 	 * @author GarlicDude
 	 */
 	public final List<PacROMSetManifestEntry> getGraphicList() {
-		// Return the graphic list.
 		return this.graphicList;
 	}
 	
@@ -372,7 +364,6 @@ public final class PacROMSetManifest {
 	 * @author GarlicDude
 	 */
 	public final List<PacROMSetManifestEntry> getColorList() {
-		// Return the color list.
 		return this.colorList;
 	}
 	
@@ -391,7 +382,6 @@ public final class PacROMSetManifest {
 	 * @author GarlicDude
 	 */
 	public final List<PacROMSetManifestEntry> getPaletteList() {
-		// Return the palette list.
 		return this.paletteList;
 	}
 	
@@ -409,7 +399,6 @@ public final class PacROMSetManifest {
 	 * @author GarlicDude
 	 */
 	public final List<PacROMSetManifestEntry> getSoundList() {
-		// Return the sound list.
 		return this.soundList;
 	}
 	
@@ -428,7 +417,6 @@ public final class PacROMSetManifest {
 	 * @author GarlicDude
 	 */
 	public final List<PacROMSetManifestEntry> getMysteryList() {
-		// Return the mystery list.
 		return this.mysteryList;
 	}
 }
