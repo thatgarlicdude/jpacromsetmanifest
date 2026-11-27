@@ -153,12 +153,18 @@ public final class PacROMSetManifestReader implements Closeable {
 		final List<PacROMSetManifestEntry> manifestList =
 				new ArrayList<PacROMSetManifestEntry>();
 		int separator = 0;
-		while (separator != PacROMSetManifest.LIST_SEPARATOR &&
-				separator != -1) {
+		while (true) {
 			final PacROMSetManifestEntry manifestEntry =
 					readManifestEntry();
 			manifestList.add(manifestEntry);
 			separator = inputStream.read();
+			if (separator == -1) {
+				throw new EOFException(
+						"The PacROMSetManifest list is incomplete.");
+			}
+			if (separator == PacROMSetManifest.LIST_SEPARATOR) {
+				break;
+			}
 		}
 		return manifestList;
 	}
